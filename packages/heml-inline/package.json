@@ -1,27 +1,27 @@
 {
-  "name": "@heml/inline",
-  "version": "1.1.2",
-  "description": "CSS inliner for HEML",
-  "keywords": [
-    "heml"
-  ],
-  "homepage": "https://heml.io",
-  "bugs": "https://github.com/SparkPost/heml/issues",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SparkPost/heml.git"
-  },
-  "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
-  "files": [
-    "build/"
-  ],
-  "main": "build/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "juice": "^4.2.0",
-    "lodash": "^4.17.4"
-  }
+	"name": "@heml/inline",
+	"version": "1.1.2",
+	"description": "CSS inliner for HEML",
+	"keywords": [
+		"heml"
+	],
+	"homepage": "https://heml.io",
+	"bugs": "https://github.com/SparkPost/heml/issues",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/SparkPost/heml.git"
+	},
+	"author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+	"files": [
+		"build/"
+	],
+	"main": "build/index.js",
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"juice": "^6.0.0",
+		"lodash": "^4.17.15"
+	}
 }
