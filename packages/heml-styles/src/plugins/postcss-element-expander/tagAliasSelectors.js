@@ -1,6 +1,6 @@
-import selectorParser from 'postcss-selector-parser'
+import selectorParser from "postcss-selector-parser";
 
-const simpleSelectorParser = selectorParser()
+const simpleSelectorParser = selectorParser();
 
 /**
  * Add the element tag to selectors from the rule that match the element alias
@@ -9,23 +9,27 @@ const simpleSelectorParser = selectorParser()
  * @param  {Rule}         rule    postcss node
  */
 export default function (element, aliases, rule) {
-  if (!aliases) return
+  if (!aliases) return;
 
-  let selectors = []
+  let selectors = [];
 
   rule.selectors.forEach((selector) => {
-    const matchedAliases = aliases.filter((alias) => alias.is(selector.replace(/::?\S*/g, ''))).length > 0
+    const matchedAliases =
+      aliases.filter((alias) => alias.is(selector.replace(/::?\S*/g, "")))
+        .length > 0;
 
     /** the selector in an alias that doesn't target the tag already */
     if (matchedAliases && !targetsTag(selector)) {
-      selectors.push(appendElementSelector(element, selector))
+      selectors.push(appendElementSelector(element, selector));
     }
 
     /** dont add the original selector back in if it targets a pseudo selector */
-    if (!targetsElementPseudo(element, selector)) { selectors.push(selector) }
-  })
+    if (!targetsElementPseudo(element, selector)) {
+      selectors.push(selector);
+    }
+  });
 
-  rule.selectors = selectors
+  rule.selectors = selectors;
 }
 
 /**
@@ -33,20 +37,26 @@ export default function (element, aliases, rule) {
  * @param  {String} selector the selector
  * @return {Boolean}         if the selector targets a tag
  */
-function targetsTag (selector) {
-  const selectors = simpleSelectorParser.process(selector).res
+function targetsTag(selector) {
+  const selectors = simpleSelectorParser.astSync(selector);
 
-  return selectors.filter((selector) => {
-    let selectorNodes = selector.nodes.concat([]).reverse() // clone the array
+  return (
+    selectors.filter((selector) => {
+      let selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
 
-    for (const node of selectorNodes) {
-      if (node.type === 'cominator') { break }
+      for (const node of selectorNodes) {
+        if (node.type === "combinator") {
+          break;
+        }
 
-      if (node.type === 'tag') { return true }
-    }
+        if (node.type === "tag") {
+          return true;
+        }
+      }
 
-    return false
-  }).length > 0
+      return false;
+    }).length > 0
+  );
 }
 
 /**
@@ -55,24 +65,33 @@ function targetsTag (selector) {
  * @param  {String} selector the selector
  * @return {Array}           the matched selectors
  */
-function targetsElementPseudo (element, selector) {
-  const selectors = simpleSelectorParser.process(selector).res
+function targetsElementPseudo(element, selector) {
+  const selectors = simpleSelectorParser.astSync(selector);
 
-  return selectors.filter((selector) => {
-    let selectorNodes = selector.nodes.concat([]).reverse() // clone the array
+  return (
+    selectors.filter((selector) => {
+      let selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
 
-    for (const node of selectorNodes) {
-      if (node.type === 'cominator') { break }
+      for (const node of selectorNodes) {
+        if (node.type === "combinator") {
+          break;
+        }
 
-      if (node.type === 'pseudo' && node.value.replace(/::?/, '') in element.pseudos) {
-        return true
+        if (
+          node.type === "pseudo" &&
+          node.value.replace(/::?/, "") in element.pseudos
+        ) {
+          return true;
+        }
+
+        if (node.type === "tag" && node.value === element.tag) {
+          break;
+        }
       }
 
-      if (node.type === 'tag' && node.value === element.tag) { break }
-    }
-
-    return false
-  }).length > 0
+      return false;
+    }).length > 0
+  );
 }
 
 /**
@@ -81,26 +100,28 @@ function targetsElementPseudo (element, selector) {
  * @param  {String} selector the selector
  * @return {String}          the modified selector
  */
-function appendElementSelector (element, selector) {
+function appendElementSelector(element, selector) {
   const processor = selectorParser((selectors) => {
-    let combinatorNode = null
+    let combinatorNode = null;
 
     /**
      * looping breaks if we insert dynamically
      */
     selectors.each((selector) => {
-      const elementNode = selectorParser.tag({ value: element.tag })
+      const elementNode = selectorParser.tag({ value: element.tag });
       selector.walk((node) => {
-        if (node.type === 'combinator') { combinatorNode = node }
-      })
+        if (node.type === "combinator") {
+          combinatorNode = node;
+        }
+      });
 
       if (combinatorNode) {
-        selector.insertAfter(combinatorNode, elementNode)
+        selector.insertAfter(combinatorNode, elementNode);
       } else {
-        selector.prepend(elementNode)
+        selector.prepend(elementNode);
       }
-    })
-  })
+    });
+  });
 
-  return processor.process(selector).result
+  return processor.processSync(selector);
 }

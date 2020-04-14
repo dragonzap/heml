@@ -1,28 +1,28 @@
 {
-	"name": "@heml/utils",
-	"version": "1.1.2",
-	"description": "A collection of utilities for HEML",
-	"keywords": [
-		"heml"
-	],
-	"homepage": "https://heml.io",
-	"bugs": "https://github.com/SparkPost/heml/issues",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/SparkPost/heml.git"
-	},
-	"author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
-	"files": [
-		"build/"
-	],
-	"main": "build/index.js",
-	"publishConfig": {
-		"access": "public"
-	},
-	"dependencies": {
-		"@heml/render": "^1.1.2",
-		"css-groups": "^0.1.1",
-		"lodash": "^4.17.15"
-	}
+  "name": "@heml/utils",
+  "version": "1.1.2",
+  "description": "A collection of utilities for HEML",
+  "keywords": [
+    "heml"
+  ],
+  "homepage": "https://heml.io",
+  "bugs": "https://github.com/dragonzap/heml/issues",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragonzap/heml.git"
+  },
+  "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+  "files": [
+    "build/"
+  ],
+  "main": "build/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@heml/render": "file:../heml-render",
+    "css-groups": "^0.1.1",
+    "lodash": "^4.17.15"
+  }
 }

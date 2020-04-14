@@ -1,12 +1,10 @@
 <h1 align="center">&lt;heml&gt;</h1>
 
-
 <p align="center">
   <a href="https://heml.io/docs/getting-started/guide">Guide</a> &bull;
   <a href="https://heml.io/docs">Documentation</a> &bull;
   <a href="https://heml.io/editor">Editor</a>
 </p>
-
 
 HEML is an open source markup language for building responsive email.
 
@@ -15,7 +13,6 @@ HEML is an open source markup language for building responsive email.
 - **Forward Thinking:** HEML is designed to take advantage of all that email can do while still providing a solid experience for all clients.
 
 - **Extendable:** You can create your own powerful elements and style rules. Share them with the world, or keep them to yourself. Your choice.
-
 
 ## FAQ
 
@@ -29,12 +26,12 @@ Check out our [usage guide](http://heml.io/docs/getting-started/usage).
 
 ### What do I do if I found a bug?
 
-Open up an [issue](https://github.com/SparkPost/heml/issues/new) on the repository. Thanks for catching it! 🙏
+Open up an [issue](https://github.com/dragonzap/heml/issues/new) on the repository. Thanks for catching it! 🙏
 
 ### Want to help?
 
-Awesome!! We welcome any and all help! Head over to the [issues](https://github.com/SparkPost/heml/issues) and see if anything catches your eye.
+Awesome!! We welcome any and all help! Head over to the [issues](https://github.com/dragonzap/heml/issues) and see if anything catches your eye.
 
 ## License
 
-[MIT](https://github.com/SparkPost/heml/blob/master/LICENSE)
+[MIT](https://github.com/dragonzap/heml/blob/master/LICENSE)
