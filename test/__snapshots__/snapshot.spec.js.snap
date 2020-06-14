@@ -3,7 +3,7 @@
 exports[`simple 1`] = `
 Object {
   "errors": Array [],
-  "html": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional //EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\" />
+  "html": "<!DOCTYPE html PUBLIC \\"-//W3C//DTD XHTML 1.0 Transitional //EN\\" \\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\\">
 <html lang=\\"en\\" xmlns=\\"http://www.w3.org/1999/xhtml\\" xmlns:v=\\"urn:schemas-microsoft-com:vml\\" xmlns:o=\\"urn:schemas-microsoft-com:office:office\\">
   <head> </head>
   <head>
@@ -85,15 +85,13 @@ Object {
     <table class=\\"bodyTable\\" role=\\"presentation\\" width=\\"100%\\" align=\\"left\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"width: 100%; background-color: #87CEEB; margin: 0;\\" bgcolor=\\"#87CEEB\\">
       <tr>
         <td class=\\"body__content\\" align=\\"left\\" width=\\"100%\\" valign=\\"top\\" style=\\"color: #000000; font-family: Helvetica,Arial,sans-serif; font-size: 16px; line-height: 20px;\\">
-          <div class=\\"container\\" style=\\"margin: 0 auto; max-width: 600px; width: 100%;\\"> <!--[if mso | IE]>
-            <table class=\\"container__table__ie\\" role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"margin-right: auto; margin-left: auto;width: 600px\\" width=\\"600\\" align=\\"center\\">
+          <div class=\\"container\\" style=\\"margin: 0 auto; max-width: 600px; width: 100%;\\"> <!--[if mso | IE]> <table class=\\"container__table__ie\\" role=\\"presentation\\" border=\\"0\\" cellpadding=\\"0\\" cellspacing=\\"0\\" style=\\"margin-right: auto; margin-left: auto;width: 600px\\" width=\\"600\\" align=\\"center\\">
               <tr>
-                <td> <![endif]-->
-                  <table class=\\"container__table\\" role=\\"presentation\\" border=\\"0\\" align=\\"center\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\">
+                <td> <![endif]--> <table class=\\"container__table\\" role=\\"presentation\\" border=\\"0\\" align=\\"center\\" cellpadding=\\"0\\" cellspacing=\\"0\\" width=\\"100%\\">
                     <tr class=\\"container__row\\">
                       <td class=\\"container__cell\\" width=\\"100%\\" align=\\"left\\" valign=\\"top\\">
                         <marquee>
-                          <h1 class=\\"header h1\\" style=\\"margin: 20px 0; line-height: 40px; font-family: Helvetica,Arial,sans-serif; color: #9400D3;\\">Explore the world of email! 💌</h1>
+                          <h1 class=\\"header h1\\" style=\\"margin: 20px 0; line-height: 40px; color: #9400D3;\\">Explore the world of email! 💌</h1>
                         </marquee>
                       </td>
                     </tr>
@@ -106,10 +104,8 @@ Object {
     <div style=\\"display:none; white-space:nowrap; font-size:15px; line-height:0;\\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; </div>
   </body>
 </html>",
-  "metadata": Object {
-    "meta": Array [],
-    "size": "3.86kb",
-    "subject": "Welcome to HEML!",
+  "metadata": Promise {
+    "size": "3.79kb",
   },
 }
 `;

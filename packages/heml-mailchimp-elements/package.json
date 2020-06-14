@@ -16,11 +16,22 @@
 	"files": [
 		"build/"
 	],
-	"main": "build/index.js",
+	"main": "build/index",
+	"types": "build/index",
+	"scripts": {
+		"build": "npm run clean && npm run compile",
+		"clean": "rm -rf ./build",
+		"compile": "tsc -p tsconfig.build.json",
+		"prepublishOnly": "npm run build"
+	},
 	"publishConfig": {
 		"access": "public"
 	},
 	"dependencies": {
+		"@heml/render": "file:../heml-render",
 		"@heml/utils": "file:../heml-utils"
+	},
+	"devDependencies": {
+		"typescript": "^3.9.5"
 	}
 }

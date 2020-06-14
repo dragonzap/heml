@@ -1,55 +1,69 @@
 {
-  "name": "@heml/styles",
-  "version": "1.1.2",
-  "description": "CSS processor for HEML",
-  "keywords": [
-    "heml"
-  ],
-  "homepage": "https://heml.io",
-  "bugs": "https://github.com/dragonzap/heml/issues",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonzap/heml.git"
-  },
-  "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
-  "files": [
-    "build/"
-  ],
-  "main": "build/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "css-declaration-sorter": "^5.1.2",
-    "css-shorthand-expand": "^1.2.0",
-    "lodash": "^4.17.15",
-    "postcss": "^7.0.27",
-    "postcss-calc": "^7.0.2",
-    "postcss-color-rgba-fallback": "^4.0.0",
-    "postcss-colornames-to-hex": "^1.0.1",
-    "postcss-convert-values": "^4.0.1",
-    "postcss-discard-comments": "^4.0.2",
-    "postcss-discard-duplicates": "^4.0.2",
-    "postcss-discard-empty": "^4.0.1",
-    "postcss-discard-overridden": "^4.0.1",
-    "postcss-email-important": "^1.0.0",
-    "postcss-hex-format": "^1.0.0",
-    "postcss-merge-longhand": "^4.0.11",
-    "postcss-merge-rules": "^4.0.3",
-    "postcss-minify-font-values": "^4.0.2",
-    "postcss-minify-gradients": "^4.0.2",
-    "postcss-minify-params": "^4.0.2",
-    "postcss-minify-selectors": "^4.0.2",
-    "postcss-normalize-display-values": "^4.0.2",
-    "postcss-normalize-positions": "^4.0.2",
-    "postcss-normalize-repeat-style": "^4.0.2",
-    "postcss-normalize-string": "^4.0.2",
-    "postcss-normalize-timing-functions": "^4.0.2",
-    "postcss-ordered-values": "^4.1.2",
-    "postcss-rgba-hex": "^0.3.7",
-    "postcss-safe-parser": "^4.0.2",
-    "postcss-shorthand-expand": "^1.0.1",
-    "postcss-unique-selectors": "^4.0.1"
-  }
+	"name": "@heml/styles",
+	"version": "1.1.2",
+	"description": "CSS processor for HEML",
+	"keywords": [
+		"heml"
+	],
+	"homepage": "https://heml.io",
+	"bugs": "https://github.com/dragonzap/heml/issues",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dragonzap/heml.git"
+	},
+	"author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+	"files": [
+		"build/"
+	],
+	"main": "build/index",
+	"types": "build/index",
+	"scripts": {
+		"build": "npm run clean && npm run compile",
+		"clean": "rm -rf ./build",
+		"compile": "tsc -p tsconfig.build.json",
+		"watch": "tsc -p tsconfig.build.json --watch",
+		"prepublishOnly": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"@heml/render": "file:../heml-render",
+		"css-declaration-sorter": "^5.1.2",
+		"css-shorthand-expand": "^1.2.0",
+		"lodash": "^4.17.15",
+		"postcss": "^7.0.32",
+		"cheerio": "1.0.0-rc.3",
+		"postcss-calc": "^7.0.2",
+		"postcss-color-rgba-fallback": "^4.0.0",
+		"postcss-colornames-to-hex": "^1.0.1",
+		"postcss-convert-values": "^4.0.1",
+		"postcss-discard-comments": "^4.0.2",
+		"postcss-discard-duplicates": "^4.0.2",
+		"postcss-discard-empty": "^4.0.1",
+		"postcss-discard-overridden": "^4.0.1",
+		"postcss-email-important": "^1.0.0",
+		"postcss-hex-format": "^1.0.0",
+		"postcss-merge-longhand": "^4.0.11",
+		"postcss-merge-rules": "^4.0.3",
+		"postcss-minify-font-values": "^4.0.2",
+		"postcss-minify-gradients": "^4.0.2",
+		"postcss-minify-params": "^4.0.2",
+		"postcss-minify-selectors": "^4.0.2",
+		"postcss-normalize-display-values": "^4.0.2",
+		"postcss-normalize-positions": "^4.0.2",
+		"postcss-normalize-repeat-style": "^4.0.2",
+		"postcss-normalize-string": "^4.0.2",
+		"postcss-normalize-timing-functions": "^4.0.2",
+		"postcss-ordered-values": "^4.1.2",
+		"postcss-rgba-hex": "^0.3.7",
+		"postcss-safe-parser": "^4.0.2",
+		"postcss-shorthand-expand": "^1.0.1",
+		"postcss-unique-selectors": "^4.0.1"
+	},
+	"devDependencies": {
+		"@types/cheerio": "^0.22.18",
+		"typescript": "^3.9.5"
+	}
 }

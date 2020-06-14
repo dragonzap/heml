@@ -1,28 +1,40 @@
 {
-  "name": "@heml/utils",
-  "version": "1.1.2",
-  "description": "A collection of utilities for HEML",
-  "keywords": [
-    "heml"
-  ],
-  "homepage": "https://heml.io",
-  "bugs": "https://github.com/dragonzap/heml/issues",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dragonzap/heml.git"
-  },
-  "author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
-  "files": [
-    "build/"
-  ],
-  "main": "build/index.js",
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "@heml/render": "file:../heml-render",
-    "css-groups": "^0.1.1",
-    "lodash": "^4.17.15"
-  }
+	"name": "@heml/utils",
+	"version": "1.1.2",
+	"description": "A collection of utilities for HEML",
+	"keywords": [
+		"heml"
+	],
+	"homepage": "https://heml.io",
+	"bugs": "https://github.com/dragonzap/heml/issues",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/dragonzap/heml.git"
+	},
+	"author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+	"files": [
+		"build/"
+	],
+	"main": "build/index",
+	"types": "build/index",
+	"scripts": {
+		"build": "npm run clean && npm run compile",
+		"clean": "rm -rf ./build",
+		"compile": "tsc -p tsconfig.build.json",
+		"prepublishOnly": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"dependencies": {
+		"cheerio": "1.0.0-rc.3",
+		"postcss": "^7.0.32",
+		"css-groups": "^0.1.1",
+		"lodash": "^4.17.15"
+	},
+	"devDependencies": {
+		"@types/cheerio": "^0.22.18",
+		"typescript": "^3.9.5"
+	}
 }

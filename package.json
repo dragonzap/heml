@@ -5,30 +5,10 @@
 		"test": "jest",
 		"test-full": "npm run bootstrap && npm run build && npm run lint && jest ./test/*.spec.js",
 		"bootstrap": "npm install && lerna bootstrap",
-		"clean": "gulp clean && lerna clean --yes",
-		"build": "gulp build",
-		"watch": "gulp watch",
-		"publish": "npm run clean && npm test && lerna publish"
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.8.4",
-		"@babel/plugin-transform-async-to-generator": "^7.8.3",
-		"@babel/plugin-transform-react-jsx": "^7.9.4",
-		"@babel/plugin-transform-runtime": "^7.9.0",
-		"@babel/preset-env": "^7.9.5",
-		"chalk": "^4.0.0",
-		"del": "^5.1.0",
-		"fancy-log": "^1.3.3",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-newer": "^1.4.0",
-		"gulp-plumber": "^1.2.1",
-		"husky": "^4.2.5",
-		"jest": "^25.3.0",
-		"lerna": "^3.20.2",
-		"require-all": "^3.0.0",
-		"standard": "^14.3.3",
-		"through2": "^3.0.1"
+		"clean": "lerna run clean && lerna clean --yes",
+		"build": "lerna run build",
+		"compile": "lerna run compile",
+		"publish": "npm run build && npm test && lerna publish"
 	},
 	"standard": {
 		"globals": [
@@ -51,5 +31,17 @@
 		"@heml/utils": "file:./packages/heml-utils",
 		"@heml/validate": "file:./packages/heml-validate",
 		"heml": "file:./packages/heml"
+	},
+	"devDependencies": {
+		"chalk": "^4.1.0",
+		"del": "^5.1.0",
+		"fancy-log": "^1.3.3",
+		"husky": "^4.2.5",
+		"jest": "^26.0.1",
+		"lerna": "^3.22.1",
+		"require-all": "^3.0.0",
+		"standard": "^14.3.4",
+		"through2": "^3.0.1",
+		"typescript": "^3.9.5"
 	}
 }

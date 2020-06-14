@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "es5",
+		"sourceMap": true,
+		"allowJs": true,
+		"esModuleInterop": true,
+		"declaration": true,
+		"resolveJsonModule": true,
+		"jsxFactory": "HEML.createElement",
+		"jsx": "react"
+	},
+
+	"exclude": ["node_modules", "build"]
+}
