@@ -1,6 +1,6 @@
 {
 	"name": "@heml/utils",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"description": "A collection of utilities for HEML",
 	"keywords": [
 		"heml"
@@ -29,9 +29,9 @@
 	},
 	"dependencies": {
 		"cheerio": "1.0.0-rc.3",
-		"postcss": "^7.0.32",
 		"css-groups": "^0.1.1",
-		"lodash": "^4.17.15"
+		"lodash": "^4.17.15",
+		"postcss": "^7.0.32"
 	},
 	"devDependencies": {
 		"@types/cheerio": "^0.22.18",

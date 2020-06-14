@@ -1,6 +1,6 @@
 {
 	"name": "@heml/styles",
-	"version": "1.1.2",
+	"version": "1.2.0",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
@@ -30,11 +30,11 @@
 	},
 	"dependencies": {
 		"@heml/render": "file:../heml-render",
+		"cheerio": "1.0.0-rc.3",
 		"css-declaration-sorter": "^5.1.2",
 		"css-shorthand-expand": "^1.2.0",
 		"lodash": "^4.17.15",
 		"postcss": "^7.0.32",
-		"cheerio": "1.0.0-rc.3",
 		"postcss-calc": "^7.0.2",
 		"postcss-color-rgba-fallback": "^4.0.0",
 		"postcss-colornames-to-hex": "^1.0.1",
