@@ -3,7 +3,7 @@ import { transforms } from '@heml/utils';
 
 export class Table extends HEMLElementContainsText {
 	protected attrs = true as true;
-	public rules = {
+	public rules: Record<string, any[]> = {
 		'.table': [{ '@pseudo': 'root' }, '@default', { display: transforms.trueHide('table') }],
 	};
 

@@ -4,7 +4,7 @@ import { sum, max, isUndefined } from 'lodash';
 
 export class Row extends HEMLElement {
 	protected children = ['column'];
-	public rules = {
+	public rules: Record<string, any[]> = {
 		'.row': [{ '@pseudo': 'root' }, { display: transforms.trueHide('block') }],
 		'.row__table': [{ '@pseudo': 'table' }],
 		'.row__row': [{ '@pseudo': 'row' }],

@@ -57,7 +57,7 @@ interface Attrs extends HEMLAttributes {
 export class A extends HEMLElement<Attrs> {
 	protected attrs = true as true;
 	protected static defaultProps = { href: '#' };
-	public rules = {
+	public rules: Record<string, any[]> = {
 		'.a': [{ '@pseudo': 'root' }, { '@default': true }, { display: transforms.trueHide('inline') }, 'color', 'text-decoration'],
 		'.a__text': [{ '@pseudo': 'text' }, 'color', 'text-decoration'],
 	};

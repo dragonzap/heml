@@ -31,11 +31,11 @@
 	"dependencies": {
 		"@heml/render": "file:../heml-render",
 		"cheerio": "1.0.0-rc.3",
-		"css-declaration-sorter": "^5.1.2",
+		"css-declaration-sorter": "^6.0.1",
 		"css-shorthand-expand": "^1.2.0",
-		"lodash": "^4.17.15",
-		"postcss": "^7.0.32",
-		"postcss-calc": "^7.0.2",
+		"lodash": "^4.17.20",
+		"postcss": "^8.1.4",
+		"postcss-calc": "^7.0.5",
 		"postcss-color-rgba-fallback": "^4.0.0",
 		"postcss-colornames-to-hex": "^1.0.1",
 		"postcss-convert-values": "^4.0.1",
@@ -58,12 +58,12 @@
 		"postcss-normalize-timing-functions": "^4.0.2",
 		"postcss-ordered-values": "^4.1.2",
 		"postcss-rgba-hex": "^0.3.7",
-		"postcss-safe-parser": "^4.0.2",
+		"postcss-safe-parser": "^5.0.2",
 		"postcss-shorthand-expand": "^1.0.1",
 		"postcss-unique-selectors": "^4.0.1"
 	},
 	"devDependencies": {
-		"@types/cheerio": "^0.22.18",
-		"typescript": "^3.9.5"
+		"@types/cheerio": "^0.22.22",
+		"typescript": "^4.0.5"
 	}
 }

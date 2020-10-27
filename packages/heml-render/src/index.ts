@@ -47,6 +47,8 @@ export async function render($: HEMLCheerioStatic, options: HEMLOptions = {}): P
  * @param  {Object} globals
  */
 function preRenderElements(elements: Array<typeof HEMLElement>, globals: HEMLGlobals): void {
+	HEMLElement.setGlobals(globals);
+
 	elements.forEach((element) => element.preRender(globals));
 }
 

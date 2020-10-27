@@ -2,6 +2,7 @@
 	"extends": "./tsconfig.build.json",
 
 	"compilerOptions": {
+		"importHelpers": true,
 		"baseUrl": ".",
 		"paths": {
 			"@heml/*": ["packages/*/src"]

@@ -1,6 +1,5 @@
 'use strict';
 
-import postcss from 'postcss';
 import { coerceElements } from './coerceElements';
 import { tagAliasSelectors } from './tagAliasSelectors';
 import { findDirectElementSelectors } from './findDirectElementSelectors';
@@ -33,52 +32,57 @@ import { replaceElementTagMentions, replaceElementPseudoMentions, expandElementR
  *                                   split up the css for each element
  * @param  {[type]} options.$        A cheerio instance
  */
-export const elementExpander = postcss.plugin('postcss-element-expander', ({ elements, aliases }) => {
-	elements = coerceElements(elements);
+export const elementExpander = (opts) => {
+	const { aliases } = opts;
+	const elements = coerceElements(opts.elements);
 
-	return (root, result) => {
-		for (let element of elements) {
-			/**
-			 * add the element tag to any css selectors that implicitly target an element
-			 * .i.e. #my-button that selects <button id="my-button">click me</button>
-			 */
-			root.walkRules((rule) => {
-				tagAliasSelectors(element, aliases[element.tag], rule);
-			});
+	return {
+		postcssPlugin: 'postcss-element-expander',
+		Once(root, { result }) {
+			for (let element of elements) {
+				/**
+				 * add the element tag to any css selectors that implicitly target an element
+				 * .i.e. #my-button that selects <button id="my-button">click me</button>
+				 */
+				root.walkRules((rule) => {
+					tagAliasSelectors(element, aliases[element.tag], rule);
+				});
 
-			/**
-			 * There are 3 (non-mutually exclusive) possibilities when it contains the element tag
-			 *
-			 * 1. it directly targets the element - i.e. button { background: blue; }
-			 *    in this case we need generate entirely new rules, prepend before the original rule, and strip the used selectors
-			 *
-			 * 2. it uses an element tag as an ancestor/sibling - .i.e. button span { color: black; }
-			 *
-			 * 3. it uses an element pseudo element - .i.e. button::text { color: blue }
-			 */
-			root.walkRules(new RegExp(element.tag, 'i'), (rule) => {
-				/** CASE 1 */
-				/** grab all the selectors that target this element */
-				const elementSelectors = findDirectElementSelectors(element, rule.selector);
+				/**
+				 * There are 3 (non-mutually exclusive) possibilities when it contains the element tag
+				 *
+				 * 1. it directly targets the element - i.e. button { background: blue; }
+				 *    in this case we need generate entirely new rules, prepend before the original rule, and strip the used selectors
+				 *
+				 * 2. it uses an element tag as an ancestor/sibling - .i.e. button span { color: black; }
+				 *
+				 * 3. it uses an element pseudo element - .i.e. button::text { color: blue }
+				 */
+				root.walkRules(new RegExp(element.tag, 'i'), (rule) => {
+					/** CASE 1 */
+					/** grab all the selectors that target this element */
+					const elementSelectors = findDirectElementSelectors(element, rule.selector);
 
-				/** Create new rules to properly target the elements */
-				const expandedRules = expandElementRule(element, elementSelectors, rule);
-				expandedRules.forEach((expandedRule) => rule.before(expandedRule));
+					/** Create new rules to properly target the elements */
+					const expandedRules = expandElementRule(element, elementSelectors, rule);
+					expandedRules.forEach((expandedRule) => rule.before(expandedRule));
 
-				/** remove the directly targeting selectors from the original rule */
-				rule.selectors = rule.selectors.filter((selector) => !elementSelectors.includes(selector));
+					/** remove the directly targeting selectors from the original rule */
+					rule.selectors = rule.selectors.filter((selector) => !elementSelectors.includes(selector));
 
-				/** remove the rule if has no selectors */
-				if (rule.selector.trim() === '') return rule.remove();
+					/** remove the rule if has no selectors */
+					if (rule.selector.trim() === '') return rule.remove();
 
-				/** CASE 2 */
-				/** Replace all mentions of the element pseudo elements */
-				rule.selector = replaceElementPseudoMentions(element, rule.selector);
+					/** CASE 2 */
+					/** Replace all mentions of the element pseudo elements */
+					rule.selector = replaceElementPseudoMentions(element, rule.selector);
 
-				/** CASE 3 */
-				/** Replace all mentions of the element tag */
-				rule.selector = replaceElementTagMentions(element, rule.selector);
-			});
-		}
+					/** CASE 3 */
+					/** Replace all mentions of the element tag */
+					rule.selector = replaceElementTagMentions(element, rule.selector);
+				});
+			}
+		},
 	};
-});
+};
+elementExpander.postcss = true;

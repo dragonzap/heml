@@ -9,7 +9,7 @@ const { background, padding, font, text } = cssGroups;
 export class Body extends HEMLElementContainsText {
 	protected unique = true;
 	protected parent = ['heml'];
-	public rules = {
+	public rules: Record<string, any[]> = {
 		'.body': [{ '@pseudo': 'root' }, background],
 		'.bodyTable': [{ '@pseudo': 'table' }, '@default', background],
 		'.body__content': [{ '@pseudo': 'content' }, padding, font, text],

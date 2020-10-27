@@ -9,29 +9,25 @@ interface Attrs extends HEMLAttributes {
 export class Data extends HEMLElement<Attrs> {
 	protected children = false;
 	protected attrs = ['src', 'placeholder'];
-	protected static defaultProps = { src: '', placeholder: '' };
-	private value = '';
+	protected static defaultProps = { src: undefined, placeholder: undefined };
+	private readonly value: string = '';
 
 	public constructor(props: Attrs, contents: HEMLNode) {
 		super(props, contents);
 
-		const { src = '' } = this.props;
-		const { options } = HEMLElement.globals;
+		const { src = '', placeholder = '' } = this.props;
+		const {
+			options: { devMode = false, data = {} },
+		} = HEMLElement.globals;
 
-		if (options?.devMode && this.props.placeholder) {
-			this.value = this.props.placeholder;
-		} else {
-			this.value = '*|' + src.replace(/\./, '_') + '|*';
-		}
+		this.value = devMode && placeholder ? placeholder : `*|${src.replace(/\./, '_')}|*`;
 
-		if (options.data) {
-			this.value = get(options.data, src, this.value);
+		if (data) {
+			this.value = get(data, src, this.value);
 		}
 	}
 
 	public render(): HEMLNode {
-		const { src } = this.props;
-
 		return this.value;
 	}
 }

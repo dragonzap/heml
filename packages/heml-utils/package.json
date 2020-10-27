@@ -30,11 +30,11 @@
 	"dependencies": {
 		"cheerio": "1.0.0-rc.3",
 		"css-groups": "^0.1.1",
-		"lodash": "^4.17.15",
-		"postcss": "^7.0.32"
+		"lodash": "^4.17.20",
+		"postcss": "^8.1.4"
 	},
 	"devDependencies": {
-		"@types/cheerio": "^0.22.18",
-		"typescript": "^3.9.5"
+		"@types/cheerio": "^0.22.22",
+		"typescript": "^4.0.5"
 	}
 }

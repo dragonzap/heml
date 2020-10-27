@@ -22,7 +22,11 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	protected static defaultProps: Record<string, any> = {};
 	protected readonly attrs: string[] | true = [];
 
-	protected static globals: HEMLGlobals;
+	protected static globals: HEMLGlobals = {
+		$: {},
+		elements: [],
+		options: {},
+	};
 
 	protected props: TAttributes;
 
@@ -43,9 +47,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 		});
 	}
 
-	public static preRender(globals: HEMLGlobals): void {
-		HEMLElement.globals = globals;
-	}
+	public static preRender(globals: HEMLGlobals): void {}
 
 	protected render(): HEMLNode {
 		if (this.props.contents !== 'string') {
@@ -152,6 +154,10 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 
 			throw new HEMLError(`${tagName} should be unique. ${$nodes.length} were found.`, $node);
 		}
+	}
+
+	public static setGlobals(globals: HEMLGlobals): void {
+		HEMLElement.globals = globals;
 	}
 }
 

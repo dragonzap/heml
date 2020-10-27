@@ -25,7 +25,7 @@ export class Img extends HEMLElement<Attrs> {
 		border: '0',
 		alt: '',
 	};
-	public rules = {
+	public rules: Record<string, any[]> = {
 		img: [{ '@pseudo': 'root' }, { display: transforms.trueHide() }, '@default'],
 	};
 

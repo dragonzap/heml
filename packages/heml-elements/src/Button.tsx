@@ -20,7 +20,7 @@ export class Button extends HEMLElement<Attrs> {
 		target: '_blank',
 		align: 'center',
 	};
-	public rules = {
+	public rules: Record<string, any[]> = {
 		'.button': [{ '@pseudo': 'root' }, { display: transforms.trueHide('block') }],
 		'.button__table': [{ '@pseudo': 'table' }, margin, table],
 		'.button__cell': [{ '@pseudo': 'cell' }, background, padding, borderRadius, border, height, width, box],
