@@ -1,6 +1,6 @@
 {
 	"name": "@heml/parse",
-	"version": "1.2.2-alpha.3",
+	"version": "1.2.2-alpha.4",
 	"description": "Parser for HEML",
 	"keywords": [
 		"heml"
@@ -24,7 +24,9 @@
 		"compile": "babel src --out-dir build --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
 		"prepublishOnly": "npm run build"
 	},
-	"publishConfig": { "registry": "https://npm.pkg.github.com/" },
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"dependencies": {
 		"cheerio": "1.0.0-rc.3",
 		"crypto-random-string": "^3.3.0",

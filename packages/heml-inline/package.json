@@ -1,6 +1,6 @@
 {
 	"name": "@heml/inline",
-	"version": "1.2.2-alpha.3",
+	"version": "1.2.2-alpha.4",
 	"description": "CSS inliner for HEML",
 	"keywords": [
 		"heml"
@@ -24,7 +24,9 @@
 		"compile": "babel src --out-dir build --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
 		"prepublishOnly": "npm run build"
 	},
-	"publishConfig": { "registry": "https://npm.pkg.github.com/" },
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"dependencies": {
 		"@heml/parse": "file:../heml-parse",
 		"cheerio": "1.0.0-rc.3",

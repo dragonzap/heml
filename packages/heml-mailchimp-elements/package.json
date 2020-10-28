@@ -1,6 +1,6 @@
 {
 	"name": "@heml/mailchimp-elements",
-	"version": "1.2.2-alpha.3",
+	"version": "1.2.2-alpha.4",
 	"description": "Mailchimp merge tags for HEML",
 	"keywords": [
 		"heml"
@@ -24,7 +24,9 @@
 		"compile": "babel src --out-dir build --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
 		"prepublishOnly": "npm run build"
 	},
-	"publishConfig": { "registry": "https://npm.pkg.github.com/" },
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
+	},
 	"dependencies": {
 		"@heml/render": "file:../heml-render",
 		"@heml/utils": "file:../heml-utils"
