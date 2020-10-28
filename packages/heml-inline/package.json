@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-inline",
-	"version": "1.2.2-alpha.13",
+	"version": "1.2.2-alpha.14",
 	"description": "CSS inliner for HEML",
 	"keywords": [
 		"heml"
@@ -28,7 +28,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-parse": "^1.2.2-alpha.13",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.14",
 		"cheerio": "1.0.0-rc.3",
 		"juice": "^7.0.0",
 		"lodash": "^4.17.20"

@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-alpha.14](https://github.com/dragonzap/heml/compare/v1.2.2-alpha.13...v1.2.2-alpha.14) (2020-10-28)
+
+**Note:** Version bump only for package @dragonzap/heml-mailchimp-elements
+
+
+
+
+
 ## [1.2.2-alpha.13](https://github.com/dragonzap/heml/compare/v1.2.2-alpha.12...v1.2.2-alpha.13) (2020-10-28)
 
 **Note:** Version bump only for package @dragonzap/heml-mailchimp-elements

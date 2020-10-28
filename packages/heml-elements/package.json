@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-elements",
-	"version": "1.2.2-alpha.13",
+	"version": "1.2.2-alpha.14",
 	"description": "Core elements for HEML",
 	"keywords": [
 		"heml"
@@ -28,9 +28,9 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-render": "^1.2.2-alpha.13",
-		"@dragonzap/heml-styles": "^1.2.2-alpha.13",
-		"@dragonzap/heml-utils": "^1.2.2-alpha.13",
+		"@dragonzap/heml-render": "^1.2.2-alpha.14",
+		"@dragonzap/heml-styles": "^1.2.2-alpha.14",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.14",
 		"axios": "^0.21.0",
 		"image-size": "^0.9.3",
 		"is-absolute-url": "^3.0.3",

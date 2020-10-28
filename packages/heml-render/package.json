@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-render",
-	"version": "1.2.2-alpha.13",
+	"version": "1.2.2-alpha.14",
 	"description": "Renderer for HEML",
 	"keywords": [
 		"heml"
@@ -28,7 +28,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-parse": "^1.2.2-alpha.13",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.14",
 		"cheerio": "1.0.0-rc.3",
 		"html-tags": "^3.1.0",
 		"is-promise": "^4.0.0",
