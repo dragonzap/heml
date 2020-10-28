@@ -15,7 +15,7 @@
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
-		"dist/"
+		"dist"
 	],
 	"main": "dist/index",
 	"types": "dist/index",
@@ -28,9 +28,9 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-render": "file:../heml-render",
-		"@dragonzap/heml-styles": "file:../heml-styles",
-		"@dragonzap/heml-utils": "file:../heml-utils",
+		"@dragonzap/heml-render": "^1.2.2-alpha.13",
+		"@dragonzap/heml-styles": "^1.2.2-alpha.13",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.13",
 		"axios": "^0.21.0",
 		"image-size": "^0.9.3",
 		"is-absolute-url": "^3.0.3",
@@ -38,5 +38,6 @@
 	},
 	"devDependencies": {
 		"typescript": "^4.0.5"
-	}
+	},
+	"gitHead": "6e24cb4f6717a3099feb1c319a5d3be754c44544"
 }

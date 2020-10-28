@@ -15,10 +15,10 @@
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
-		"build/"
+		"dist"
 	],
-	"main": "build/index",
-	"types": "build/index",
+	"main": "dist/index",
+	"types": "dist/index",
 	"scripts": {
 		"clean": "rm -rf ./dist",
 		"build": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
@@ -28,7 +28,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-parse": "file:../heml-parse",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.13",
 		"cheerio": "1.0.0-rc.3",
 		"html-tags": "^3.1.0",
 		"is-promise": "^4.0.0",
@@ -37,5 +37,6 @@
 	"devDependencies": {
 		"@types/cheerio": "^0.22.22",
 		"typescript": "^4.0.5"
-	}
+	},
+	"gitHead": "6e24cb4f6717a3099feb1c319a5d3be754c44544"
 }
