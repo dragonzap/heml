@@ -1,32 +1,34 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@heml/render'; // eslint-disable-line no-unused-vars
-import template from 'lodash/template';
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
+import template from "lodash/template";
 
 interface Attrs extends HEMLAttributes {
-	condition: string;
+  condition: string;
 }
 
 export class If extends HEMLElement<Attrs> {
-	protected children = true;
-	protected attrs = ['condition'];
-	protected static defaultProps = { condition: '' };
+  protected children = true;
+  protected attrs = ["condition"];
+  protected static defaultProps = { condition: "" };
 
-	public render(): HEMLNode {
-		const { condition, contents } = this.props;
+  public render(): HEMLNode {
+    const { condition, contents } = this.props;
 
-		const {
-			options: { devMode = false, data = {} },
-		} = HEMLElement.globals;
-		if (devMode) {
-			const compile = template(condition.replace(/(.+)\_(.+)/, '$1.$2').replace(/([\w_]+)/g, '${$1}'));
-			const result = eval(compile(data));
+    const {
+      options: { devMode = false, data = {} },
+    } = HEMLElement.globals;
+    if (devMode) {
+      const compile = template(
+        condition.replace(/(.+)\_(.+)/, "$1.$2").replace(/([\w_]+)/g, "${$1}")
+      );
+      const result = eval(compile(data));
 
-			if (result) {
-				return contents;
-			}
+      if (result) {
+        return contents;
+      }
 
-			return '';
-		}
+      return "";
+    }
 
-		return [`*|IF:${condition}|*`, contents, `*|END:IF|*`];
-	}
+    return [`*|IF:${condition}|*`, contents, `*|END:IF|*`];
+  }
 }

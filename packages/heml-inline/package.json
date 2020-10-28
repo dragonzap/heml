@@ -1,5 +1,5 @@
 {
-	"name": "@heml/inline",
+	"name": "@dragonzap/inline",
 	"version": "1.2.2-alpha.9",
 	"description": "CSS inliner for HEML",
 	"keywords": [
@@ -28,7 +28,7 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
-		"@heml/parse": "file:../heml-parse",
+		"@dragonzap/parse": "file:../heml-parse",
 		"cheerio": "1.0.0-rc.3",
 		"juice": "^7.0.0",
 		"lodash": "^4.17.20"

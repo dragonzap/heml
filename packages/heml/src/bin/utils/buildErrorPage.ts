@@ -1,4 +1,4 @@
-import { HEMLError } from '@heml/utils';
+import { HEMLError } from "@dragonzap/utils";
 
 /**
  * builds the html that gets rendered when there are heml errors
@@ -6,8 +6,10 @@ import { HEMLError } from '@heml/utils';
  * @return {String}        some html
  */
 export function buildErrorPage(errors: HEMLError[] = []): string {
-	const title = `${errors.length} validation ${errors.length > 1 ? 'errors' : 'error'}`;
-	return `
+  const title = `${errors.length} validation ${
+    errors.length > 1 ? "errors" : "error"
+  }`;
+  return `
   <html>
     <head>
       <title>${title}</title>
@@ -48,14 +50,14 @@ export function buildErrorPage(errors: HEMLError[] = []): string {
 
       <div id="errors">
         ${errors
-			.map(
-				(error) => `
+          .map(
+            (error) => `
           <div class="message">
             <div class="selector">&gt; ${error.selector}</div>
             <span class="hidden">&gt;</span> ${error.toString()}
-          </div>`,
-			)
-			.join('')}
+          </div>`
+          )
+          .join("")}
       </div>
       <script src="/reload/reload.js"> </script>
     </body>

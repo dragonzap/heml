@@ -1067,32 +1067,32 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@heml/elements@file:packages/heml-elements":
+"@dragonzap/elements@file:packages/heml-elements":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-render"
-    "@heml/styles" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-styles"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-utils"
+    "@dragonzap/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@dragonzap/heml-render"
+    "@dragonzap/styles" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@dragonzap/heml-styles"
+    "@dragonzap/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@dragonzap/heml-utils"
     axios "^0.21.0"
     image-size "^0.9.3"
     is-absolute-url "^3.0.3"
     lodash "^4.17.20"
 
-"@heml/inline@file:packages/heml-inline":
+"@dragonzap/inline@file:packages/heml-inline":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-inline-1.2.2-alpha.1-659fcb65-0d4b-45f9-9b36-e2cffb15de42-1603867861047/node_modules/@heml/heml-parse"
+    "@dragonzap/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-inline-1.2.2-alpha.1-659fcb65-0d4b-45f9-9b36-e2cffb15de42-1603867861047/node_modules/@dragonzap/heml-parse"
     cheerio "1.0.0-rc.3"
     juice "^7.0.0"
     lodash "^4.17.20"
 
-"@heml/mailchimp-elements@file:packages/heml-mailchimp-elements":
+"@dragonzap/mailchimp-elements@file:packages/heml-mailchimp-elements":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@heml/heml-render"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@heml/heml-utils"
+    "@dragonzap/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@dragonzap/heml-render"
+    "@dragonzap/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@dragonzap/heml-utils"
 
-"@heml/parse@file:packages/heml-parse":
+"@dragonzap/parse@file:packages/heml-parse":
   version "1.2.2-alpha.1"
   dependencies:
     cheerio "1.0.0-rc.3"
@@ -1101,19 +1101,19 @@
     juice "^7.0.0"
     lodash "^4.17.20"
 
-"@heml/render@file:packages/heml-render":
+"@dragonzap/render@file:packages/heml-render":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-render-1.2.2-alpha.1-824d1109-2e50-47b1-828f-8b51decaef98-1603867861031/node_modules/@heml/heml-parse"
+    "@dragonzap/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-render-1.2.2-alpha.1-824d1109-2e50-47b1-828f-8b51decaef98-1603867861031/node_modules/@dragonzap/heml-parse"
     cheerio "1.0.0-rc.3"
     html-tags "^3.1.0"
     is-promise "^4.0.0"
     lodash "^4.17.20"
 
-"@heml/styles@file:packages/heml-styles":
+"@dragonzap/styles@file:packages/heml-styles":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-styles-1.2.2-alpha.1-9079eaa8-ebae-4998-be18-6fbbf6f8e703-1603867861034/node_modules/@heml/heml-render"
+    "@dragonzap/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-styles-1.2.2-alpha.1-9079eaa8-ebae-4998-be18-6fbbf6f8e703-1603867861034/node_modules/@dragonzap/heml-render"
     cheerio "1.0.0-rc.3"
     css-declaration-sorter "^6.0.1"
     css-shorthand-expand "^1.2.0"
@@ -1146,7 +1146,7 @@
     postcss-shorthand-expand "^1.0.1"
     postcss-unique-selectors "^4.0.1"
 
-"@heml/utils@file:packages/heml-utils":
+"@dragonzap/utils@file:packages/heml-utils":
   version "1.2.2-alpha.1"
   dependencies:
     cheerio "1.0.0-rc.3"
@@ -1154,12 +1154,12 @@
     lodash "^4.17.20"
     postcss "^8.1.4"
 
-"@heml/validate@file:packages/heml-validate":
+"@dragonzap/validate@file:packages/heml-validate":
   version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-parse"
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-render"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-utils"
+    "@dragonzap/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@dragonzap/heml-parse"
+    "@dragonzap/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@dragonzap/heml-render"
+    "@dragonzap/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@dragonzap-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@dragonzap/heml-utils"
     cheerio "1.0.0-rc.3"
     lodash "^4.17.20"
 

@@ -1,14 +1,17 @@
-import { readFileSync } from 'fs-extra';
-import { heml, HEMLOutput } from '../..';
-import { HEMLOptions } from '@heml/parse';
+import { readFileSync } from "fs-extra";
+import { heml, HEMLOutput } from "../..";
+import { HEMLOptions } from "@dragonzap/parse";
 
-export async function renderHemlFile(filepath: string, options: HEMLOptions): Promise<HEMLOutput> {
-	const contents = readFileSync(filepath, 'utf8');
-	const startTime = process.hrtime();
+export async function renderHemlFile(
+  filepath: string,
+  options: HEMLOptions
+): Promise<HEMLOutput> {
+  const contents = readFileSync(filepath, "utf8");
+  const startTime = process.hrtime();
 
-	return heml(contents, options).then((results) => {
-		results.metadata.time = Math.round(process.hrtime(startTime)[1] / 1000000);
+  return heml(contents, options).then((results) => {
+    results.metadata.time = Math.round(process.hrtime(startTime)[1] / 1000000);
 
-		return results;
-	});
+    return results;
+  });
 }

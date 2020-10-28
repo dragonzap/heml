@@ -1,5 +1,5 @@
 {
-	"name": "@heml/parse",
+	"name": "@dragonzap/parse",
 	"version": "1.2.2-alpha.9",
 	"description": "Parser for HEML",
 	"keywords": [
