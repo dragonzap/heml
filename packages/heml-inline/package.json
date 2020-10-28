@@ -1,6 +1,6 @@
 {
 	"name": "@heml/inline",
-	"version": "1.2.2-alpha.1",
+	"version": "1.2.2-alpha.3",
 	"description": "CSS inliner for HEML",
 	"keywords": [
 		"heml"
