@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-parse",
-	"version": "1.2.2-alpha.12",
+	"version": "1.2.2-alpha.13",
 	"description": "Parser for HEML",
 	"keywords": [
 		"heml"

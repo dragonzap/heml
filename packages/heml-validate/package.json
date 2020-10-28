@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-validate",
-	"version": "1.2.2-alpha.12",
+	"version": "1.2.2-alpha.13",
 	"description": "Validator for HEML",
 	"keywords": [
 		"heml"
