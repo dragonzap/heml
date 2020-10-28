@@ -1,5 +1,5 @@
-import HEML, { HEMLNode, HEMLElementContainsText } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
-import { transforms } from "@dragonzap/utils";
+import HEML, { HEMLNode, HEMLElementContainsText } from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import { transforms } from "@dragonzap/heml-utils";
 
 export class Table extends HEMLElementContainsText {
   protected attrs = true as true;

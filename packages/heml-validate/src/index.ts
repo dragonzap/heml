@@ -1,5 +1,5 @@
-import { HEMLError } from "@dragonzap/utils";
-import { HEMLOptions } from "@dragonzap/parse";
+import { HEMLError } from "@dragonzap/heml-utils";
+import { HEMLOptions } from "@dragonzap/heml-parse";
 import { Cheerio } from "cheerio";
 
 /**

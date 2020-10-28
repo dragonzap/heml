@@ -7,7 +7,7 @@ import {
   HEMLAttributes,
   HEMLNode,
 } from "./HemlElement";
-import { HEMLOptions, HEMLCheerioStatic } from "@dragonzap/parse";
+import { HEMLOptions, HEMLCheerioStatic } from "@dragonzap/heml-parse";
 import { Cheerio } from "cheerio";
 
 export {

@@ -1,5 +1,9 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
-import { transforms } from "@dragonzap/utils";
+import HEML, {
+  HEMLAttributes,
+  HEMLNode,
+  HEMLElement,
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import { transforms } from "@dragonzap/heml-utils";
 import { Style } from "./Style";
 import { omit, has } from "lodash";
 import fs from "fs-extra";

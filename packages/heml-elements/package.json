@@ -1,5 +1,5 @@
 {
-	"name": "@dragonzap/elements",
+	"name": "@dragonzap/heml-elements",
 	"version": "1.2.2-alpha.10",
 	"description": "Core elements for HEML",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dragonzap/heml.git"
+		"url": "https://github.com/dragonzap/heml.git",
+		"directory": "packages/heml-elements"
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
@@ -28,9 +29,9 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
-		"@dragonzap/render": "file:../heml-render",
-		"@dragonzap/styles": "file:../heml-styles",
-		"@dragonzap/utils": "file:../heml-utils",
+		"@dragonzap/heml-render": "file:../heml-render",
+		"@dragonzap/heml-styles": "file:../heml-styles",
+		"@dragonzap/heml-utils": "file:../heml-utils",
 		"axios": "^0.21.0",
 		"image-size": "^0.9.3",
 		"is-absolute-url": "^3.0.3",

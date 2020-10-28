@@ -18,7 +18,7 @@ import {
 import { isHemlFile } from "../utils/isHemlFile";
 import { renderHemlFile } from "../utils/renderHemlFile";
 import { buildErrorPage } from "../utils/buildErrorPage";
-import { HEMLOptions } from "@dragonzap/parse";
+import { HEMLOptions } from "@dragonzap/heml-parse";
 
 const errorBlock = bgRed.white;
 const { log } = console;

@@ -1,4 +1,8 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
+import HEML, {
+  HEMLAttributes,
+  HEMLNode,
+  HEMLElement,
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
 import template from "lodash/template";
 
 interface Attrs extends HEMLAttributes {

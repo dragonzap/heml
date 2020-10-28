@@ -2,8 +2,8 @@ import HEML, {
   HEMLAttributes,
   HEMLNode,
   HEMLElementContainsText,
-} from "@dragonzap/render"; // eslint-disable-line no-unused-vars
-import { transforms, cssGroups, condition } from "@dragonzap/utils";
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import { transforms, cssGroups, condition } from "@dragonzap/heml-utils";
 import { Style } from "./Style";
 
 const { trueHide, ieAlignFallback } = transforms;

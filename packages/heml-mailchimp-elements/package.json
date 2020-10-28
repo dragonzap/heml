@@ -1,5 +1,5 @@
 {
-	"name": "@dragonzap/mailchimp-elements",
+	"name": "@dragonzap/heml-mailchimp-elements",
 	"version": "1.2.2-alpha.10",
 	"description": "Mailchimp merge tags for HEML",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dragonzap/heml.git"
+		"url": "https://github.com/dragonzap/heml.git",
+		"directory": "packages/heml-mailchimp-elements"
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
@@ -28,8 +29,8 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
-		"@dragonzap/render": "file:../heml-render",
-		"@dragonzap/utils": "file:../heml-utils"
+		"@dragonzap/heml-render": "file:../heml-render",
+		"@dragonzap/heml-utils": "file:../heml-utils"
 	},
 	"devDependencies": {
 		"typescript": "^4.0.5"

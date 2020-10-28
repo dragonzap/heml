@@ -11,7 +11,7 @@ import {
 } from "chalk";
 import { isHemlFile } from "../utils/isHemlFile";
 import { renderHemlFile } from "../utils/renderHemlFile";
-import { HEMLOptions } from "@dragonzap/parse";
+import { HEMLOptions } from "@dragonzap/heml-parse";
 
 const errorBlock = bgRed.black;
 const successBlock = bgGreen.black;

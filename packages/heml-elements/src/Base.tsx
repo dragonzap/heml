@@ -1,4 +1,8 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
+import HEML, {
+  HEMLAttributes,
+  HEMLNode,
+  HEMLElement,
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
 import { Meta } from "./Meta";
 import isAbsoluteUrl from "is-absolute-url";
 import { resolve } from "url";

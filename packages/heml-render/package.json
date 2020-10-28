@@ -1,5 +1,5 @@
 {
-	"name": "@dragonzap/render",
+	"name": "@dragonzap/heml-render",
 	"version": "1.2.2-alpha.10",
 	"description": "Renderer for HEML",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dragonzap/heml.git"
+		"url": "https://github.com/dragonzap/heml.git",
+		"directory": "packages/heml-render"
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
@@ -28,7 +29,7 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
-		"@dragonzap/parse": "file:../heml-parse",
+		"@dragonzap/heml-parse": "file:../heml-parse",
 		"cheerio": "1.0.0-rc.3",
 		"html-tags": "^3.1.0",
 		"is-promise": "^4.0.0",

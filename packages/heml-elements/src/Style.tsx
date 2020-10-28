@@ -3,8 +3,8 @@ import HEML, {
   HEMLNode,
   HEMLElement,
   HEMLGlobals,
-} from "@dragonzap/render"; // eslint-disable-line no-unused-vars
-import { hemlstyles } from "@dragonzap/styles";
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import { hemlstyles } from "@dragonzap/heml-styles";
 import { isEqual, uniqWith, sortBy } from "lodash";
 
 const START_EMBED_CSS = `/*!***START:EMBED_CSS*****/`;

@@ -1,9 +1,13 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
-import { transforms, cssGroups, HEMLError } from "@dragonzap/utils";
+import HEML, {
+  HEMLAttributes,
+  HEMLNode,
+  HEMLElement,
+} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import { transforms, cssGroups, HEMLError } from "@dragonzap/heml-utils";
 import { omit, pick } from "lodash";
 import { Style } from "./Style";
 import { Cheerio } from "cheerio";
-import { HEMLCheerioStatic } from "@dragonzap/parse";
+import { HEMLCheerioStatic } from "@dragonzap/heml-parse";
 
 const {
   background,

@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElement } from "@dragonzap/render"; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement } from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
 
 export class Meta extends HEMLElement {
   protected static metaMap: Map<string, any> = new Map([["meta", []]]);

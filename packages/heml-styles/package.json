@@ -1,5 +1,5 @@
 {
-	"name": "@dragonzap/styles",
+	"name": "@dragonzap/heml-styles",
 	"version": "1.2.2-alpha.10",
 	"description": "CSS processor for HEML",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dragonzap/heml.git"
+		"url": "https://github.com/dragonzap/heml.git",
+		"directory": "packages/heml-styles"
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
@@ -28,7 +29,7 @@
 		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
-		"@dragonzap/render": "file:../heml-render",
+		"@dragonzap/heml-render": "file:../heml-render",
 		"cheerio": "1.0.0-rc.3",
 		"css-declaration-sorter": "^6.0.1",
 		"css-shorthand-expand": "^1.2.0",

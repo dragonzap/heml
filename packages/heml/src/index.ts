@@ -1,12 +1,12 @@
-import { parse, HEMLOptions } from "@dragonzap/parse";
-import { render } from "@dragonzap/render";
-import { inline } from "@dragonzap/inline";
-import { validate } from "@dragonzap/validate";
-import { condition, HEMLError } from "@dragonzap/utils";
+import { parse, HEMLOptions } from "@dragonzap/heml-parse";
+import { render } from "@dragonzap/heml-render";
+import { inline } from "@dragonzap/heml-inline";
+import { validate } from "@dragonzap/heml-validate";
+import { condition, HEMLError } from "@dragonzap/heml-utils";
 import { byteLength } from "byte-length";
 import { html as beautify } from "js-beautify";
 import { toArray, flattenDeep } from "lodash";
-import * as coreElements from "@dragonzap/elements";
+import * as coreElements from "@dragonzap/heml-elements";
 
 export interface HEMLOutput {
   metadata: Record<string, any>;

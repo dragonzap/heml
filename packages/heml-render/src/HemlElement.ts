@@ -1,9 +1,9 @@
 import { mapValues, compact, flattenDeep } from "lodash";
 import { HEMLGlobals } from ".";
-import { HEMLError } from "@dragonzap/utils";
+import { HEMLError } from "@dragonzap/heml-utils";
 import { difference, intersection, castArray } from "lodash";
 import { Cheerio } from "cheerio";
-import { HEMLCheerioStatic } from "@dragonzap/parse";
+import { HEMLCheerioStatic } from "@dragonzap/heml-parse";
 import { createHtmlElement } from "./createHtmlElement";
 
 export interface HEMLAttributes {

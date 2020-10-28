@@ -1,5 +1,5 @@
 {
-	"name": "@dragonzap/utils",
+	"name": "@dragonzap/heml-utils",
 	"version": "1.2.2-alpha.10",
 	"description": "A collection of utilities for HEML",
 	"keywords": [
@@ -10,7 +10,8 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/dragonzap/heml.git"
+		"url": "https://github.com/dragonzap/heml.git",
+		"directory": "packages/heml-utils"
 	},
 	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
