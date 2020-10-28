@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-utils",
-	"version": "1.2.2-alpha.16",
+	"version": "1.2.2-alpha.17",
 	"description": "A collection of utilities for HEML",
 	"keywords": [
 		"heml"
@@ -28,6 +28,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
+		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
 		"cheerio": "1.0.0-rc.3",
 		"css-groups": "^0.1.1",
@@ -38,5 +39,5 @@
 		"@types/cheerio": "^0.22.22",
 		"typescript": "^4.0.5"
 	},
-	"gitHead": "29255e9ee724abb2f28ff66530cbba0415824df4"
+	"gitHead": "76a70518818b93138c6bbdd8b20bcb4dbf774697"
 }
