@@ -1,13 +1,14 @@
 {
-	"name": "@dragonzap/heml",
+	"name": "heml-project",
 	"private": true,
 	"scripts": {
+		"bootstrap": "lerna bootstrap",
 		"postinstall": "lerna link",
 		"prerelease": "yarn build",
+		
 		"lint": "standard 'packages/**/src/**/*.js' 'test/**/*.js' --fix",
 		"test": "jest",
 		"test-full": "npm run bootstrap && npm run build && npm run lint && jest ./test/*.spec.js",
-		"bootstrap": "lerna bootstrap",
 		"clean": "lerna run clean && lerna clean --yes",
 		"build": "lerna exec --parallel -- babel src --out-dir build --source-maps --extensions .ts,.tsx --config-file ../../babel.config.js --delete-dir-on-start --no-comments",
 		"publish": "lerna publish"

@@ -20,10 +20,9 @@
 	"main": "build/index",
 	"types": "build/index",
 	"scripts": {
-		"build": "npm run clean && npm run compile",
-		"clean": "rm -rf ./build",
-		"compile": "babel src --out-dir build --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
-		"prepublishOnly": "npm run build"
+		"clean": "rm -rf ./dist",
+		"build": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
+		"prepublishOnly": "yarn run clean && yarn run build"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
