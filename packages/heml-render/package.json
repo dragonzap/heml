@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-render",
-	"version": "1.2.2-alpha.18",
+	"version": "1.2.2-alpha.19",
 	"description": "Renderer for HEML",
 	"keywords": [
 		"heml"
@@ -30,7 +30,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-parse": "^1.2.2-alpha.18",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.19",
 		"cheerio": "1.0.0-rc.3",
 		"html-tags": "^3.1.0",
 		"is-promise": "^4.0.0",

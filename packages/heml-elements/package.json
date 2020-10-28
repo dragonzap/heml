@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-elements",
-	"version": "1.2.2-alpha.18",
+	"version": "1.2.2-alpha.19",
 	"description": "Core elements for HEML",
 	"keywords": [
 		"heml"
@@ -30,9 +30,9 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-render": "^1.2.2-alpha.18",
-		"@dragonzap/heml-styles": "^1.2.2-alpha.18",
-		"@dragonzap/heml-utils": "^1.2.2-alpha.18",
+		"@dragonzap/heml-render": "^1.2.2-alpha.19",
+		"@dragonzap/heml-styles": "^1.2.2-alpha.19",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.19",
 		"axios": "^0.21.0",
 		"image-size": "^0.9.3",
 		"is-absolute-url": "^3.0.3",
