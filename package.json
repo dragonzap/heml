@@ -7,7 +7,7 @@
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna run clean && lerna clean --yes",
 		"build": "lerna exec --parallel -- babel src --out-dir build --source-maps --extensions .ts,.tsx --config-file ../../babel.config.js --delete-dir-on-start --no-comments",
-		"publish": "npm run build && npm test && lerna publish"
+		"publish": "yarn run build && lerna publish"
 	},
 	"workspaces": [
 		"packages/*"
