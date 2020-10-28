@@ -6,7 +6,7 @@ import { Cheerio } from 'cheerio';
  * when any given image has an ancestor with a fixed width
  * (fix for outlook)
  * @param  {Cheerio} $
- * @param  {String}  selector
+ * @param  {String}  selector 
  */
 export function fixWidthsFor($: Cheerio, selector: string): void {
 	// get all relative widths and set them to fixed values by default
