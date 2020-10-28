@@ -61,6 +61,6 @@ export async function heml(contents: string, options: HEMLOptions = {}): Promise
 		/** send it back 🎉 */
 		return results;
 	});
-}
+} 
 
 export default heml;
