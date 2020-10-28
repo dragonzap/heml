@@ -2,39 +2,19 @@
 	"name": "heml",
 	"private": true,
 	"scripts": {
+		"postinstall": "lerna link",
+		"prerelease": "yarn build",
 		"lint": "standard 'packages/**/src/**/*.js' 'test/**/*.js' --fix",
 		"test": "jest",
 		"test-full": "npm run bootstrap && npm run build && npm run lint && jest ./test/*.spec.js",
 		"bootstrap": "lerna bootstrap",
 		"clean": "lerna run clean && lerna clean --yes",
 		"build": "lerna exec --parallel -- babel src --out-dir build --source-maps --extensions .ts,.tsx --config-file ../../babel.config.js --delete-dir-on-start --no-comments",
-		"publish": "yarn run build && lerna publish"
+		"publish": "lerna publish"
 	},
 	"workspaces": [
 		"packages/*"
 	],
-	"standard": {
-		"globals": [
-			"afterAll",
-			"afterEach",
-			"beforeAll",
-			"beforeEach",
-			"describe",
-			"expect",
-			"test"
-		]
-	},
-	"dependencies": {
-		"@heml/elements": "file:./packages/heml-elements",
-		"@heml/inline": "file:./packages/heml-inline",
-		"@heml/mailchimp-elements": "file:./packages/heml-mailchimp-elements",
-		"@heml/parse": "file:./packages/heml-parse",
-		"@heml/render": "file:./packages/heml-render",
-		"@heml/styles": "file:./packages/heml-styles",
-		"@heml/utils": "file:./packages/heml-utils",
-		"@heml/validate": "file:./packages/heml-validate",
-		"heml": "file:./packages/heml"
-	},
 	"devDependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",

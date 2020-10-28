@@ -1067,33 +1067,33 @@
     unique-filename "^1.1.1"
     which "^1.3.1"
 
-"@heml/elements@file:./packages/heml-elements", "@heml/elements@file:packages/heml-elements":
-  version "1.2.1"
+"@heml/elements@file:packages/heml-elements":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.1-1ba2a4fd-965f-48ca-91f1-578915199b62-1603844264597/node_modules/@heml/heml-render"
-    "@heml/styles" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.1-1ba2a4fd-965f-48ca-91f1-578915199b62-1603844264597/node_modules/@heml/heml-styles"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.1-1ba2a4fd-965f-48ca-91f1-578915199b62-1603844264597/node_modules/@heml/heml-utils"
+    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-render"
+    "@heml/styles" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-styles"
+    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-elements-1.2.2-alpha.1-779426af-eea3-476f-b212-c4a8876efc0b-1603867861048/node_modules/@heml/heml-utils"
     axios "^0.21.0"
     image-size "^0.9.3"
     is-absolute-url "^3.0.3"
     lodash "^4.17.20"
 
-"@heml/inline@file:./packages/heml-inline", "@heml/inline@file:packages/heml-inline":
-  version "1.2.1"
+"@heml/inline@file:packages/heml-inline":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-inline-1.2.1-ed8f34cd-2ee8-4ffb-b1b1-7199d8b864f7-1603844265362/node_modules/@heml/heml-parse"
+    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-inline-1.2.2-alpha.1-659fcb65-0d4b-45f9-9b36-e2cffb15de42-1603867861047/node_modules/@heml/heml-parse"
     cheerio "1.0.0-rc.3"
     juice "^7.0.0"
     lodash "^4.17.20"
 
-"@heml/mailchimp-elements@file:./packages/heml-mailchimp-elements", "@heml/mailchimp-elements@file:packages/heml-mailchimp-elements":
-  version "1.2.1"
+"@heml/mailchimp-elements@file:packages/heml-mailchimp-elements":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.1-5f7540a5-008e-4a9b-b050-2a2701124970-1603844265381/node_modules/@heml/heml-render"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.1-5f7540a5-008e-4a9b-b050-2a2701124970-1603844265381/node_modules/@heml/heml-utils"
+    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@heml/heml-render"
+    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-mailchimp-elements-1.2.2-alpha.1-e88a9517-7bb5-4ff4-8eb1-09bd647b7383-1603867861050/node_modules/@heml/heml-utils"
 
-"@heml/parse@file:./packages/heml-parse", "@heml/parse@file:packages/heml-parse":
-  version "1.2.1"
+"@heml/parse@file:packages/heml-parse":
+  version "1.2.2-alpha.1"
   dependencies:
     cheerio "1.0.0-rc.3"
     crypto-random-string "^3.3.0"
@@ -1101,19 +1101,19 @@
     juice "^7.0.0"
     lodash "^4.17.20"
 
-"@heml/render@file:./packages/heml-render", "@heml/render@file:packages/heml-render":
-  version "1.2.1"
+"@heml/render@file:packages/heml-render":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-render-1.2.1-6296d03f-2fca-4a73-9d8f-9c93b94abe5d-1603844264771/node_modules/@heml/heml-parse"
+    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-render-1.2.2-alpha.1-824d1109-2e50-47b1-828f-8b51decaef98-1603867861031/node_modules/@heml/heml-parse"
     cheerio "1.0.0-rc.3"
     html-tags "^3.1.0"
     is-promise "^4.0.0"
     lodash "^4.17.20"
 
-"@heml/styles@file:./packages/heml-styles", "@heml/styles@file:packages/heml-styles":
-  version "1.2.1"
+"@heml/styles@file:packages/heml-styles":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-styles-1.2.1-c661eaa5-cbd2-4077-9019-d97efbac94d9-1603844264907/node_modules/@heml/heml-render"
+    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-styles-1.2.2-alpha.1-9079eaa8-ebae-4998-be18-6fbbf6f8e703-1603867861034/node_modules/@heml/heml-render"
     cheerio "1.0.0-rc.3"
     css-declaration-sorter "^6.0.1"
     css-shorthand-expand "^1.2.0"
@@ -1146,20 +1146,20 @@
     postcss-shorthand-expand "^1.0.1"
     postcss-unique-selectors "^4.0.1"
 
-"@heml/utils@file:./packages/heml-utils", "@heml/utils@file:packages/heml-utils":
-  version "1.2.1"
+"@heml/utils@file:packages/heml-utils":
+  version "1.2.2-alpha.1"
   dependencies:
     cheerio "1.0.0-rc.3"
     css-groups "^0.1.1"
     lodash "^4.17.20"
     postcss "^8.1.4"
 
-"@heml/validate@file:./packages/heml-validate", "@heml/validate@file:packages/heml-validate":
-  version "1.2.1"
+"@heml/validate@file:packages/heml-validate":
+  version "1.2.2-alpha.1"
   dependencies:
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.1-1b88f551-d1cc-4b10-97af-fe6a322a2c54-1603844265438/node_modules/@heml/heml-parse"
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.1-1b88f551-d1cc-4b10-97af-fe6a322a2c54-1603844265438/node_modules/@heml/heml-render"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.1-1b88f551-d1cc-4b10-97af-fe6a322a2c54-1603844265438/node_modules/@heml/heml-utils"
+    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-parse"
+    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-render"
+    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-@heml-validate-1.2.2-alpha.1-c22189de-4e33-4307-b7ac-f21716543308-1603867861051/node_modules/@heml/heml-utils"
     cheerio "1.0.0-rc.3"
     lodash "^4.17.20"
 
@@ -2231,6 +2231,13 @@
   integrity sha512-Pzh9O3sTK8V6I1olsXpCfj2k/ygO2q1X0vhhnDrEQyYLHZesWz+zMZMVcwXLCYf0U36EtmyYaFGPfXlTtDHe3A==
   dependencies:
     "@babel/types" "^7.3.0"
+
+"@types/cheerio@^0.22.22":
+  version "0.22.22"
+  resolved "https://registry.yarnpkg.com/@types/cheerio/-/cheerio-0.22.22.tgz#ae71cf4ca59b8bbaf34c99af7a5d6c8894988f5f"
+  integrity sha512-05DYX4zU96IBfZFY+t3Mh88nlwSMtmmzSYaQkKN48T495VV1dkHSah6qYyDTN5ngaS0i0VonH37m+RuzSM0YiA==
+  dependencies:
+    "@types/node" "*"
 
 "@types/glob@^7.1.1":
   version "7.1.3"
@@ -5485,30 +5492,6 @@ has@^1.0.0, has@^1.0.3:
   integrity sha512-f2dvO0VU6Oej7RkWJGrehjbzMAjFp5/VKPp5tTpWIV4JHHZK1/BxbFRtf/siA2SWTe09caDmVtYYzWEIbBS4zw==
   dependencies:
     function-bind "^1.1.1"
-
-"heml@file:./packages/heml":
-  version "1.2.1"
-  dependencies:
-    "@heml/elements" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-elements"
-    "@heml/inline" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-inline"
-    "@heml/mailchimp-elements" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-mailchimp-elements"
-    "@heml/parse" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-parse"
-    "@heml/render" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-render"
-    "@heml/utils" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-utils"
-    "@heml/validate" "file:../../../AppData/Local/Yarn/Cache/v6/npm-heml-1.2.1-7d1becc5-f69a-426c-933f-9b2c41923192-1603844265478/node_modules/heml-validate"
-    boxen "^4.2.0"
-    byte-length "^1.0.2"
-    chalk "^4.1.0"
-    commander "^6.2.0"
-    express "^4.17.1"
-    fs-extra "^9.0.1"
-    gaze "^1.1.3"
-    get-port "^5.1.1"
-    js-beautify "^1.13.0"
-    lodash "^4.17.20"
-    log-update "^4.0.0"
-    open "7.3.0"
-    reload "^3.1.1"
 
 hex-color-regex@^1.0.1, hex-color-regex@^1.1.0:
   version "1.1.0"
