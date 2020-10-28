@@ -12,7 +12,7 @@
 		"type": "git",
 		"url": "https://github.com/dragonzap/heml.git"
 	},
-	"author": "SparkPost <dev-relations@sparkpost.com> (https://sparkpost.com)",
+	"author": "Dragonzap <dragonzap.misi@gmail.com>",
 	"files": [
 		"build/"
 	],
@@ -25,7 +25,8 @@
 		"prepublishOnly": "npm run build"
 	},
 	"publishConfig": {
-		"access": "public"
+		"access": "public",
+		"registry": "https://npm.pkg.github.com/"
 	},
 	"dependencies": {
 		"cheerio": "1.0.0-rc.3",

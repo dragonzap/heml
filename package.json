@@ -33,5 +33,8 @@
 		"standard": "^15.0.0",
 		"through2": "^4.0.2",
 		"typescript": "^4.0.5"
+	},
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com/"
 	}
 }
