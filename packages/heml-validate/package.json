@@ -24,10 +24,7 @@
 		"compile": "babel src --out-dir build --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
 		"prepublishOnly": "npm run build"
 	},
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://npm.pkg.github.com/"
-	},
+	"publishConfig": { "registry": "https://npm.pkg.github.com/" },
 	"dependencies": {
 		"@heml/parse": "file:../heml-parse",
 		"@heml/render": "file:../heml-render",
