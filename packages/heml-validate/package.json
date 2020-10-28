@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-validate",
-	"version": "1.2.2-alpha.14",
+	"version": "1.2.2-alpha.15",
 	"description": "Validator for HEML",
 	"keywords": [
 		"heml"
@@ -28,9 +28,9 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-parse": "^1.2.2-alpha.14",
-		"@dragonzap/heml-render": "^1.2.2-alpha.14",
-		"@dragonzap/heml-utils": "^1.2.2-alpha.14",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.15",
+		"@dragonzap/heml-render": "^1.2.2-alpha.15",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.15",
 		"cheerio": "1.0.0-rc.3",
 		"lodash": "^4.17.20"
 	},

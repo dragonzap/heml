@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-styles",
-	"version": "1.2.2-alpha.14",
+	"version": "1.2.2-alpha.15",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
@@ -28,7 +28,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-render": "^1.2.2-alpha.14",
+		"@dragonzap/heml-render": "^1.2.2-alpha.15",
 		"cheerio": "1.0.0-rc.3",
 		"css-declaration-sorter": "^6.0.1",
 		"css-shorthand-expand": "^1.2.0",
