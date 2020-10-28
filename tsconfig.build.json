@@ -1,15 +1,16 @@
 {
 	"compilerOptions": {
-		"module": "commonjs",
-		"target": "es5",
+		"target": "esnext",
+		"module": "esnext",
 		"sourceMap": true,
 		"allowJs": true,
 		"esModuleInterop": true,
 		"declaration": true,
+		"moduleResolution": "node",
 		"resolveJsonModule": true,
 		"jsxFactory": "HEML.createElement",
 		"jsx": "react",
-		"importHelpers": true,
+		"importHelpers": true
 	},
 
 	"exclude": ["node_modules", "build"]
