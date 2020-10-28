@@ -54,6 +54,6 @@
 		"typescript": "^4.0.5"
 	},
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/dragonzap/"
+		"registry": "https://npm.pkg.github.com/"
 	}
 }
