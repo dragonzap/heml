@@ -33,7 +33,7 @@ export class Container extends HEMLElementContainsText {
 				<Style for="container">{`
           container {
             max-width: 600px;
-            width: 100%;
+            width: 100% ;
             margin: auto;
           }
         `}</Style>
