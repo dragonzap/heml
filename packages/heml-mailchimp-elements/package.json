@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-mailchimp-elements",
-	"version": "1.2.2-alpha.11",
+	"version": "1.2.2-alpha.12",
 	"description": "Mailchimp merge tags for HEML",
 	"keywords": [
 		"heml"
