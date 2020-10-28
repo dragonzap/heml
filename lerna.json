@@ -4,5 +4,9 @@
   "useWorkspaces": true,
   "packages": [
     "packages/*"
-  ]
+  ],
+  "publish": {
+    "conventionalCommits": true,
+    "message": "[skip ci] chore: release"
+  }
 }
