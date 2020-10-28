@@ -25,7 +25,7 @@
 		"prepublishOnly": "npm run build"
 	},
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
+		"registry": "https://npm.pkg.github.com/dragonzap/"
 	},
 	"dependencies": {
 		"@heml/parse": "file:../heml-parse",
