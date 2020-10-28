@@ -11,7 +11,7 @@ declare global {
 		findNodes(q: string | string[]): Cheerio[];
 	}
 }
- 
+
 export type HEMLCheerioStatic = CheerioStatic;
 
 export interface HEMLOptions {
