@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-styles",
-	"version": "1.2.2-alpha.20",
+	"version": "1.2.2-alpha.21",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-render": "^1.2.2-alpha.20",
+		"@dragonzap/heml-render": "^1.2.2-alpha.21",
 		"cheerio": "1.0.0-rc.3",
 		"css-declaration-sorter": "^6.0.1",
 		"css-shorthand-expand": "^1.2.0",
@@ -61,9 +61,9 @@
 		"postcss-ordered-values": "^4.1.2",
 		"postcss-rgba-hex": "^0.3.7",
 		"postcss-safe-parser": "^5.0.2",
+		"postcss-selector-parser": "^6.0.4",
 		"postcss-shorthand-expand": "^1.0.1",
-		"postcss-unique-selectors": "^4.0.1",
-		"postcss-selector-parser": "^6.0.4"
+		"postcss-unique-selectors": "^4.0.1"
 	},
 	"devDependencies": {
 		"@types/cheerio": "^0.22.22",
