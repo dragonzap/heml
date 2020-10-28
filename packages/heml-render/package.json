@@ -1,6 +1,6 @@
 {
 	"name": "@heml/render",
-	"version": "1.2.2-alpha.7",
+	"version": "1.2.2-alpha.8",
 	"description": "Renderer for HEML",
 	"keywords": [
 		"heml"

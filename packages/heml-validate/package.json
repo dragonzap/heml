@@ -1,6 +1,6 @@
 {
 	"name": "@heml/validate",
-	"version": "1.2.2-alpha.7",
+	"version": "1.2.2-alpha.8",
 	"description": "Validator for HEML",
 	"keywords": [
 		"heml"
