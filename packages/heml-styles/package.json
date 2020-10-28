@@ -25,7 +25,7 @@
 		"prepublishOnly": "yarn run clean && yarn run build"
 	},
 	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/"
+		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
 		"@dragonzap/heml-render": "file:../heml-render",
