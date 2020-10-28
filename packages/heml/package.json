@@ -1,6 +1,6 @@
 {
-	"name": "heml",
-	"version": "1.2.2-alpha.17",
+	"name": "@dragonzap/heml",
+	"version": "1.2.2-alpha.18",
 	"description": "HEML is an open source markup language for building responsive email",
 	"keywords": [
 		"heml",
@@ -31,13 +31,13 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-elements": "^1.2.2-alpha.17",
-		"@dragonzap/heml-inline": "^1.2.2-alpha.17",
-		"@dragonzap/heml-mailchimp-elements": "^1.2.2-alpha.17",
-		"@dragonzap/heml-parse": "^1.2.2-alpha.17",
-		"@dragonzap/heml-render": "^1.2.2-alpha.17",
-		"@dragonzap/heml-utils": "^1.2.2-alpha.17",
-		"@dragonzap/heml-validate": "^1.2.2-alpha.17",
+		"@dragonzap/heml-elements": "^1.2.2-alpha.18",
+		"@dragonzap/heml-inline": "^1.2.2-alpha.18",
+		"@dragonzap/heml-mailchimp-elements": "^1.2.2-alpha.18",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.18",
+		"@dragonzap/heml-render": "^1.2.2-alpha.18",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.18",
+		"@dragonzap/heml-validate": "^1.2.2-alpha.18",
 		"boxen": "^4.2.0",
 		"byte-length": "^1.0.2",
 		"chalk": "^4.1.0",
@@ -58,5 +58,5 @@
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
-	"gitHead": "76a70518818b93138c6bbdd8b20bcb4dbf774697"
+	"gitHead": "604b762cfc3f869a43b7432b14786f8d45af82c2"
 }
