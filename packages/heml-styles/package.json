@@ -21,8 +21,9 @@
 	"types": "dist/index",
 	"scripts": {
 		"clean": "rm -rf ./dist",
-		"build": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
-		"prepublishOnly": "yarn run clean && yarn run build"
+		"build:babel": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
+		"build:tsc": "tsc -p tsconfig.build.json",
+		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/dragonzap"
@@ -61,7 +62,8 @@
 		"postcss-rgba-hex": "^0.3.7",
 		"postcss-safe-parser": "^5.0.2",
 		"postcss-shorthand-expand": "^1.0.1",
-		"postcss-unique-selectors": "^4.0.1"
+		"postcss-unique-selectors": "^4.0.1",
+		"postcss-selector-parser": "^6.0.4"
 	},
 	"devDependencies": {
 		"@types/cheerio": "^0.22.22",

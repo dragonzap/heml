@@ -1,5 +1,3 @@
-'use strict';
-
 import { coerceElements } from './coerceElements';
 import { tagAliasSelectors } from './tagAliasSelectors';
 import { findDirectElementSelectors } from './findDirectElementSelectors';
@@ -39,7 +37,7 @@ export const elementExpander = (opts) => {
 	return {
 		postcssPlugin: 'postcss-element-expander',
 		Once(root, { result }) {
-			for (let element of elements) {
+			for (const element of elements) {
 				/**
 				 * add the element tag to any css selectors that implicitly target an element
 				 * .i.e. #my-button that selects <button id="my-button">click me</button>

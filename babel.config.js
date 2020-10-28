@@ -14,10 +14,16 @@ module.exports = (api) => {
       [
         "@babel/preset-react",
         {
+          pragma: "HEML.createElement",
           development: process.env.BABEL_ENV !== "build",
         },
       ],
-      "@babel/preset-typescript",
+      [
+        "@babel/preset-typescript",
+        {
+          jsxPragma: "HEML.createElement",
+        },
+      ],
     ],
     env: {
       build: {

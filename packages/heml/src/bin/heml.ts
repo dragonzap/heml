@@ -4,7 +4,7 @@ import cli from 'commander';
 import { first } from 'lodash';
 import { develop } from './commands/develop';
 import { build } from './commands/build';
-//import { version } from '../../package.json';
+// import { version } from '../../package.json';
 
 const version = '1.1.3';
 
@@ -13,7 +13,12 @@ const args = process.argv.slice(2);
 
 cli.usage('<command> [options]').version(version);
 
-cli.command('develop <file>').description('Develop your email locally.').option('--open', 'Open the email in your browser').option('-p, --port <number>', 'Port for server', '3000').option('-j, --json <string>', 'Parsing data').action(develop);
+cli.command('develop <file>')
+	.description('Develop your email locally.')
+	.option('--open', 'Open the email in your browser')
+	.option('-p, --port <number>', 'Port for server', '3000')
+	.option('-j, --json <string>', 'Parsing data')
+	.action(develop);
 
 cli.command('build <file>')
 	.description('Build an HEML email for sending in the wild.')

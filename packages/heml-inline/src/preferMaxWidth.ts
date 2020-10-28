@@ -1,9 +1,9 @@
 import { setProp, getProp, removeProp } from './styleHelper';
-import { Cheerio } from 'cheerio';
 
-export function preferMaxWidth($: Cheerio, selector: string): void {
+export function preferMaxWidth($: cheerio.Root, selector: string): void {
 	$(selector)
-		.toNodes()
+		.toArray()
+		.map((node) => $(node))
 		.forEach(($node) => {
 			const maxWidth = getProp($node.attr('style'), 'max-width');
 			const width = $node.attr('width') || '';
@@ -14,7 +14,8 @@ export function preferMaxWidth($: Cheerio, selector: string): void {
 
 			const maxWidthIsPxValue = maxWidth && maxWidth.endsWith('px');
 
-			const maxWidthIsSmallerThenWidth = maxWidth.endsWith('%') && width.endsWith('%') && parseInt(maxWidth, 10) < parseInt(width, 10);
+			const maxWidthIsSmallerThenWidth =
+				maxWidth.endsWith('%') && width.endsWith('%') && parseInt(maxWidth, 10) < parseInt(width, 10);
 
 			if (maxWidthIsPxValue || maxWidthIsSmallerThenWidth) {
 				let styles = removeProp($node.attr('style'), 'max-width');

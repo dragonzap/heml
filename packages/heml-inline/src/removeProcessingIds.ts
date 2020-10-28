@@ -1,9 +1,7 @@
-import { Cheerio } from 'cheerio';
-
 /**
  * remove all ids used for processing only
  * @param  {Cheerio} $
  */
-export function removeProcessingIds($: Cheerio): void {
+export function removeProcessingIds($: cheerio.Root): void {
 	$('[id^="heml-"]').removeAttr('id');
 }

@@ -1,14 +1,14 @@
 import { compact, first, last, nth } from 'lodash';
-import { Cheerio } from 'cheerio';
 
 /**
  * finds all the tables that are centered with margins
  * and centers them with the align attribute
  * @param  {Cheerio} $
  */
-export function inlineMargins($: Cheerio): void {
+export function inlineMargins($: cheerio.Root): void {
 	$('table[style*=margin]')
-		.toNodes()
+		.toArray()
+		.map((node) => $(node))
 		.forEach(($el) => {
 			const { left, right } = getSideMargins($el.attr('style'));
 

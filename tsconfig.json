@@ -2,8 +2,8 @@
 	"extends": "./tsconfig.build.json",
 
 	"compilerOptions": {
-		"importHelpers": true,
 		"baseUrl": ".",
+		"noEmit": true,
 		"paths": {
 			"@dragonzap/*": ["packages/*/src"]
 		}

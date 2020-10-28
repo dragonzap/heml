@@ -1,7 +1,6 @@
 import selectorParser from 'postcss-selector-parser';
 import { Rule } from 'postcss';
 import { Element } from './coerceElements';
-import { Node } from 'cheerio';
 
 const simpleSelectorParser = selectorParser();
 
@@ -11,11 +10,10 @@ const simpleSelectorParser = selectorParser();
  * @param  {Array[$node]} aliases array of cheerio nodes
  * @param  {Rule}         rule    postcss node
  */
-export function tagAliasSelectors(element: Element, aliases: Node[], rule: Rule): void {
+export function tagAliasSelectors(element: Element, aliases: cheerio.Cheerio[], rule: Rule): void {
 	if (!aliases) return;
 
-	let selectors = [];
-
+	const selectors = [];
 	rule.selectors.forEach((selector) => {
 		const matchedAliases = aliases.filter((alias) => alias.is(selector.replace(/::?\S*/g, ''))).length > 0;
 
@@ -43,7 +41,7 @@ function targetsTag(selector: string): boolean {
 
 	return (
 		selectors.filter((selector: selectorParser.Selector) => {
-			let selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
+			const selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
 
 			for (const node of selectorNodes) {
 				if (node.type === 'combinator') {
@@ -71,7 +69,7 @@ function targetsElementPseudo(element: Element, selector: string): boolean {
 
 	return (
 		selectors.filter((selector: selectorParser.Selector) => {
-			let selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
+			const selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
 
 			for (const node of selectorNodes) {
 				if (node.type === 'combinator') {
@@ -121,5 +119,5 @@ function appendElementSelector(element: Element, selector: string): string {
 		});
 	});
 
-	return processor.processSync(selector);
+	return processor.processSync(selector as never);
 }

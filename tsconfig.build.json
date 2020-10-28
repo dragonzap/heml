@@ -1,16 +1,16 @@
 {
 	"compilerOptions": {
-		"target": "esnext",
-		"module": "esnext",
+		"module": "commonjs",
+		"target": "es6",
 		"sourceMap": true,
 		"allowJs": true,
 		"esModuleInterop": true,
 		"declaration": true,
-		"moduleResolution": "node",
+		"allowSyntheticDefaultImports": true,
 		"resolveJsonModule": true,
+		"lib": ["es6", "dom"],
 		"jsxFactory": "HEML.createElement",
-		"jsx": "react",
-		"importHelpers": true
+		"jsx": "react"
 	},
 
 	"exclude": ["node_modules", "dist"]

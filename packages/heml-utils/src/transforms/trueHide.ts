@@ -1,10 +1,8 @@
-'use strict';
-
 import { isUndefined } from 'lodash';
 
 import { Rule, Declaration } from 'postcss';
 
-export function trueHide(type?: string, containsTables: boolean = false) {
+export function trueHide(type?: string, containsTables = false) {
 	return (decl: Declaration, originalRule: Rule): void => {
 		if (decl.value.trim().toLowerCase() === 'none') {
 			decl.after(decl.clone({ prop: 'mso-hide', value: 'all' }));

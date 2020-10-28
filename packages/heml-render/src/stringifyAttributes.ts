@@ -13,5 +13,5 @@ export function stringifyAttributes(attrsObj: Record<string, any>): string {
 			return `${key}${_value}`;
 		});
 
-	return attributes.length > 0 ? ' ' + attributes.join(' ') : '';
+	return attributes.length > 0 ? ` ${attributes.join(' ')}` : '';
 }

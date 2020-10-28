@@ -1,0 +1,15 @@
+{
+	"trailingComma": "all",
+	"endOfLine": "crlf",
+	"printWidth": 120,
+	"tabWidth": 4,
+	"useTabs": true,
+	"semi": true,
+	"singleQuote": true,
+	"bracketSpacing": true,
+	"jsxBracketSameLine": true,
+	"arrowParens": "always",
+	"trailingCommaPHP": false,
+	"braceStyle": "1tbs",
+	"phpVersion": "7.4"
+}

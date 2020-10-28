@@ -1,24 +1,20 @@
-import HEML, {
-  HEMLAttributes,
-  HEMLNode,
-  HEMLElement,
-} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 
 interface Attrs extends HEMLAttributes {
-  href: string;
+	href: string;
 }
 
 export class Font extends HEMLElement<Attrs> {
-  protected parent = ["head"];
-  protected children = false;
-  protected static defaultProps = { href: "" };
+	protected parent = ['head'];
+	protected children = false;
+	protected static defaultProps = { href: '' };
 
-  public render(): HEMLNode {
-    return [
-      `<!--[if !mso]><!-->`,
-      <link href={this.props.href} rel="stylesheet" type="text/css" />,
-      <style type="text/css">{`@import url(${this.props.href});`}</style>,
-      `<!--<![endif]-->`,
-    ];
-  }
+	public render(): HEMLNode {
+		return [
+			`<!--[if !mso]><!-->`,
+			<link href={this.props.href} rel="stylesheet" type="text/css" />,
+			<style type="text/css">{`@import url(${this.props.href});`}</style>,
+			`<!--<![endif]-->`,
+		];
+	}
 }

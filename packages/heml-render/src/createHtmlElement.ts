@@ -1,7 +1,7 @@
-import { stringifyAttributes } from './stringifyAttributes';
 import selfClosingHtmlTags from 'html-tags/void';
+import { stringifyAttributes } from './stringifyAttributes';
 
-export function createHtmlElement(name: string, attrs: Record<string, any>, contents: string = ' '): string {
+export function createHtmlElement(name: string, attrs: Record<string, any>, contents = ' '): string {
 	if (!name) {
 		return contents || ' ';
 	}

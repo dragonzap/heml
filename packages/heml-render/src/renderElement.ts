@@ -3,8 +3,12 @@ import { castArray, compact, flattenDeep } from 'lodash';
 import { createHtmlElement } from './createHtmlElement';
 import { HEMLElement, HEMLAttributes, HEMLNode } from './HemlElement';
 
-export function renderElement<TAttributes extends HEMLAttributes = HEMLAttributes>(name: string | typeof HEMLElement, attrs: TAttributes, ...contents: HEMLNode[]): Promise<string> {
-	let flatContents = compact(flattenDeep(castArray(contents)));
+export function renderElement<TAttributes extends HEMLAttributes = HEMLAttributes>(
+	name: string | typeof HEMLElement,
+	attrs: TAttributes,
+	...contents: HEMLNode[]
+): Promise<string> {
+	const flatContents = compact(flattenDeep(castArray(contents)));
 	/** catch all promises in this content and wait for them to finish */
 	if (flatContents.filter(isPromise).length > 0) {
 		return Promise.all(flatContents).then((contents) => render(name, attrs, contents.join('')));
@@ -13,7 +17,11 @@ export function renderElement<TAttributes extends HEMLAttributes = HEMLAttribute
 	return render(name, attrs, flatContents.join(''));
 }
 
-function render<TAttributes extends HEMLAttributes = HEMLAttributes>(name: string | typeof HEMLElement, attrs: TAttributes, contents: string): Promise<string> {
+function render<TAttributes extends HEMLAttributes = HEMLAttributes>(
+	name: string | typeof HEMLElement,
+	attrs: TAttributes,
+	contents: string,
+): Promise<string> {
 	if (!name) {
 		throw new Error(`name must be a HEML element or HTML tag name (.e.g 'td'). Received: ${JSON.stringify(name)}`);
 	}

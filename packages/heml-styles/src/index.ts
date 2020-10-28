@@ -18,8 +18,7 @@ import normalizeRepeatStyle from 'postcss-normalize-repeat-style';
 import normalizePositions from 'postcss-normalize-positions';
 import discardEmpty from 'postcss-discard-empty';
 import uniqueSelectors from 'postcss-unique-selectors';
-import declarationSorter from 'css-declaration-sorter';
-import { mergeAdjacentMedia } from './plugins/postcss-merge-adjacent-media';
+// import { declarationSorter } from 'css-declaration-sorter';
 import discardDuplicates from 'postcss-discard-duplicates';
 import mergeRules from 'postcss-merge-rules';
 
@@ -30,14 +29,15 @@ import rgbaFallback from 'postcss-color-rgba-fallback';
 import formatHexColors from 'postcss-hex-format';
 
 /** email fixes */
-import { shorthandExpand } from './plugins/postcss-expand-shorthand';
 import emailImportant from 'postcss-email-important';
+import mergeLonghand from 'postcss-merge-longhand';
+import { shorthandExpand } from './plugins/postcss-expand-shorthand';
 import zeroOutMargin from './plugins/postcss-zero-out-margin';
 
 /** custom element expander */
 import { elementExpander } from './plugins/postcss-element-expander';
 
-import mergeLonghand from 'postcss-merge-longhand';
+import { mergeAdjacentMedia } from './plugins/postcss-merge-adjacent-media';
 
 export async function hemlstyles(contents: string, options: any = {}): Promise<Result> {
 	const { elements = {}, aliases = {}, plugins = [] } = options;
@@ -62,7 +62,7 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		normalizePositions(),
 		discardEmpty(),
 		uniqueSelectors(),
-		declarationSorter(),
+		// declarationSorter(),
 		mergeAdjacentMedia(),
 		discardDuplicates(),
 		mergeRules(),

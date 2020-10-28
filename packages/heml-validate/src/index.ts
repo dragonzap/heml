@@ -1,6 +1,5 @@
-import { HEMLError } from "@dragonzap/heml-utils";
-import { HEMLOptions } from "@dragonzap/heml-parse";
-import { Cheerio } from "cheerio";
+import { HEMLError } from '@dragonzap/heml-utils';
+import { cheerioFindNodes, HEMLCheerioStatic, HEMLOptions } from '@dragonzap/heml-parse';
 
 /**
  * Validate that a cheerio instance contains valid HEML
@@ -8,25 +7,25 @@ import { Cheerio } from "cheerio";
  * @param  {Object} options
  * @return {Array[HEMLError]} an array of heml errors
  */
-export function validate($: Cheerio, options: HEMLOptions = {}): HEMLError[] {
-  const { elements = [] } = options;
+export function validate($: HEMLCheerioStatic, options: HEMLOptions = {}): HEMLError[] {
+	const { elements = [] } = options;
 
-  let errors: HEMLError[] = [];
+	const errors: HEMLError[] = [];
 
-  elements.forEach((element) => {
-    const $nodes = $.findNodes(element.name.toLowerCase());
+	elements.forEach((element) => {
+		const $nodes = cheerioFindNodes($, element.name.toLowerCase());
 
-    $nodes.forEach(($node) => {
-      const contents = $node.html();
-      const attrs = $node[0].attribs;
+		$nodes.forEach(($node) => {
+			const contents = $node.html();
+			const attrs = $node[0].attribs;
 
-      try {
-        const renderedValue = new element(attrs, contents).validate($node, $);
-      } catch (e) {
-        errors.push(e);
-      }
-    });
-  });
+			try {
+				const renderedValue = new element(attrs, contents).validate($node, $);
+			} catch (e) {
+				errors.push(e);
+			}
+		});
+	});
 
-  return errors;
+	return errors;
 }

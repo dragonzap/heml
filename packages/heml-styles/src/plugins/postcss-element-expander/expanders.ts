@@ -10,7 +10,7 @@ import { Element } from './coerceElements';
  */
 export function replaceElementTagMentions(element: Element, selector: string): string {
 	const processor = selectorParser((selectors) => {
-		let nodesToReplace = [];
+		const nodesToReplace = [];
 
 		/**
 		 * looping breaks if we replace dynamically
@@ -25,7 +25,7 @@ export function replaceElementTagMentions(element: Element, selector: string): s
 		nodesToReplace.forEach((node) => node.replaceWith(selectorParser.string({ value: element.pseudos.root })));
 	});
 
-	return processor.processSync(selector);
+	return processor.processSync(selector as never);
 }
 
 /**
@@ -36,7 +36,7 @@ export function replaceElementTagMentions(element: Element, selector: string): s
  */
 export function replaceElementPseudoMentions(element: Element, selector: string): string {
 	const processor = selectorParser((selectors) => {
-		let nodesToReplace = [];
+		const nodesToReplace = [];
 
 		/**
 		 * looping breaks if we replace dynamically
@@ -66,7 +66,7 @@ export function replaceElementPseudoMentions(element: Element, selector: string)
 		nodesToReplace.forEach(({ node, value }) => node.replaceWith(` ${value}`));
 	});
 
-	return processor.processSync(selector);
+	return processor.processSync(selector as never);
 }
 
 /**
@@ -79,9 +79,9 @@ export function expandElementRule(element: Element, selectors: string[] = [], or
 	/** early return if we don't have any selectors */
 	if (selectors.length === 0) return [];
 
-	let usedProps = [];
-	let expandedRules = [];
-	let defaultRules = [];
+	const usedProps = [];
+	const expandedRules = [];
+	const defaultRules = [];
 
 	/** create the base rule */
 	const baseRule = originalRule.clone();

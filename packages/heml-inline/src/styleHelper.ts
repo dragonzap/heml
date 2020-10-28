@@ -7,11 +7,11 @@ import { compact } from 'lodash';
  *
  * @return {String} style
  */
-export function getProp(style: string = '', prop: string): string {
+export function getProp(style = '', prop: string): string {
 	prop = prop.trim().toLowerCase();
 	const decls = style.split(';');
 
-	let value = undefined;
+	let value;
 
 	decls.forEach((decl) => {
 		if (decl.trim().toLowerCase().startsWith(`${prop}:`)) {
@@ -30,7 +30,7 @@ export function getProp(style: string = '', prop: string): string {
  *
  * @return {String} style
  */
-export function setProp(style: string = '', prop: string, value: string): string {
+export function setProp(style = '', prop: string, value: string): string {
 	prop = prop.trim().toLowerCase();
 	const decls = style.split(';');
 
@@ -59,7 +59,7 @@ export function setProp(style: string = '', prop: string, value: string): string
  *
  * @return {String} style
  */
-export function removeProp(style: string = '', prop: string): string {
+export function removeProp(style = '', prop: string): string {
 	prop = prop.trim().toLowerCase();
 	const decls = style.split(';');
 
