@@ -1,5 +1,4 @@
 {
-	"name": "heml",
 	"private": true,
 	"scripts": {
 		"postinstall": "lerna link",
@@ -36,5 +35,6 @@
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/"
-	}
+	},
+	"name": "heml"
 }
