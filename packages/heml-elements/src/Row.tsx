@@ -1,4 +1,4 @@
-import { cheerioFindNodes } from '@dragonzap/heml-parse/src';
+import { cheerioFindNodes } from '@dragonzap/heml-parse';
 import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms } from '@dragonzap/heml-utils';
 import { sum, max, isUndefined } from 'lodash';

@@ -2,7 +2,7 @@ import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-ren
 import isAbsoluteUrl from 'is-absolute-url';
 import { resolve } from 'url';
 import { has, first } from 'lodash';
-import { cheerioFindNodes } from '@dragonzap/heml-parse/src';
+import { cheerioFindNodes } from '@dragonzap/heml-parse';
 import { Meta } from './Meta';
 
 interface Attrs extends HEMLAttributes {
