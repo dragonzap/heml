@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-mailchimp-elements",
-	"version": "1.2.2-alpha.23",
+	"version": "1.2.2-alpha.24",
 	"description": "Mailchimp merge tags for HEML",
 	"keywords": [
 		"heml"
@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-render": "^1.2.2-alpha.23",
+		"@dragonzap/heml-render": "^1.2.2-alpha.24",
 		"@dragonzap/heml-utils": "^1.2.2-alpha.21"
 	},
 	"devDependencies": {
