@@ -10,7 +10,7 @@ export function stringifyAttributes(attrsObj: Record<string, any>): string {
 
 			_value = value === true ? '' : `="${String(value)}"`;
 
-			return `${key}${_value}`;
+			return `${key === 'className' ? 'class' : key}${_value}`;
 		});
 
 	return attributes.length > 0 ? ` ${attributes.join(' ')}` : '';
