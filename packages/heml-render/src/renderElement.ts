@@ -11,7 +11,7 @@ export function renderElement<TAttributes extends HEMLAttributes = HEMLAttribute
 	const flatContents = compact(flattenDeep(castArray(contents)));
 	/** catch all promises in this content and wait for them to finish */
 	if (flatContents.filter(isPromise).length > 0) {
-		return Promise.all(flatContents).then((contents) => render(name, attrs, contents.join('')));
+		return Promise.all(flatContents).then((results) => render(name, attrs, results.join('')));
 	}
 
 	return render(name, attrs, flatContents.join(''));

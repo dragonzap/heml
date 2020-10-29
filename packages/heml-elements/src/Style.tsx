@@ -32,15 +32,19 @@ export class Style extends HEMLElement<Attrs> {
 		for: 'global' as const,
 	};
 
-	public static preRender(globals: HEMLGlobals): void {
+	private static reset(): void {
 		Style.styleMap = new Map([['global', []]]);
 		Style.options = {
 			plugins: [],
 			elements: {},
 			aliases: {},
 		};
+	}
 
-		for (const element of globals.elements) {
+	public static preRender(globals: HEMLGlobals): void {
+		Style.reset();
+
+		globals.elements.forEach((element) => {
 			const name = element.name.toLowerCase();
 
 			// TODO: Not supported
@@ -55,7 +59,7 @@ export class Style extends HEMLElement<Attrs> {
 			}
 
 			Style.options.aliases[name] = cheerioFindNodes(globals.$, name);
-		}
+		});
 	}
 
 	public render(): HEMLNode {
@@ -145,7 +149,7 @@ export class Style extends HEMLElement<Attrs> {
 			html += '</style>';
 
 			/** reset the styles and options */
-			Style.styleMap = Style.options = null;
+			Style.reset();
 
 			return html;
 		});
