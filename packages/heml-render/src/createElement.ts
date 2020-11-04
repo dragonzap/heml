@@ -1,4 +1,4 @@
-import { HEMLAttributes, HEMLElement, HEMLNode } from './HemlElement';
+import type { HEMLAttributes, HEMLElement, HEMLNode } from './HemlElement';
 import { renderElement } from './renderElement';
 
 export function createElement<TAttributes extends HEMLAttributes = HEMLAttributes>(

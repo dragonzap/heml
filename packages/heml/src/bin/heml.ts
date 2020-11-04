@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import cli from 'commander';
-import { first } from 'lodash';
+import first from 'lodash/first';
 import { develop } from './commands/develop';
 import { build } from './commands/build';
 // import { version } from '../../package.json';

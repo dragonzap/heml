@@ -30,16 +30,18 @@ export class Column extends HEMLElementContainsText<Attrs> {
 	};
 
 	public render(): HEMLNode {
-		const { small: _small, large: _large, contents, ...props } = this.props;
+		const { small: smallSize, large: largeSize, contents, ...props } = this.props;
 
-		const small = parseInt(_small, 10);
-		const large = parseInt(_large, 10);
+		const small = parseInt(smallSize, 10);
+		const large = parseInt(largeSize, 10);
 		const largeWidth = `${Math.round((100 * large) / 12)}%`;
 		props.class += ` column col-sm-${small}`;
 
 		return [
 			<td {...props} width={largeWidth} style={`width: ${largeWidth};`} valign="top">
-				{Array.isArray(contents) && contents.length === 0 ? '&nbsp;' : contents}
+				{(Array.isArray(contents) || typeof contents === 'string') && contents.length === 0
+					? '&nbsp;'
+					: contents}
 			</td>,
 			small === large ? (
 				''

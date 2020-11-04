@@ -1,4 +1,7 @@
-import { isPlainObject, escapeRegExp, isString, compact } from 'lodash';
+import isPlainObject from 'lodash/isPlainObject';
+import escapeRegExp from 'lodash/escapeRegExp';
+import isString from 'lodash/isString';
+import compact from 'lodash/compact';
 import { Declaration, Rule } from 'postcss';
 
 /**
@@ -19,7 +22,7 @@ import { Declaration, Rule } from 'postcss';
 
 export interface Element {
 	tag: string;
-	pseudos: { root: string; text: string };
+	pseudos: Record<string, any>; // { root: string; text: string };
 	defaults: string[];
 	rules: Record<string, { prop: RegExp; transform: (decl: Declaration, originalRule: Rule) => {} }[]>;
 }
@@ -30,40 +33,44 @@ export interface Element {
  * @return {Array}  elements in a more usable format
  */
 export function coerceElements(originalElements: Record<string, Rule>): Element[] {
-	let elements = [];
+	return Object.entries(originalElements).map(([tag, originalRules]) => {
+		const defaults = [];
+		const pseudos = {};
+		const rules = {};
 
-	for (const [tag, originalRules] of Object.entries(originalElements)) {
-		let defaults = [];
-		let pseudos = {};
-		let rules = {};
-
-		for (const [selector, decls] of Object.entries(originalRules)) {
+		Object.entries(originalRules).forEach(([selector, decls]) => {
 			/** gather all the default values */
-			if (findAtDecl(decls, 'default')) defaults.push(selector);
+			if (findAtDecl(decls, 'default')) {
+				defaults.push(selector);
+			}
 
 			/** gather all the pseudo selectors */
-			let pseudo = findAtDecl(decls, 'pseudo');
-			if (pseudo) pseudos[pseudo] = selector;
+			const pseudo = findAtDecl(decls, 'pseudo');
+			if (pseudo) {
+				pseudos[pseudo] = selector;
+			}
 
 			/** remap the rules to always be { prop: RegExp, transform: Function } */
 			rules[selector] = compact(
 				decls.map((decl) => {
-					if (isPlainObject(decl) && Object.keys(decl).length === 0) return;
+					if (isPlainObject(decl) && Object.keys(decl).length === 0) {
+						return undefined;
+					}
 
 					const prop = isPlainObject(decl) ? Object.keys(decl)[0] : decl;
 					const transform = isPlainObject(decl) ? Object.values(decl)[0] : () => {};
 
-					if (isString(prop) && prop.startsWith('@')) return;
+					if (isString(prop) && prop.startsWith('@')) {
+						return undefined;
+					}
 
 					return { prop: toRegExp(prop), transform };
 				}),
 			);
-		}
+		});
 
-		elements.push({ tag, defaults, pseudos, rules });
-	}
-
-	return elements;
+		return { tag, defaults, pseudos, rules };
+	});
 }
 
 /**
@@ -73,12 +80,14 @@ export function coerceElements(originalElements: Record<string, Rule>): Element[
  * @return {Any}           the found value
  */
 function findAtDecl(decls: (Declaration | string)[], prop: string): any {
-	const foundDecls = decls.filter((decl) => {
-		return (isPlainObject(decl) && Object.keys(decl).length > 0 && Object.keys(decl)[0] === `@${prop}`) || decl === `@${prop}`;
-	});
+	const foundDecls = decls.filter(
+		(decl) =>
+			(isPlainObject(decl) && Object.keys(decl).length > 0 && Object.keys(decl)[0] === `@${prop}`) ||
+			decl === `@${prop}`,
+	);
 
 	if (foundDecls.length === 0) {
-		return;
+		return undefined;
 	}
 
 	const decl = foundDecls[0];

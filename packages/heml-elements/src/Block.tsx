@@ -4,7 +4,7 @@ import { Style } from './Style';
 
 const { trueHide, ieAlignFallback } = transforms;
 
-const { background, margin, padding, border, borderRadius, width, height, table, box } = cssGroups;
+const { background, margin, padding, border, borderRadius, width, height, table, box, text, font } = cssGroups;
 
 interface Attrs extends HEMLAttributes {
 	align: 'left' | 'right' | 'center';
@@ -30,6 +30,8 @@ export class Block extends HEMLElementContainsText<Attrs> {
 			padding,
 			border,
 			borderRadius,
+			text,
+			font,
 			'vertical-align',
 		],
 	};

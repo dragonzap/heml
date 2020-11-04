@@ -7,7 +7,7 @@ import boxen from 'boxen';
 import gaze from 'gaze';
 import getPort from 'get-port';
 import { red as error, yellow as code, bgRed, bgBlue, bold, red, green } from 'chalk';
-import { HEMLOptions } from '@dragonzap/heml-parse';
+import { HEMLOptions } from '@dragonzap/heml-render';
 import { isHemlFile } from '../utils/isHemlFile';
 import { renderHemlFile } from '../utils/renderHemlFile';
 import { buildErrorPage } from '../utils/buildErrorPage';

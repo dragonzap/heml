@@ -1,5 +1,5 @@
-import { HEMLError } from '@dragonzap/heml-utils';
-import { cheerioFindNodes, HEMLCheerioStatic, HEMLOptions } from '@dragonzap/heml-parse';
+import { HEMLOptions } from '@dragonzap/heml-render';
+import { cheerioFindNodes, HEMLError } from '@dragonzap/heml-utils';
 
 /**
  * Validate that a cheerio instance contains valid HEML
@@ -7,7 +7,7 @@ import { cheerioFindNodes, HEMLCheerioStatic, HEMLOptions } from '@dragonzap/hem
  * @param  {Object} options
  * @return {Array[HEMLError]} an array of heml errors
  */
-export function validate($: HEMLCheerioStatic, options: HEMLOptions = {}): HEMLError[] {
+export function validate($: cheerio.Root, options: HEMLOptions = {}): HEMLError[] {
 	const { elements = [] } = options;
 
 	const errors: HEMLError[] = [];

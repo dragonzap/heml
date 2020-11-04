@@ -21,6 +21,7 @@ import uniqueSelectors from 'postcss-unique-selectors';
 // import { declarationSorter } from 'css-declaration-sorter';
 import discardDuplicates from 'postcss-discard-duplicates';
 import mergeRules from 'postcss-merge-rules';
+import cssnano from 'cssnano';
 
 /** format colors */
 import rgbToHex from 'postcss-rgba-hex';
@@ -46,6 +47,7 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		...plugins,
 
 		// /** optimize css */
+		// cssnano(),
 		discardComments({ removeAll: false }),
 		minifyGradients(),
 		normalizeDisplayValues(),
@@ -82,5 +84,5 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		elementExpander({ elements, aliases }),
 		mergeLonghand(),
 		discardEmpty(),
-	]).process(contents, { parser: safeParser });
+	]).process(contents, { parser: safeParser, from: undefined });
 }

@@ -1,17 +1,17 @@
-import HEML, { HEMLNode, HEMLElement } from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
-import { Meta } from "./Meta";
+import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import { Meta } from './Meta';
 
 export class Subject extends HEMLElement {
-  protected parent = ["head"];
-  protected unique = true;
+	protected parent = ['head'];
+	protected unique = true;
 
-  public render(): HEMLNode {
-    Meta.set("subject", this.props.contents + "");
+	public render(): HEMLNode {
+		Meta.set('subject', `${this.props.contents}`);
 
-    return undefined;
-  }
+		return undefined;
+	}
 
-  public static async flush(): Promise<string> {
-    return new Promise((resolve) => resolve(Meta.get("subject") || ""));
-  }
+	public static async flush(): Promise<string> {
+		return new Promise((resolve) => resolve(Meta.get('subject') || ''));
+	}
 }

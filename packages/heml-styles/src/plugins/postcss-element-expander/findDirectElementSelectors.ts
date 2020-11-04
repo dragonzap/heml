@@ -1,6 +1,7 @@
 import selectorParser from 'postcss-selector-parser';
-const simpleSelectorParser = selectorParser();
 import { Element } from './coerceElements';
+
+const simpleSelectorParser = selectorParser();
 
 /**
  * find all selectors that target the give element
@@ -13,7 +14,7 @@ export function findDirectElementSelectors(element: Element, selector: string): 
 
 	return selectors
 		.filter((selector: selectorParser.Selector) => {
-			let selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
+			const selectorNodes = selector.nodes.concat([]).reverse(); // clone the array
 
 			for (const node of selectorNodes) {
 				if (node.type === 'combinator') {

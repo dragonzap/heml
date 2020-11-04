@@ -1,4 +1,7 @@
-import { compact, first, last, nth } from 'lodash';
+import compact from 'lodash/compact';
+import first from 'lodash/first';
+import last from 'lodash/last';
+import nth from 'lodash/nth';
 
 /**
  * finds all the tables that are centered with margins

@@ -7,6 +7,8 @@ interface Attrs extends HEMLAttributes {
 export class Font extends HEMLElement<Attrs> {
 	protected parent = ['head'];
 	protected children = false;
+	protected attrs = ['href'];
+
 	protected static defaultProps = { href: '' };
 
 	public render(): HEMLNode {

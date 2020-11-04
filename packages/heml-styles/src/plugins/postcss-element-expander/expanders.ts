@@ -1,6 +1,6 @@
 import selectorParser from 'postcss-selector-parser';
-import { Rule } from 'postcss';
-import { Element } from './coerceElements';
+import type { Rule } from 'postcss';
+import type { Element } from './coerceElements';
 
 /**
  * replace all custom element tag selectors
@@ -16,13 +16,13 @@ export function replaceElementTagMentions(element: Element, selector: string): s
 		 * looping breaks if we replace dynamically
 		 * so instead collect an array of nodes to swap and do it at the end
 		 */
-		selectors.walkTags((node) => {
+		selectors.walk((node) => {
 			if (node.value === element.tag && node.type === 'tag') {
 				nodesToReplace.push(node);
 			}
 		});
 
-		nodesToReplace.forEach((node) => node.replaceWith(selectorParser.string({ value: element.pseudos.root })));
+		nodesToReplace.forEach((node) => node.replaceWith(selectorParser.tag({ value: element.pseudos.root })));
 	});
 
 	return processor.processSync(selector as never);
@@ -42,10 +42,10 @@ export function replaceElementPseudoMentions(element: Element, selector: string)
 		 * looping breaks if we replace dynamically
 		 * so instead collect an array of nodes to swap and do it at the end
 		 */
-		selectors.each((selector: selectorParser.Selector) => {
+		selectors.each((selectorItem: selectorParser.Selector) => {
 			let onElementTag = false;
 
-			selector.each((node) => {
+			selectorItem.each((node) => {
 				if (node.type === 'tag' && node.value === element.tag) {
 					onElementTag = true;
 				} else if (node.type === 'combinator') {
@@ -75,9 +75,11 @@ export function replaceElementPseudoMentions(element: Element, selector: string)
  * @param {Array}        selectors    the matched selectors to for
  * @return {Array[Rule]}              an array of the expanded rules
  */
-export function expandElementRule(element: Element, selectors: string[] = [], originalRule: Rule) {
+export function expandElementRule(element: Element, selectors: string[] = [], originalRule: Rule): Rule[] {
 	/** early return if we don't have any selectors */
-	if (selectors.length === 0) return [];
+	if (selectors.length === 0) {
+		return [];
+	}
 
 	const usedProps = [];
 	const expandedRules = [];
@@ -89,7 +91,7 @@ export function expandElementRule(element: Element, selectors: string[] = [], or
 	baseRule.selector = replaceElementTagMentions(element, baseRule.selector);
 
 	/** create postcss rules for each element rule */
-	for (const [ruleSelector, ruleDecls] of Object.entries(element.rules)) {
+	Object.entries(element.rules).forEach(([ruleSelector, ruleDecls]) => {
 		const isRoot = element.pseudos.root === ruleSelector;
 		const isDefault = element.defaults.includes(ruleSelector);
 		const expandedRule = baseRule.clone();
@@ -109,15 +111,15 @@ export function expandElementRule(element: Element, selectors: string[] = [], or
 			const matchedRuleDecls = ruleDecls.filter(({ prop }) => prop.test(decl.prop));
 
 			if (matchedRuleDecls.length === 0) {
-				return decl.remove();
+				decl.remove();
+			} else {
+				usedProps.push(decl.prop);
+				matchedRuleDecls.forEach(({ transform }) => transform(decl, originalRule));
 			}
-
-			usedProps.push(decl.prop);
-			matchedRuleDecls.forEach(({ transform }) => transform(decl, originalRule));
 		});
 
 		expandedRules.push(expandedRule);
-	}
+	});
 
 	baseRule.walkDecls((decl) => {
 		if (!usedProps.includes(decl.prop)) {

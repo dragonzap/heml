@@ -1,7 +1,7 @@
 import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, HEMLError } from '@dragonzap/heml-utils';
-import { omit, pick } from 'lodash';
-import { HEMLCheerioStatic } from '@dragonzap/heml-parse';
+import omit from 'lodash/omit';
+import pick from 'lodash/pick';
 import { Style } from './Style';
 
 const { background, margin, padding, border, borderRadius, width, height, table, text, font, box } = cssGroups;
@@ -31,7 +31,7 @@ export class Button extends HEMLElement<Attrs> {
 		const { contents, align, ...props } = this.props;
 		props.class += ' button';
 
-		return (
+		return [
 			<div {...omit(props, ['href', 'target'])}>
 				<table role="presentation" width="100%" align="left" border="0" cellPadding="0" cellSpacing="0">
 					<tr>
@@ -68,11 +68,12 @@ export class Button extends HEMLElement<Attrs> {
             text-decoration: none;
           }
         `}</Style>
-			</div>
-		);
+			</div>,
+			<div style="clear:both;line-height:1px">&nbsp;</div>,
+		];
 	}
 
-	public validate($node: cheerio.Cheerio, $: HEMLCheerioStatic): void {
+	public validate($node: cheerio.Cheerio, $: cheerio.Root): void {
 		super.validate($node, $);
 
 		if (!['left', 'center', 'right'].includes(this.props.align)) {

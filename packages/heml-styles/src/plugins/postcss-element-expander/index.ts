@@ -31,21 +31,12 @@ import { replaceElementTagMentions, replaceElementPseudoMentions, expandElementR
  * @param  {[type]} options.$        A cheerio instance
  */
 export const elementExpander = (opts) => {
-	const { aliases } = opts;
 	const elements = coerceElements(opts.elements);
 
 	return {
 		postcssPlugin: 'postcss-element-expander',
 		Once(root, { result }) {
-			for (const element of elements) {
-				/**
-				 * add the element tag to any css selectors that implicitly target an element
-				 * .i.e. #my-button that selects <button id="my-button">click me</button>
-				 */
-				root.walkRules((rule) => {
-					tagAliasSelectors(element, aliases[element.tag], rule);
-				});
-
+			elements.forEach((element) => {
 				/**
 				 * There are 3 (non-mutually exclusive) possibilities when it contains the element tag
 				 *
@@ -79,7 +70,7 @@ export const elementExpander = (opts) => {
 					/** Replace all mentions of the element tag */
 					rule.selector = replaceElementTagMentions(element, rule.selector);
 				});
-			}
+			});
 		},
 	};
 };

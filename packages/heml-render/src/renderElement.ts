@@ -1,21 +1,10 @@
 import isPromise from 'is-promise';
-import { castArray, compact, flattenDeep } from 'lodash';
+import castArray from 'lodash/castArray';
+import compact from 'lodash/compact';
+import flattenDeep from 'lodash/flattenDeep';
 import { createHtmlElement } from './createHtmlElement';
-import { HEMLElement, HEMLAttributes, HEMLNode } from './HemlElement';
-
-export function renderElement<TAttributes extends HEMLAttributes = HEMLAttributes>(
-	name: string | typeof HEMLElement,
-	attrs: TAttributes,
-	...contents: HEMLNode[]
-): Promise<string> {
-	const flatContents = compact(flattenDeep(castArray(contents)));
-	/** catch all promises in this content and wait for them to finish */
-	if (flatContents.filter(isPromise).length > 0) {
-		return Promise.all(flatContents).then((results) => render(name, attrs, results.join('')));
-	}
-
-	return render(name, attrs, flatContents.join(''));
-}
+import type { HEMLAttributes, HEMLNode } from './HemlElement';
+import { HEMLElement } from './HemlElement';
 
 function render<TAttributes extends HEMLAttributes = HEMLAttributes>(
 	name: string | typeof HEMLElement,
@@ -39,4 +28,18 @@ function render<TAttributes extends HEMLAttributes = HEMLAttributes>(
 	}
 
 	return new name(attrs, contents).asyncRender();
+}
+
+export function renderElement<TAttributes extends HEMLAttributes = HEMLAttributes>(
+	name: string | typeof HEMLElement,
+	attrs: TAttributes,
+	...contents: HEMLNode[]
+): Promise<string> {
+	const flatContents = compact(flattenDeep(castArray(contents)));
+	/** catch all promises in this content and wait for them to finish */
+	if (flatContents.filter(isPromise).length > 0) {
+		return Promise.all(flatContents).then((results) => render(name, attrs, results.join('')));
+	}
+
+	return render(name, attrs, flatContents.join(''));
 }

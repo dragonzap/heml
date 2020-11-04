@@ -1,5 +1,5 @@
 import juice from 'juice';
-import { HEMLOptions } from '@dragonzap/heml-parse';
+import { HEMLOptions } from '@dragonzap/heml-render';
 import { inlineMargins } from './inlineMargins';
 import { fixWidthsFor } from './fixWidthsFor';
 import { removeProcessingIds } from './removeProcessingIds';

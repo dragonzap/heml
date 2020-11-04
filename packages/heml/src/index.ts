@@ -1,11 +1,12 @@
-import { parse, HEMLOptions } from '@dragonzap/heml-parse';
-import { render } from '@dragonzap/heml-render';
+import { parse } from '@dragonzap/heml-parse';
+import { render, HEMLOptions } from '@dragonzap/heml-render';
 import { inline } from '@dragonzap/heml-inline';
 import { validate } from '@dragonzap/heml-validate';
 import { condition, HEMLError } from '@dragonzap/heml-utils';
 import { byteLength } from 'byte-length';
 import { html as beautify } from 'js-beautify';
-import { toArray, flattenDeep } from 'lodash';
+import flattenDeep from 'lodash/flattenDeep';
+import toArray from 'lodash/toArray';
 import * as coreElements from '@dragonzap/heml-elements';
 
 export interface HEMLOutput {
@@ -21,6 +22,7 @@ export interface HEMLOutput {
  * @return {Object}          { metadata, html, errors }
  */
 export async function heml(contents: string, options: HEMLOptions = {}): Promise<HEMLOutput> {
+	const start = new Date().getTime();
 	const results: HEMLOutput = { metadata: undefined, html: '', errors: [] };
 	const { beautify: beautifyOptions = {}, validate: validateOption = 'soft' } = options;
 
@@ -55,8 +57,11 @@ export async function heml(contents: string, options: HEMLOptions = {}): Promise
 		);
 
 		/** final touches 👌 */
-		metadata.size = `${(byteLength(results.html) / 1024).toFixed(2)}kb`;
-		results.metadata = metadata;
+		results.metadata = {
+			...metadata,
+			size: `${(byteLength(results.html) / 1024).toFixed(2)}kb`,
+			time: `${new Date().getTime() - start}ms`,
+		};
 
 		/** send it back 🎉 */
 		return results;

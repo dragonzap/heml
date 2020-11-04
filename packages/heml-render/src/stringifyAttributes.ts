@@ -1,16 +1,31 @@
+import kebabCase from 'lodash/kebabCase';
+
+function getPropName(name: string): string {
+	if (name === 'className') {
+		return 'class';
+	}
+
+	if (name.startsWith('xmlns')) {
+		return name;
+	}
+
+	return kebabCase(name);
+}
+
 /** escapeless version of npmjs.com/stringify-attributes */
-export function stringifyAttributes(attrsObj: Record<string, any>): string {
+export function stringifyAttributes(attrsObj: Record<string, boolean | number | string | string[]>): string {
 	const attributes = Object.entries(attrsObj)
-		.filter(([key, value]) => value !== false)
+		.map(([key, value]) => [getPropName(key), value])
+		.filter(([key, value]) => value !== false && (key !== 'class' || value))
 		.map(([key, value]) => {
-			let _value = value;
+			let htmlValue = '';
 			if (Array.isArray(value)) {
-				_value = value.join(' ');
+				htmlValue = value.join(' ');
 			}
 
-			_value = value === true ? '' : `="${String(value)}"`;
+			htmlValue = value === true ? '' : `="${value}"`;
 
-			return `${key === 'className' ? 'class' : key}${_value}`;
+			return `${key}${htmlValue}`;
 		});
 
 	return attributes.length > 0 ? ` ${attributes.join(' ')}` : '';

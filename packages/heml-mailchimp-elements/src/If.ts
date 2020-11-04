@@ -1,38 +1,50 @@
-import HEML, {
-  HEMLAttributes,
-  HEMLNode,
-  HEMLElement,
-} from "@dragonzap/heml-render"; // eslint-disable-line no-unused-vars
-import template from "lodash/template";
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import template from 'lodash/template';
 
 interface Attrs extends HEMLAttributes {
-  condition: string;
+	condition: string;
+	placeholder: 'true' | 'false';
 }
 
 export class If extends HEMLElement<Attrs> {
-  protected children = true;
-  protected attrs = ["condition"];
-  protected static defaultProps = { condition: "" };
+	protected children = true;
+	protected attrs = ['condition', 'placeholder'];
+	protected static defaultProps = { condition: '', placeholder: '' };
 
-  public render(): HEMLNode {
-    const { condition, contents } = this.props;
+	public render(): HEMLNode {
+		const { condition, contents, placeholder } = this.props;
 
-    const {
-      options: { devMode = false, data = {} },
-    } = HEMLElement.globals;
-    if (devMode) {
-      const compile = template(
-        condition.replace(/(.+)\_(.+)/, "$1.$2").replace(/([\w_]+)/g, "${$1}")
-      );
-      const result = eval(compile(data));
+		const {
+			options: { devMode = false, data = {} },
+		} = HEMLElement.globals;
+		if (devMode) {
+			if (!data || !Object.keys(data).length) {
+				if (placeholder !== 'false') {
+					return contents;
+				}
 
-      if (result) {
-        return contents;
-      }
+				return '';
+			}
 
-      return "";
-    }
+			const text = condition.replace(/(\w[\w\d._\-+]*)/g, '${ $1 }').replace(/\$\{ ([a-zA-Z])/g, '${ data.$1');
+			const compile = template(text);
+			const compiledText = compile({
+				data,
+			});
 
-    return [`*|IF:${condition}|*`, contents, `*|END:IF|*`];
-  }
+			try {
+				const result = eval(compiledText);
+
+				if (result) {
+					return contents;
+				}
+			} catch (e) {
+				//  console.error(e);
+			}
+
+			return '';
+		}
+
+		return [`*|IF:${condition}|*`, contents, `*|END:IF|*`];
+	}
 }

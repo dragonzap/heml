@@ -21,7 +21,7 @@ export class Body extends HEMLElementContainsText {
 		props.class += ' body';
 
 		return (
-			<body {...props} style="margin: 0; width: 100%;">
+			<body {...props} width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly;">
 				{Preview.flush()}
 				<table
 					className="bodyTable"

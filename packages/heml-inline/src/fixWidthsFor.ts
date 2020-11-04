@@ -1,4 +1,3 @@
-import { HEMLCheerioStatic } from '@dragonzap/heml-parse/src';
 import { setProp, getProp } from './styleHelper';
 
 /**
@@ -8,7 +7,7 @@ import { setProp, getProp } from './styleHelper';
  * @param  {Cheerio} $
  * @param  {String}  selector
  */
-export function fixWidthsFor($: HEMLCheerioStatic, selector: string): void {
+export function fixWidthsFor($: cheerio.Root, selector: string): void {
 	// get all relative widths and set them to fixed values by default
 	$(`${selector}`)
 		.filter(`[width*="%"]`)

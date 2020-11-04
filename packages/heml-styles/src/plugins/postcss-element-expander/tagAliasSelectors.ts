@@ -103,18 +103,18 @@ function appendElementSelector(element: Element, selector: string): string {
 		/**
 		 * looping breaks if we insert dynamically
 		 */
-		selectors.each((selector: selectorParser.Selector) => {
+		selectors.each((selectorItem: selectorParser.Selector) => {
 			const elementNode = selectorParser.tag({ value: element.tag });
-			selector.walk((node) => {
+			selectorItem.walk((node) => {
 				if (node.type === 'combinator') {
 					combinatorNode = node;
 				}
 			});
 
 			if (combinatorNode) {
-				selector.insertAfter(combinatorNode, elementNode);
+				selectorItem.insertAfter(combinatorNode, elementNode);
 			} else {
-				selector.prepend((elementNode as unknown) as selectorParser.Selector);
+				selectorItem.prepend((elementNode as unknown) as selectorParser.Selector);
 			}
 		});
 	});

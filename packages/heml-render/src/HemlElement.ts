@@ -1,9 +1,12 @@
 /* eslint-disable max-classes-per-file */
-import { mapValues, compact, flattenDeep, difference, intersection, castArray } from 'lodash';
-import { HEMLError } from '@dragonzap/heml-utils';
-
-import { cheerioFindNodes, HEMLCheerioStatic } from '@dragonzap/heml-parse';
-import { HEMLGlobals } from '.';
+import mapValues from 'lodash/mapValues';
+import compact from 'lodash/compact';
+import flattenDeep from 'lodash/flattenDeep';
+import difference from 'lodash/difference';
+import intersection from 'lodash/intersection';
+import castArray from 'lodash/castArray';
+import { cheerioFindNodes, HEMLError } from '@dragonzap/heml-utils';
+import type { HEMLGlobals } from '.';
 import { createHtmlElement } from './createHtmlElement';
 
 export interface HEMLAttributes {
@@ -16,10 +19,11 @@ const textRegex = /^(text(-([^-\s]+))?(-([^-\s]+))?|word-(break|spacing|wrap)|li
 export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	public rules: Record<string, any[]>;
 
-	protected readonly children: string[] | boolean = true;
-	protected readonly parent: string[] = undefined;
-	protected readonly unique: boolean = false;
+	public static readonly children: string[] | boolean = true;
+	public static readonly parent: string[] = undefined;
+	protected static readonly unique: boolean = false;
 	protected static defaultProps: Record<string, any> = {};
+	public static postcss: any;
 	protected readonly attrs: string[] | true = [];
 
 	protected static globals: HEMLGlobals = {
@@ -59,7 +63,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 				return createHtmlElement(
 					this.constructor.name.toLowerCase(),
 					this.props,
-					compact(flattenDeep(contents)).join('') || ' ',
+					compact(flattenDeep(contents)).join('') || '',
 				);
 			});
 		}
@@ -68,7 +72,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	}
 
 	public asyncRender(): Promise<string> {
-		const render = this.render() || ' ';
+		const render = this.render() || '';
 
 		if (typeof render === 'string') {
 			return Promise.resolve(render);
@@ -85,7 +89,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 		return Promise.resolve('');
 	}
 
-	public validate($node: cheerio.Cheerio, $: HEMLCheerioStatic): void {
+	public validate($node: cheerio.Cheerio, $: cheerio.Root): void {
 		this.validAttrs($node);
 		this.validChildren($node);
 		this.validParent($node);
@@ -129,16 +133,17 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	}
 
 	private validChildren($node: cheerio.Cheerio): void {
-		if (Array.isArray(this.children)) {
+		const childrenList = (this.constructor as typeof HEMLElement).children;
+		if (Array.isArray(childrenList)) {
 			const children = $node
 				.children()
 				.toArray()
 				.map((c) => c.name);
 
-			const foundRequiredChildren = intersection(this.children, children);
+			const foundRequiredChildren = intersection(childrenList, children);
 
-			if (foundRequiredChildren.length < this.children.length) {
-				const missingRequiredChildren = difference(this.children, foundRequiredChildren);
+			if (foundRequiredChildren.length < childrenList.length) {
+				const missingRequiredChildren = difference(childrenList, foundRequiredChildren);
 
 				throw new HEMLError(
 					`${this.constructor.name.toLowerCase()} is missing required children: ${missingRequiredChildren}`,
@@ -151,30 +156,32 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	private validParent($node: cheerio.Cheerio): void {
 		const parentTag = $node.parent().get(0);
 
-		if (!parentTag || !this.parent) {
+		if (!parentTag || !(this.constructor as typeof HEMLElement).parent) {
 			return;
 		}
 
-		if (this.parent.includes(parentTag.name)) {
+		if ((this.constructor as typeof HEMLElement).parent.includes(parentTag.name)) {
 			return;
 		}
 
 		let message = `${this.constructor.name} is inside of ${parentTag.name}.`;
 
-		if (this.parent.length === 0) {
+		if ((this.constructor as typeof HEMLElement).parent.length === 0) {
 			message = `${message} It may not have any parents.`;
 		} else {
-			message = `${message} It should only be used in: ${this.parent.join(', ')}`;
+			message = `${message} It should only be used in: ${(this.constructor as typeof HEMLElement).parent.join(
+				', ',
+			)}`;
 		}
 
 		throw new HEMLError(message, $node);
 	}
 
-	private validUnique($node: cheerio.Cheerio, $: HEMLCheerioStatic): void {
+	private validUnique($node: cheerio.Cheerio, $: cheerio.Root): void {
 		const tagName = this.constructor.name.toLowerCase();
 		const $nodes = cheerioFindNodes($, tagName);
 
-		if ($nodes.length > 1 && this.unique) {
+		if ($nodes.length > 1 && (this.constructor as typeof HEMLElement).unique) {
 			/** remove all but the first $node */
 			$nodes.slice(1).forEach(($subnode) => $subnode.remove());
 

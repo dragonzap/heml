@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs-extra';
-import { HEMLOptions } from '@dragonzap/heml-parse';
+import { HEMLOptions } from '@dragonzap/heml-render';
 import { heml, HEMLOutput } from '../..';
 
 export async function renderHemlFile(filepath: string, options: HEMLOptions): Promise<HEMLOutput> {

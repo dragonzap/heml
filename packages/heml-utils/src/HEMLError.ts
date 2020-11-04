@@ -1,4 +1,5 @@
-import { min, max } from 'lodash';
+import min from 'lodash/min';
+import max from 'lodash/max';
 
 export class HEMLError extends Error {
 	public $node: cheerio.Cheerio;
