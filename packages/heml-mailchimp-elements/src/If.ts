@@ -9,7 +9,7 @@ interface Attrs extends HEMLAttributes {
 export class If extends HEMLElement<Attrs> {
 	protected children = true;
 	protected attrs = ['condition', 'placeholder'];
-	protected static defaultProps = { condition: '', placeholder: '' };
+	protected static defaultProps = { condition: undefined, placeholder: undefined };
 
 	public render(): HEMLNode {
 		const { condition, contents, placeholder } = this.props;
@@ -19,7 +19,7 @@ export class If extends HEMLElement<Attrs> {
 		} = HEMLElement.globals;
 		if (devMode) {
 			if (!data || !Object.keys(data).length) {
-				if (placeholder !== 'false') {
+				if (String(placeholder) !== 'false') {
 					return contents;
 				}
 
