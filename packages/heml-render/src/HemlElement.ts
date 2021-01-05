@@ -194,9 +194,9 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	}
 }
 
-export class HEMLElementContainsText<TAttributes extends HEMLAttributes = HEMLAttributes> extends HEMLElement<
-	TAttributes
-> {
+export class HEMLElementContainsText<
+	TAttributes extends HEMLAttributes = HEMLAttributes
+> extends HEMLElement<TAttributes> {
 	public constructor(props: TAttributes, contents: HEMLNode) {
 		super(props, contents);
 

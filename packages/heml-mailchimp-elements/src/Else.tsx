@@ -1,5 +1,6 @@
 import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import template from 'lodash/template';
+import { If } from './If';
 
 interface Attrs extends HEMLAttributes {
 	condition: string;
@@ -13,7 +14,7 @@ export class Else extends HEMLElement<Attrs> {
 	protected static defaultProps = { condition: undefined, placeholder: undefined };
 
 	public render(): HEMLNode {
-		const { condition, contents, placeholder } = this.props;
+		const { condition, contents, placeholder = 'false' } = this.props;
 
 		const {
 			options: { devMode = false, data = {} },
@@ -51,9 +52,9 @@ export class Else extends HEMLElement<Attrs> {
 		}
 
 		if (condition) {
-			return [`*|ELSEIF:${condition}|*`, contents];
+			return ['{{else}}', <If condition={condition}>{contents}</If>];
 		}
 
-		return ['*|ELSE:|*', contents];
+		return ['{{else}}', contents];
 	}
 }

@@ -20,7 +20,7 @@ export class Data extends HEMLElement<Attrs> {
 			options: { devMode = false, data = {} },
 		} = HEMLElement.globals;
 
-		this.value = devMode && placeholder ? placeholder : `*|${src.replace(/\./, '_')}|*`;
+		this.value = devMode && placeholder ? placeholder : `{{${src.replace(/\./, '_')}}}`;
 
 		if (data) {
 			this.value = get(data, src, this.value);
