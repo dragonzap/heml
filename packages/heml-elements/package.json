@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-elements",
-	"version": "1.2.2-alpha.25",
+	"version": "1.2.2-alpha.28",
 	"description": "Core elements for HEML",
 	"keywords": [
 		"heml"
@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-render": "^1.2.2-alpha.25",
+		"@dragonzap/heml-render": "^1.2.2-alpha.28",
 		"@dragonzap/heml-styles": "^1.2.2-alpha.25",
 		"@dragonzap/heml-utils": "^1.2.2-alpha.25",
 		"axios": "^0.21.0",

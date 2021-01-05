@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-validate",
-	"version": "1.2.2-alpha.25",
+	"version": "1.2.2-alpha.28",
 	"description": "Validator for HEML",
 	"keywords": [
 		"heml"
@@ -31,7 +31,7 @@
 	"dependencies": {
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
-		"@dragonzap/heml-render": "^1.2.2-alpha.25",
+		"@dragonzap/heml-render": "^1.2.2-alpha.28",
 		"@dragonzap/heml-utils": "^1.2.2-alpha.25",
 		"cheerio": "1.0.0-rc.3",
 		"lodash": "^4.17.20"
