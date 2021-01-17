@@ -18,7 +18,7 @@ import normalizeRepeatStyle from 'postcss-normalize-repeat-style';
 import normalizePositions from 'postcss-normalize-positions';
 import discardEmpty from 'postcss-discard-empty';
 import uniqueSelectors from 'postcss-unique-selectors';
-// import { declarationSorter } from 'css-declaration-sorter';
+import declarationSorter from 'css-declaration-sorter';
 import discardDuplicates from 'postcss-discard-duplicates';
 import mergeRules from 'postcss-merge-rules';
 import cssnano from 'cssnano';
@@ -47,7 +47,7 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		...plugins,
 
 		// /** optimize css */
-		// cssnano(),
+		cssnano(),
 		discardComments({ removeAll: false }),
 		minifyGradients(),
 		normalizeDisplayValues(),
@@ -64,7 +64,7 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		normalizePositions(),
 		discardEmpty(),
 		uniqueSelectors(),
-		// declarationSorter(),
+		declarationSorter(),
 		mergeAdjacentMedia(),
 		discardDuplicates(),
 		mergeRules(),

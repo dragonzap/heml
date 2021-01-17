@@ -10,7 +10,6 @@ export class HEMLError extends Error {
 		this.name = 'HEMLError';
 
 		if ($node) {
-			this.$node = $node;
 			this.selector = buildExactSelector($node);
 		}
 
@@ -38,6 +37,10 @@ function buildExactSelector($node: cheerio.Cheerio): string {
 }
 
 function buildSelector(node: cheerio.Element): string {
+	if (node.type === 'text') {
+		return '';
+	}
+
 	if (node.attribs.id) {
 		return `#${node.attribs.id}`;
 	}
@@ -47,14 +50,14 @@ function buildSelector(node: cheerio.Element): string {
 	const siblingsAfter = findSiblingsAfter(node);
 	const siblings = siblingsBefore.concat(siblingsAfter);
 
-	const sameTag = siblings.filter((s) => s.tagName.toLowerCase() === tag);
+	const sameTag = siblings.filter((s) => s.type !== 'text' && s.tagName.toLowerCase() === tag);
 
 	if (siblings.length === 0 || sameTag.length === 0) {
 		return tag;
 	}
 
 	const sameTagAndClass = siblings.filter(
-		(s) => s.attribs.className === node.attribs.className && s.tagName.toLowerCase() === tag,
+		(s) => s.type !== 'text' && s.attribs.className === node.attribs.className && s.tagName.toLowerCase() === tag,
 	);
 
 	if (node.attribs.className && sameTagAndClass.length === 0) {
@@ -65,12 +68,16 @@ function buildSelector(node: cheerio.Element): string {
 }
 
 function findSiblingsBefore(node: cheerio.Element, siblings: cheerio.Element[] = []): cheerio.Element[] {
+	if (node.type === 'text') {
+		return [];
+	}
+
 	if (!node.previousSibling) {
 		return siblings;
 	}
 
 	let newsiblings = siblings;
-	if (node.previousSibling.tagName) {
+	if (node.previousSibling.type === 'tag' && node.previousSibling.tagName) {
 		newsiblings = siblings.concat([node.previousSibling]);
 	}
 
@@ -78,12 +85,16 @@ function findSiblingsBefore(node: cheerio.Element, siblings: cheerio.Element[] =
 }
 
 function findSiblingsAfter(node: cheerio.Element, siblings: cheerio.Element[] = []): cheerio.Element[] {
+	if (node.type === 'text') {
+		return [];
+	}
+
 	if (!node.nextSibling) {
 		return siblings;
 	}
 
 	let newsiblings = siblings;
-	if (node.nextSibling.tagName) {
+	if (node.nextSibling.type === 'tag' && node.nextSibling.tagName) {
 		newsiblings = siblings.concat([node.nextSibling]);
 	}
 

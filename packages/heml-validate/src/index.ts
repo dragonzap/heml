@@ -17,7 +17,7 @@ export function validate($: cheerio.Root, options: HEMLOptions = {}): HEMLError[
 
 		$nodes.forEach(($node) => {
 			const contents = $node.html();
-			const attrs = $node[0].attribs;
+			const attrs = ($node[0] as cheerio.TagElement).attribs;
 
 			try {
 				const renderedValue = new element(attrs, contents).validate($node, $);

@@ -26,12 +26,6 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	public static postcss: any;
 	protected readonly attrs: string[] | true = [];
 
-	protected static globals: HEMLGlobals = {
-		$: undefined,
-		elements: [],
-		options: {},
-	};
-
 	protected props: TAttributes;
 
 	public constructor(props: TAttributes, contents: HEMLNode) {
@@ -138,7 +132,8 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 			const children = $node
 				.children()
 				.toArray()
-				.map((c) => c.name);
+				.filter((c) => c.type === 'tag')
+				.map((c: cheerio.TagElement) => c.name);
 
 			const foundRequiredChildren = intersection(childrenList, children);
 
@@ -187,10 +182,6 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 
 			throw new HEMLError(`${tagName} should be unique. ${$nodes.length} were found.`, $node);
 		}
-	}
-
-	public static setGlobals(globals: HEMLGlobals): void {
-		HEMLElement.globals = globals;
 	}
 }
 

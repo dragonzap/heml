@@ -1,5 +1,6 @@
 import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import template from 'lodash/template';
+import { Meta } from '@dragonzap/heml-elements';
+import { HEMLError } from '@dragonzap/heml-utils';
 import { Else } from './Else';
 
 interface Attrs extends HEMLAttributes {
@@ -9,11 +10,11 @@ interface Attrs extends HEMLAttributes {
 
 export class If extends HEMLElement<Attrs> {
 	protected children = true;
-	protected attrs = ['condition', 'placeholder'];
-	protected static defaultProps = { condition: undefined, placeholder: undefined };
+	protected attrs = ['condition'];
+	protected static defaultProps = { condition: undefined };
 
 	public render(): HEMLNode {
-		const { condition, contents, placeholder = 'true' } = this.props;
+		const { condition, contents } = this.props;
 		const cleanedCondition = condition.trim().replace(/'/g, '"');
 
 		if (cleanedCondition.includes('&&')) {
@@ -39,47 +40,37 @@ export class If extends HEMLElement<Attrs> {
 			);
 		}
 
-		const {
-			options: { devMode = false, data = {} },
-		} = HEMLElement.globals;
-		if (devMode) {
-			if (!data || !Object.keys(data).length) {
-				if (String(placeholder) !== 'false') {
-					return contents;
-				}
-
-				return '';
-			}
-
-			const text = cleanedCondition
-				.replace(/(\w[\w\d._\-+]*)/g, '${ $1 }')
-				.replace(/\$\{ ([a-zA-Z])/g, '${ data.$1');
-			const compile = template(text);
-			const compiledText = compile({
-				data,
-			});
-
-			try {
-				const result = eval(compiledText);
-
-				if (result) {
-					return contents;
-				}
-			} catch (e) {
-				//  console.error(e);
-			}
-
-			return '';
-		}
-
 		if (cleanedCondition.startsWith('!')) {
-			return [`{{#unless ${cleanedCondition.replace(/^!/, '')}}}`, contents, `{{/unless}}`];
+			const name = cleanedCondition.replace(/^!/, '');
+			Meta.addPlaceholder(name, false);
+
+			return [`{{#unless ${name}}}`, contents, `{{/unless}}`];
 		}
 
 		if (cleanedCondition.includes(' ')) {
+			Meta.addPlaceholder(cleanedCondition.split(' ')[0], cleanedCondition.split(' ')[2]);
+
 			return [`{{#if \`${cleanedCondition}\`}}`, contents, `{{/if}}`];
 		}
 
+		Meta.addPlaceholder(cleanedCondition, true);
+
 		return [`{{#if ${cleanedCondition}}}`, contents, `{{/if}}`];
+	}
+
+	public validate($node: cheerio.Cheerio, $: cheerio.Root): void {
+		const { condition } = this.props;
+
+		super.validate($node, $);
+
+		if (!condition) {
+			throw new HEMLError(`Missing condition.`, $node);
+		}
+
+		const parts = condition.split(' ');
+
+		if (parts.length === 2) {
+			throw new HEMLError(`Invalid condition.`, $node);
+		}
 	}
 }

@@ -1,5 +1,6 @@
 import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import get from 'lodash/get';
+import { Meta } from '@dragonzap/heml-elements';
+import { HEMLError } from '@dragonzap/heml-utils';
 
 interface Attrs extends HEMLAttributes {
 	src: string;
@@ -8,33 +9,33 @@ interface Attrs extends HEMLAttributes {
 
 export class Each extends HEMLElement<Attrs> {
 	protected children = true;
-	protected attrs = ['src', 'placeholder'];
-	protected static defaultProps = { src: undefined, placeholder: undefined };
+	protected attrs = ['src'];
+	protected static defaultProps = { src: undefined };
+
+	public constructor(props: Attrs, contents: HEMLNode) {
+		super(props, contents);
+		const { src = '' } = this.props;
+
+		Meta.addPlaceholder(src, []);
+	}
 
 	public render(): HEMLNode {
-		const { src, contents, placeholder } = this.props;
-		const {
-			options: { devMode = false, data = {} },
-		} = HEMLElement.globals;
-
-		if (devMode) {
-			let list = [];
-
-			if (placeholder) {
-				if (placeholder.startsWith('[') && placeholder.endsWith(']')) {
-					list = JSON.parse(placeholder);
-				} else {
-					list = placeholder.split(',');
-				}
-			}
-
-			if (data && Object.keys(data).length) {
-				list = get(data, src);
-			}
-
-			return list.map((item) => contents); // TODO: Preview
-		}
+		const { src, contents } = this.props;
 
 		return [`{{#each ${src}}}`, contents, `{{/each}}`];
+	}
+
+	public validate($node: cheerio.Cheerio, $: cheerio.Root): void {
+		const { src } = this.props;
+
+		super.validate($node, $);
+
+		if (!src) {
+			throw new HEMLError(`Empty src attribute.`, $node);
+		}
+
+		if (src.includes(' ')) {
+			throw new HEMLError(`Invalid src attribute.`, $node);
+		}
 	}
 }

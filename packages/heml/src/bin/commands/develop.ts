@@ -35,7 +35,6 @@ export async function develop(file: string, options: HEMLOptions & HemlDevelopOp
 		const hemlOptions = {
 			srcPath: path.dirname(filepath),
 			data: JSON.parse(json),
-			devMode: true,
 		};
 
 		return startDevServer(path.dirname(filepath), port).then(({ update, url }) => {

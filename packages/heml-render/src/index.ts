@@ -19,7 +19,6 @@ export interface HEMLOptions {
 	elements?: typeof HEMLElement[];
 	cheerio?: cheerio.CheerioParserOptions;
 	srcPath?: string;
-	devMode?: boolean;
 	data?: Record<string, any>;
 	juice?: Options;
 }
@@ -41,8 +40,6 @@ interface HEMLOutput {
  * @param  {Object} globals
  */
 function preRenderElements(elements: Array<typeof HEMLElement>, globals: HEMLGlobals): void {
-	HEMLElement.setGlobals(globals);
-
 	elements.forEach((element) => element.preRender(globals));
 }
 
@@ -67,7 +64,7 @@ async function promiseQueue(
 	const $node: cheerio.Cheerio = $nodes[i];
 	const element = elementMap[$node.prop('tagName').toLowerCase()];
 	const contents = $node.html();
-	const attrs = $node[0].attribs;
+	const attrs = ($node[0] as cheerio.TagElement).attribs;
 
 	return renderElement(element, attrs, contents).then((renderedValue) => {
 		$node.replaceWith(renderedValue.trim());
