@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-styles",
-	"version": "1.2.2-alpha.25",
+	"version": "1.2.2-alpha.29",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
