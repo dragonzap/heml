@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, HEMLError } from '@dragonzap/heml-utils';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
@@ -14,7 +14,7 @@ interface Attrs extends HEMLAttributes {
 
 export class Button extends HEMLElement<Attrs> {
 	protected attrs = ['href', 'target', 'align'];
-	protected static defaultProps = {
+	protected static readonly defaultProps = {
 		href: '#',
 		target: '_blank',
 		align: 'center',
@@ -27,7 +27,7 @@ export class Button extends HEMLElement<Attrs> {
 		'.button__text': [{ '@pseudo': 'text' }, 'color', 'text-decoration'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, align, ...props } = this.props;
 		props.class += ' button';
 

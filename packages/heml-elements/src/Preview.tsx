@@ -1,18 +1,18 @@
-import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { Meta } from './Meta';
 
 export class Preview extends HEMLElement {
 	protected parent = ['head'];
 	protected unique = true;
 
-	public render(): HEMLNode {
-		Meta.set('preview', `${this.props.contents}`);
+	public render(globals: HEMLGlobals): HEMLNode {
+		Meta.set('preview', `${this.props.contents}`, globals);
 
 		return undefined;
 	}
 
-	public static async flush(): Promise<string> {
-		const preview = Meta.get('preview');
+	public static async flush(globals: HEMLGlobals): Promise<string> {
+		const preview = Meta.get('preview', globals);
 
 		return Promise.resolve(
 			preview ? (

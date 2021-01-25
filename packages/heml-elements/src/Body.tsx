@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 
@@ -16,13 +16,13 @@ export class Body extends HEMLElementContainsText {
 		'.preview': [{ 'background-color': transforms.convertProp('color') }],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' body';
 
 		return (
 			<body {...props} width="100%" style="margin: 0; padding: 0 !important; mso-line-height-rule: exactly;">
-				{Preview.flush()}
+				{Preview.flush(globals)}
 				<table
 					className="bodyTable"
 					role="presentation"

@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { Meta } from '@dragonzap/heml-elements';
 import { HEMLError } from '@dragonzap/heml-utils';
 import { Else } from './Else';
@@ -11,9 +11,9 @@ interface Attrs extends HEMLAttributes {
 export class If extends HEMLElement<Attrs> {
 	protected children = true;
 	protected attrs = ['condition'];
-	protected static defaultProps = { condition: undefined };
+	protected static readonly defaultProps = { condition: undefined };
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { condition, contents } = this.props;
 		const cleanedCondition = condition.trim().replace(/'/g, '"');
 
@@ -42,18 +42,18 @@ export class If extends HEMLElement<Attrs> {
 
 		if (cleanedCondition.startsWith('!')) {
 			const name = cleanedCondition.replace(/^!/, '');
-			Meta.addPlaceholder(name, false);
+			Meta.addPlaceholder(name, false, globals);
 
 			return [`{{#unless ${name}}}`, contents, `{{/unless}}`];
 		}
 
 		if (cleanedCondition.includes(' ')) {
-			Meta.addPlaceholder(cleanedCondition.split(' ')[0], cleanedCondition.split(' ')[2]);
+			Meta.addPlaceholder(cleanedCondition.split(' ')[0], cleanedCondition.split(' ')[2], globals);
 
 			return [`{{#if \`${cleanedCondition}\`}}`, contents, `{{/if}}`];
 		}
 
-		Meta.addPlaceholder(cleanedCondition, true);
+		Meta.addPlaceholder(cleanedCondition, true, globals);
 
 		return [`{{#if ${cleanedCondition}}}`, contents, `{{/if}}`];
 	}

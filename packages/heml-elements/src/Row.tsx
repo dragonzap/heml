@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cheerioFindNodes } from '@dragonzap/heml-utils';
 import sum from 'lodash/sum';
 import max from 'lodash/max';
@@ -12,7 +12,7 @@ export class Row extends HEMLElement {
 		'.row__row': [{ '@pseudo': 'row' }],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' row';
 
@@ -33,12 +33,12 @@ export class Row extends HEMLElement {
 		);
 	}
 
-	public static preRender({ $ }): void {
-		cheerioFindNodes($, 'row').forEach(($row) => {
+	public static preRender(globals: HEMLGlobals): void {
+		cheerioFindNodes(globals.$, 'row').forEach(($row) => {
 			const $columns = $row
 				.children()
 				.toArray()
-				.map((node) => $(node));
+				.map((node) => globals.$(node));
 			const columnSizes = $columns.map(($column) => parseInt($column.attr('large') || 0, 10));
 			const remainingSpace = 12 - sum(columnSizes);
 			const remainingColumns = columnSizes.filter((size) => size === 0).length;

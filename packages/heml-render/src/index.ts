@@ -27,6 +27,7 @@ export interface HEMLGlobals {
 	$: cheerio.Root;
 	elements: Array<typeof HEMLElement>;
 	options: HEMLOptions;
+	data?: Record<string, any>;
 }
 
 interface HEMLOutput {
@@ -55,6 +56,7 @@ function postRenderElements(elements: Array<typeof HEMLElement>, globals: HEMLGl
 async function promiseQueue(
 	elementMap: Record<string, typeof HEMLElement>,
 	$nodes: cheerio.Cheerio[],
+	globals: HEMLGlobals,
 	i = 0,
 ): Promise<void> {
 	if (i >= $nodes.length) {
@@ -66,10 +68,10 @@ async function promiseQueue(
 	const contents = $node.html();
 	const attrs = ($node[0] as cheerio.TagElement).attribs;
 
-	return renderElement(element, attrs, contents).then((renderedValue) => {
+	return renderElement(element, attrs, globals, contents).then((renderedValue) => {
 		$node.replaceWith(renderedValue.trim());
 
-		return promiseQueue(elementMap, $nodes, i + 1);
+		return promiseQueue(elementMap, $nodes, globals, i + 1);
 	});
 }
 
@@ -94,7 +96,7 @@ async function renderElements(elements: Array<typeof HEMLElement>, globals: HEML
 		...cheerioFindNodes($, nonMetaTagNames).reverse() /** Render the elements last to first/outside to inside */,
 	];
 
-	return promiseQueue(elementMap, $nodes);
+	return promiseQueue(elementMap, $nodes, globals);
 }
 
 /**
@@ -106,7 +108,7 @@ async function renderElements(elements: Array<typeof HEMLElement>, globals: HEML
 export async function render($: cheerio.Root, options: HEMLOptions = {}): Promise<HEMLOutput> {
 	const { elements = [] } = options;
 
-	const globals = { $, elements, options };
+	const globals = { $, elements, options, data: {} };
 	const Meta: typeof HEMLElement = first(elements.filter((element) => element.name.toLowerCase() === 'meta'));
 
 	preRenderElements(elements, globals);
@@ -117,7 +119,7 @@ export async function render($: cheerio.Root, options: HEMLOptions = {}): Promis
 				postRenderElements(elements, globals);
 
 				if (Meta) {
-					Meta.flush()
+					Meta.flush(globals)
 						.then((result) =>
 							resolve({
 								$,

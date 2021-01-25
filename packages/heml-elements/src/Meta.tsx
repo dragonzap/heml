@@ -1,48 +1,47 @@
-import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 
 export class Meta extends HEMLElement {
-	protected static metaMap: Record<string, any> = { meta: [], placeholder: {} };
 	protected attrs = true as const;
 	protected parent = ['head'];
 
-	public static preRender(): void {
-		Meta.metaMap = { meta: [], placeholder: {} };
+	public static preRender(globals: HEMLGlobals): void {
+		globals.data.meta = { meta: [], placeholder: {} };
 	}
 
-	public render(): HEMLNode {
-		Meta.metaMap.meta.push(
+	public render(globals: HEMLGlobals): HEMLNode {
+		globals.data.meta.meta.push(
 			Object.keys(this.props)
 				.filter((key) => !['contents', 'class'].includes(key))
 				.reduce((obj, key) => ({ ...obj, [key]: this.props[key] }), {} as Record<string, any>),
 		);
 
-		return super.render();
+		return super.render(globals);
 	}
 
-	public static get(key: string): string {
-		return Meta.metaMap[key];
+	public static get(key: string, globals: HEMLGlobals): string {
+		return globals.data.meta[key];
 	}
 
-	public static set(key: string, value: string): void {
-		Meta.metaMap[key] = value;
+	public static set(key: string, value: string, globals: HEMLGlobals): void {
+		globals.data.meta[key] = value;
 	}
 
-	public static addPlaceholder(key: string, value: any): void {
-		if (key && [true, false, undefined, ''].includes(Meta.metaMap.placeholder[key])) {
+	public static addPlaceholder(key: string, value: any, globals: HEMLGlobals): void {
+		if (key && [true, false, undefined, ''].includes(globals.data.meta.placeholder[key])) {
 			if (value !== '' && typeof value === 'string' && !Number.isNaN(Number(value))) {
-				Meta.metaMap.placeholder[key] = Number(value);
+				globals.data.meta.placeholder[key] = Number(value);
 			} else if (value === 'true' || value === 'false') {
-				Meta.metaMap.placeholder[key] = Boolean(value);
+				globals.data.meta.placeholder[key] = Boolean(value);
 			} else {
-				Meta.metaMap.placeholder[key] = value;
+				globals.data.meta.placeholder[key] = value;
 			}
 		}
 	}
 
-	public static async flush(): Promise<Record<string, any>> {
-		const metaObject = { ...Meta.metaMap };
+	public static async flush(globals: HEMLGlobals): Promise<Record<string, any>> {
+		const metaObject = { ...globals.data.meta };
 
-		Meta.preRender();
+		Meta.preRender(globals);
 
 		return Promise.resolve(metaObject);
 	}

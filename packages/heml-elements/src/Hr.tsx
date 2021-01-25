@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, condition } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 
@@ -16,7 +16,7 @@ export class Hr extends HEMLElement {
 		'.hr__cell': [{ '@pseudo': 'cell' }, height, background, box, padding, border, borderRadius, 'vertical-align'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' hr';
 

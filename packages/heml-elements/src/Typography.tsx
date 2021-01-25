@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups } from '@dragonzap/heml-utils';
 
 const { margin, background, border, borderRadius, text, font } = cssGroups;
@@ -33,7 +33,7 @@ abstract class HEMLHTMLElement extends HEMLElement {
 		};
 	}
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		const name = this.constructor.name.toLocaleLowerCase();
 		let classToAdd = '';
@@ -67,7 +67,7 @@ interface Attrs extends HEMLAttributes {
 
 export class A extends HEMLElement<Attrs> {
 	protected attrs = true as const;
-	protected static defaultProps = { href: '#' };
+	protected static readonly defaultProps = { href: '#' };
 	public rules: Record<string, any[]> = {
 		'.a': [
 			{ '@pseudo': 'root' },
@@ -79,7 +79,7 @@ export class A extends HEMLElement<Attrs> {
 		'.a__text': [{ '@pseudo': 'text' }, 'color', 'text-decoration'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' a';
 

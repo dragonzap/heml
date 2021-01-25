@@ -51,7 +51,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 
 	public static preRender(globals: HEMLGlobals): void {}
 
-	protected render(): HEMLNode {
+	protected render(globals: HEMLGlobals): HEMLNode {
 		if (this.props.contents !== 'string') {
 			return Promise.all(flattenDeep(castArray(this.props.contents))).then((contents) => {
 				return createHtmlElement(
@@ -65,8 +65,8 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 		return createHtmlElement(this.constructor.name.toLowerCase(), this.props, this.props.contents);
 	}
 
-	public asyncRender(): Promise<string> {
-		const render = this.render() || '';
+	public asyncRender(globals: HEMLGlobals): Promise<string> {
+		const render = this.render(globals) || '';
 
 		if (typeof render === 'string') {
 			return Promise.resolve(render);
@@ -79,7 +79,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 
 	public static postRender(globals: HEMLGlobals): void {}
 
-	public static async flush(): Promise<any> {
+	public static async flush(globals: HEMLGlobals): Promise<any> {
 		return Promise.resolve('');
 	}
 

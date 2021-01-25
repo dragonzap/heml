@@ -6,6 +6,7 @@ import { condition, HEMLError } from '@dragonzap/heml-utils';
 import { byteLength } from 'byte-length';
 import { html as beautify } from 'js-beautify';
 import flattenDeep from 'lodash/flattenDeep';
+import cloneDeep from 'lodash/cloneDeep';
 import toArray from 'lodash/toArray';
 import * as coreElements from '@dragonzap/heml-elements';
 
@@ -21,9 +22,10 @@ export interface HEMLOutput {
  * @param  {Object} options  the options
  * @return {Object}          { metadata, html, errors }
  */
-export async function heml(contents: string, options: HEMLOptions = {}): Promise<HEMLOutput> {
+export async function heml(contents: string, defOptions: HEMLOptions = {}): Promise<HEMLOutput> {
 	const start = new Date().getTime();
 	const results: HEMLOutput = { metadata: undefined, html: '', errors: [] };
+	const options = cloneDeep(defOptions);
 	const { beautify: beautifyOptions = {}, validate: validateOption = 'soft' } = options;
 
 	options.elements = flattenDeep(toArray(coreElements).concat(options.elements || []));

@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 
@@ -15,7 +15,7 @@ interface Attrs extends HEMLAttributes {
 export class Column extends HEMLElementContainsText<Attrs> {
 	protected attrs = ['small', 'large', 'align'];
 	protected parent = ['row'];
-	protected static defaultProps = { small: '12', large: '12', align: 'left' };
+	protected static readonly defaultProps = { small: '12', large: '12', align: 'left' };
 	public rules = {
 		'.column': [
 			{ '@pseudo': 'root' },
@@ -29,7 +29,7 @@ export class Column extends HEMLElementContainsText<Attrs> {
 		],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { small: smallSize, large: largeSize, contents, ...props } = this.props;
 
 		const small = parseInt(smallSize, 10);

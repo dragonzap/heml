@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import HEML, { HEMLNode, HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms } from '@dragonzap/heml-utils';
 
 export class Table extends HEMLElementContainsText {
@@ -8,7 +8,7 @@ export class Table extends HEMLElementContainsText {
 		'.table': [{ '@pseudo': 'root' }, '@default', { display: transforms.trueHide('table') }],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' table';
 
@@ -22,7 +22,7 @@ export class Tr extends HEMLElementContainsText {
 		'.tr': [{ '@pseudo': 'root' }, '@default'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' tr';
 
@@ -36,7 +36,7 @@ export class Td extends HEMLElementContainsText {
 		'.td': [{ '@pseudo': 'root' }, '@default'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' td';
 		return <td {...props}>{contents}</td>;

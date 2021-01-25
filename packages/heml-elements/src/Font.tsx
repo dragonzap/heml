@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 
 interface Attrs extends HEMLAttributes {
 	href: string;
@@ -9,9 +9,9 @@ export class Font extends HEMLElement<Attrs> {
 	protected children = false;
 	protected attrs = ['href'];
 
-	protected static defaultProps = { href: '' };
+	protected static readonly defaultProps = { href: '' };
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		return [
 			`<!--[if !mso]><!-->`,
 			<link href={this.props.href} rel="stylesheet" type="text/css" />,

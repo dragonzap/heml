@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import isAbsoluteUrl from 'is-absolute-url';
 import { resolve } from 'url';
 import has from 'lodash/has';
@@ -15,21 +15,25 @@ export class Base extends HEMLElement<Attrs> {
 	protected parent = ['head'];
 	protected children = false;
 	protected unique = true;
-	protected static defaultProps = { href: '' };
+	protected static readonly defaultProps = { href: '' };
 
-	public render(): HEMLNode {
-		Meta.set('base', this.props.href);
+	public render(globals: HEMLGlobals): HEMLNode {
+		Meta.set('base', this.props.href, globals);
 
 		return undefined;
 	}
 
-	public static preRender({ $ }): void {
-		const base = first(cheerioFindNodes($, 'base'));
+	public static preRender(globals: HEMLGlobals): void {
+		const base = first(cheerioFindNodes(globals.$, 'base'));
 
 		if (base) {
 			const baseUrl = base.attr('href');
 
-			$('[href], [src]').each((i, node) => {
+			globals.$('[href], [src]').each((i, node) => {
+				if (node.type === 'text') {
+					return;
+				}
+
 				const attr = has(node.attribs, 'href') ? 'href' : 'src';
 
 				if (has(node.attribs, attr) && !isAbsoluteUrl(node.attribs[attr])) {

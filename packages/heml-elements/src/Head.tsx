@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { Subject } from './Subject';
 import { Style } from './Style';
 
@@ -7,7 +7,7 @@ export class Head extends HEMLElement {
 	protected parent = ['heml'];
 	protected attrs = [];
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 
 		return (
@@ -40,8 +40,8 @@ export class Head extends HEMLElement {
 					table td { border-collapse: collapse; }
 				</style>
 				<![endif]-->`}
-				<title>{Subject.flush()}</title>
-				{Style.flush()}
+				<title>{Subject.flush(globals)}</title>
+				{Style.flush(globals)}
 				{`<!-- content -->`}
 				{contents}
 				{`<!--[if gte mso 9]>

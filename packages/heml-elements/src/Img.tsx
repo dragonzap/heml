@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms } from '@dragonzap/heml-utils';
 import omit from 'lodash/omit';
 import has from 'lodash/has';
@@ -22,7 +22,7 @@ interface Attrs extends HEMLAttributes {
 export class Img extends HEMLElement<Attrs> {
 	protected attrs = ['src', 'width', 'height', 'alt', 'infer', 'inline', 'style'];
 	protected children = false;
-	protected static defaultProps = {
+	protected static readonly defaultProps = {
 		border: '0',
 		alt: '',
 	};
@@ -30,7 +30,7 @@ export class Img extends HEMLElement<Attrs> {
 		img: [{ '@pseudo': 'root' }, { display: transforms.trueHide() }, '@default'],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 
 		const isBlock = !props.inline;

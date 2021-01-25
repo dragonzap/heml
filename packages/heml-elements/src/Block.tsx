@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, condition } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 
@@ -13,7 +13,7 @@ interface Attrs extends HEMLAttributes {
 
 export class Block extends HEMLElementContainsText<Attrs> {
 	protected attrs = ['align'];
-	protected static defaultProps = {
+	protected static readonly defaultProps = {
 		align: 'left' as const,
 	};
 
@@ -36,7 +36,7 @@ export class Block extends HEMLElementContainsText<Attrs> {
 		],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, align, ...props } = this.props;
 		props.class += ' block';
 

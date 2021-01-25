@@ -1,4 +1,4 @@
-import HEML, { HEMLNode, HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, condition } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 
@@ -15,7 +15,7 @@ export class Container extends HEMLElementContainsText {
 		'.container__cell': [{ '@pseudo': 'cell' }, height, background, box, padding, border, borderRadius],
 	};
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 		props.class += ' container';
 

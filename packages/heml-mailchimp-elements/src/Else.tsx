@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { If } from './If';
 
 interface Attrs extends HEMLAttributes {
@@ -10,9 +10,9 @@ export class Else extends HEMLElement<Attrs> {
 	protected parent = ['if'];
 	protected children = true;
 	protected attrs = ['condition'];
-	protected static defaultProps = { condition: undefined };
+	protected static readonly defaultProps = { condition: undefined };
 
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { condition, contents } = this.props;
 
 		if (condition) {

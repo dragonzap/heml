@@ -14,13 +14,13 @@ module.exports = (api) => {
 			[
 				'@babel/preset-react',
 				{
-					pragma: 'HEML.createElement',
+					pragma: 'HEML.createElement(globals)',
 				},
 			],
 			[
 				'@babel/preset-typescript',
 				{
-					jsxPragma: 'HEML.createElement',
+					jsxPragma: 'HEML.createElement(globals)',
 				},
 			],
 		],

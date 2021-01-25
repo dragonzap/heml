@@ -1,4 +1,4 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { Meta } from '@dragonzap/heml-elements';
 import { HEMLError } from '@dragonzap/heml-utils';
 
@@ -10,17 +10,12 @@ interface Attrs extends HEMLAttributes {
 export class Each extends HEMLElement<Attrs> {
 	protected children = true;
 	protected attrs = ['src'];
-	protected static defaultProps = { src: undefined };
+	protected static readonly defaultProps = { src: undefined };
 
-	public constructor(props: Attrs, contents: HEMLNode) {
-		super(props, contents);
-		const { src = '' } = this.props;
-
-		Meta.addPlaceholder(src, []);
-	}
-
-	public render(): HEMLNode {
+	public render(globals: HEMLGlobals): HEMLNode {
 		const { src, contents } = this.props;
+
+		Meta.addPlaceholder(src, [], globals);
 
 		return [`{{#each ${src}}}`, contents, `{{/each}}`];
 	}
