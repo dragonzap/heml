@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-alpha.30](https://github.com/dragonzap/heml/compare/v1.2.2-alpha.29...v1.2.2-alpha.30) (2021-01-25)
+
+**Note:** Version bump only for package @dragonzap/heml-parse
+
+
+
+
+
 ## [1.2.2-alpha.29](https://github.com/dragonzap/heml/compare/v1.2.2-alpha.28...v1.2.2-alpha.29) (2021-01-17)
 
 **Note:** Version bump only for package @dragonzap/heml-parse
