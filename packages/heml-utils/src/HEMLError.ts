@@ -37,7 +37,7 @@ function buildExactSelector($node: cheerio.Cheerio): string {
 }
 
 function buildSelector(node: cheerio.Element): string {
-	if (node.type === 'text') {
+	if (node.type !== 'tag') {
 		return '';
 	}
 
@@ -50,14 +50,14 @@ function buildSelector(node: cheerio.Element): string {
 	const siblingsAfter = findSiblingsAfter(node);
 	const siblings = siblingsBefore.concat(siblingsAfter);
 
-	const sameTag = siblings.filter((s) => s.type !== 'text' && s.tagName.toLowerCase() === tag);
+	const sameTag = siblings.filter((s) => s.type === 'tag' && s.tagName.toLowerCase() === tag);
 
 	if (siblings.length === 0 || sameTag.length === 0) {
 		return tag;
 	}
 
 	const sameTagAndClass = siblings.filter(
-		(s) => s.type !== 'text' && s.attribs.className === node.attribs.className && s.tagName.toLowerCase() === tag,
+		(s) => s.type === 'tag' && s.attribs.className === node.attribs.className && s.tagName.toLowerCase() === tag,
 	);
 
 	if (node.attribs.className && sameTagAndClass.length === 0) {
@@ -68,7 +68,7 @@ function buildSelector(node: cheerio.Element): string {
 }
 
 function findSiblingsBefore(node: cheerio.Element, siblings: cheerio.Element[] = []): cheerio.Element[] {
-	if (node.type === 'text') {
+	if (node.type !== 'tag') {
 		return [];
 	}
 
@@ -85,7 +85,7 @@ function findSiblingsBefore(node: cheerio.Element, siblings: cheerio.Element[] =
 }
 
 function findSiblingsAfter(node: cheerio.Element, siblings: cheerio.Element[] = []): cheerio.Element[] {
-	if (node.type === 'text') {
+	if (node.type !== 'tag') {
 		return [];
 	}
 

@@ -18,22 +18,22 @@ export class If extends HEMLElement<Attrs> {
 		const cleanedCondition = condition.trim().replace(/'/g, '"');
 
 		if (cleanedCondition.includes('&&')) {
-			const conditions = cleanedCondition.split('&&', 2);
+			const [conditions1, ...conditions2] = cleanedCondition.split('&&');
 
 			return (
-				<If condition={conditions[0]}>
-					<If condition={conditions[1]}>{contents}</If>
+				<If condition={conditions1}>
+					<If condition={conditions2.join('&&')}>{contents}</If>
 				</If>
 			);
 		}
 
 		if (cleanedCondition.includes('||')) {
-			const conditions = cleanedCondition.split('||', 2);
+			const [conditions1, ...conditions2] = cleanedCondition.split('||');
 
 			return (
-				<If condition={conditions[0]} placeholder="true">
+				<If condition={conditions1} placeholder="true">
 					{contents}
-					<Else condition={conditions[1]} placeholder="false">
+					<Else condition={conditions2.join('||')} placeholder="false">
 						{contents}
 					</Else>
 				</If>

@@ -29,18 +29,18 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@babel/cli": "^7.12.10",
-		"@babel/core": "^7.12.10",
+		"@babel/cli": "^7.13.10",
+		"@babel/core": "^7.13.10",
 		"@dragonzap/heml-render": "^1.2.2-alpha.30",
 		"@dragonzap/heml-styles": "^1.2.2-alpha.29",
 		"@dragonzap/heml-utils": "^1.2.2-alpha.29",
 		"axios": "^0.21.1",
-		"image-size": "^0.9.3",
+		"image-size": "^0.9.7",
 		"is-absolute-url": "^3.0.3",
-		"lodash": "^4.17.20"
+		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"typescript": "^4.1.3"
+		"typescript": "^4.2.3"
 	},
 	"gitHead": "604b762cfc3f869a43b7432b14786f8d45af82c2"
 }

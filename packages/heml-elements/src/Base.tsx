@@ -30,7 +30,7 @@ export class Base extends HEMLElement<Attrs> {
 			const baseUrl = base.attr('href');
 
 			globals.$('[href], [src]').each((i, node) => {
-				if (node.type === 'text') {
+				if (node.type !== 'tag') {
 					return;
 				}
 

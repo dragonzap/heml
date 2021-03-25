@@ -37,7 +37,7 @@ export async function develop(file: string, options: HEMLOptions & HemlDevelopOp
 			data: JSON.parse(json),
 		};
 
-		return startDevServer(path.dirname(filepath), port).then(({ update, url }) => {
+		return await startDevServer(path.dirname(filepath), port).then(({ update, url }) => {
 			renderHemlFile(filepath, hemlOptions).then((output) => {
 				update(output);
 

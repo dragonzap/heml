@@ -39,7 +39,7 @@ export class Row extends HEMLElement {
 				.children()
 				.toArray()
 				.map((node) => globals.$(node));
-			const columnSizes = $columns.map(($column) => parseInt($column.attr('large') || 0, 10));
+			const columnSizes = $columns.map(($column) => parseInt($column.attr('large') || '0', 10));
 			const remainingSpace = 12 - sum(columnSizes);
 			const remainingColumns = columnSizes.filter((size) => size === 0).length;
 			const spacePerColumn = max([Math.floor(remainingSpace / remainingColumns), 1]);
