@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-alpha.32](https://github.com/dragonzap/heml2/compare/v1.2.2-alpha.31...v1.2.2-alpha.32) (2021-05-31)
+
+**Note:** Version bump only for package heml-project
+
+
+
+
+
 ## [1.2.2-alpha.31](https://github.com/dragonzap/heml2/compare/v1.2.2-alpha.30...v1.2.2-alpha.31) (2021-03-25)
 
 **Note:** Version bump only for package heml-project
