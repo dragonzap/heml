@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-elements",
-	"version": "1.2.2-alpha.32",
+	"version": "1.2.2-alpha.33",
 	"description": "Core elements for HEML",
 	"keywords": [
 		"heml"
@@ -30,7 +30,7 @@
 	},
 	"dependencies": {
 		"@dragonzap/heml-render": "^1.2.2-alpha.32",
-		"@dragonzap/heml-styles": "^1.2.2-alpha.32",
+		"@dragonzap/heml-styles": "^1.2.2-alpha.33",
 		"@dragonzap/heml-utils": "^1.2.2-alpha.32",
 		"axios": "^0.21.1",
 		"image-size": "^1.0.0",
