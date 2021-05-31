@@ -7,7 +7,7 @@ module.exports = (api) => {
 				'@babel/env',
 				{
 					targets: {
-						node: '12',
+						node: '14',
 					},
 				},
 			],

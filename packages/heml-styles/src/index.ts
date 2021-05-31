@@ -1,9 +1,6 @@
-import declarationSorter from 'css-declaration-sorter';
 import cssnano from 'cssnano';
 import type { Result } from 'postcss';
 import postcss from 'postcss';
-
-/** optimize css - credz to cssnano */
 import reduceCalc from 'postcss-calc';
 import rgbaFallback from 'postcss-color-rgba-fallback';
 import colorNamesToHex from 'postcss-colornames-to-hex';
@@ -12,32 +9,26 @@ import discardComments from 'postcss-discard-comments';
 import discardDuplicates from 'postcss-discard-duplicates';
 import discardEmpty from 'postcss-discard-empty';
 import discardOverridden from 'postcss-discard-overridden';
+import emailImportant from 'postcss-email-important';
+import formatHexColors from 'postcss-hex-format';
+import mergeLonghand from 'postcss-merge-longhand';
+import mergeRules from 'postcss-merge-rules';
+import minifyFontValues from 'postcss-minify-font-values';
 import minifyGradients from 'postcss-minify-gradients';
+import minifyParams from 'postcss-minify-params';
+import minifySelectors from 'postcss-minify-selectors';
 import normalizeDisplayValues from 'postcss-normalize-display-values';
+import normalizePositions from 'postcss-normalize-positions';
+import normalizeRepeatStyle from 'postcss-normalize-repeat-style';
+import normalizeString from 'postcss-normalize-string';
 import normalizeTimingFunctions from 'postcss-normalize-timing-functions';
 import orderedValues from 'postcss-ordered-values';
-import minifySelectors from 'postcss-minify-selectors';
-import minifyParams from 'postcss-minify-params';
-import normalizeString from 'postcss-normalize-string';
-import minifyFontValues from 'postcss-minify-font-values';
-import normalizeRepeatStyle from 'postcss-normalize-repeat-style';
-import normalizePositions from 'postcss-normalize-positions';
 import rgbToHex from 'postcss-rgba-hex';
 import safeParser from 'postcss-safe-parser';
+import sorting from 'postcss-sorting';
 import uniqueSelectors from 'postcss-unique-selectors';
-import mergeRules from 'postcss-merge-rules';
-
-/** format colors */
-import formatHexColors from 'postcss-hex-format';
-
-/** email fixes */
-import emailImportant from 'postcss-email-important';
-import mergeLonghand from 'postcss-merge-longhand';
 import { elementExpander } from './plugins/postcss-element-expander';
 import { shorthandExpand } from './plugins/postcss-expand-shorthand';
-
-/** custom element expander */
-
 import { mergeAdjacentMedia } from './plugins/postcss-merge-adjacent-media';
 import zeroOutMargin from './plugins/postcss-zero-out-margin';
 
@@ -65,7 +56,7 @@ export async function hemlstyles(contents: string, options: any = {}): Promise<R
 		normalizePositions(),
 		discardEmpty(),
 		uniqueSelectors(),
-		declarationSorter(),
+		sorting(),
 		mergeAdjacentMedia(),
 		discardDuplicates(),
 		mergeRules(),
