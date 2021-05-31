@@ -1,12 +1,12 @@
-import filter from 'lodash/filter';
-import difference from 'lodash/difference';
-import keyBy from 'lodash/keyBy';
-import first from 'lodash/first';
 import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import type { Options } from 'juice';
-import { renderElement } from './renderElement';
+import difference from 'lodash/difference';
+import filter from 'lodash/filter';
+import first from 'lodash/first';
+import keyBy from 'lodash/keyBy';
 import { createElement } from './createElement';
 import { HEMLElement, HEMLElementContainsText } from './HemlElement';
+import { renderElement } from './renderElement';
 
 export type { HEMLAttributes, HEMLNode } from './HemlElement';
 export { renderElement, HEMLElement, HEMLElementContainsText };

@@ -1,9 +1,9 @@
+import type { HEMLOptions } from '@dragonzap/heml-render';
 import juice from 'juice';
-import { HEMLOptions } from '@dragonzap/heml-render';
-import { inlineMargins } from './inlineMargins';
 import { fixWidthsFor } from './fixWidthsFor';
-import { removeProcessingIds } from './removeProcessingIds';
+import { inlineMargins } from './inlineMargins';
 import { preferMaxWidth } from './preferMaxWidth';
+import { removeProcessingIds } from './removeProcessingIds';
 
 export function inline($: cheerio.Root, options: HEMLOptions = {}): cheerio.Root {
 	const { juice: juiceOptions = {} } = options;

@@ -1,5 +1,6 @@
-import { HEMLOptions } from '@dragonzap/heml-render';
-import { cheerioFindNodes, HEMLError } from '@dragonzap/heml-utils';
+import type { HEMLOptions } from '@dragonzap/heml-render';
+import type { HEMLError } from '@dragonzap/heml-utils';
+import { cheerioFindNodes } from '@dragonzap/heml-utils';
 
 /**
  * Validate that a cheerio instance contains valid HEML

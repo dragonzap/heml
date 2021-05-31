@@ -1,4 +1,4 @@
-import { Root, Declaration } from 'postcss';
+import type { Root, Declaration } from 'postcss';
 
 /**
  * convert margin-top/margin-bottom to 0 when they are margin auto

@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups } from '@dragonzap/heml-utils';
 
 const { margin, background, border, borderRadius, text, font } = cssGroups;

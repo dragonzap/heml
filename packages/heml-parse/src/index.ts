@@ -1,8 +1,8 @@
-import cheerio from 'cheerio';
 import type { HEMLOptions } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import cheerio from 'cheerio';
 import { closeSelfClosingNodes } from './closeSelfClosingNodes';
-import { openWrappingNodes } from './openWrappingNodes';
 import { extractInlineStyles } from './extractInlineStyles';
+import { openWrappingNodes } from './openWrappingNodes';
 import { templateMerge } from './templateMerge';
 
 export function parse(contents: string, options: HEMLOptions = {}): cheerio.Root {

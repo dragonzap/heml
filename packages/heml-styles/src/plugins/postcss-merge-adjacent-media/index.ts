@@ -1,4 +1,4 @@
-import { Rule, AtRule, ChildNode, Root } from 'postcss';
+import type { Rule, AtRule, ChildNode, Root } from 'postcss';
 
 export const mergeAdjacentMedia = (opts = {}) => {
 	return {

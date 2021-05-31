@@ -1,8 +1,8 @@
+import type { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import randomString from 'crypto-random-string';
 import compact from 'lodash/compact';
 import first from 'lodash/first';
-import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import { cheerioFindNodes } from '@dragonzap/heml-utils';
 
 /**
  * This extracts all inline styles on elements into a style tag to be inlined later

@@ -2,10 +2,9 @@ import isPromise from 'is-promise';
 import castArray from 'lodash/castArray';
 import compact from 'lodash/compact';
 import flattenDeep from 'lodash/flattenDeep';
-import { HEMLGlobals } from '.';
 import { createHtmlElement } from './createHtmlElement';
-import type { HEMLAttributes, HEMLNode } from './HemlElement';
-import { HEMLElement } from './HemlElement';
+import type { HEMLAttributes, HEMLNode, HEMLElement } from './HemlElement';
+import type { HEMLGlobals } from '.';
 
 function render<TAttributes extends HEMLAttributes = HEMLAttributes>(
 	name: string | typeof HEMLElement,

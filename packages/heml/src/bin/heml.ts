@@ -2,8 +2,8 @@
 
 import cli from 'commander';
 import first from 'lodash/first';
-import { develop } from './commands/develop';
 import { build } from './commands/build';
+import { develop } from './commands/develop';
 // import { version } from '../../package.json';
 
 const version = '1.1.3';

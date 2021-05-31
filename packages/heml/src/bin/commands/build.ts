@@ -1,7 +1,7 @@
 import path from 'path';
-import { writeFileSync } from 'fs-extra';
+import type { HEMLOptions } from '@dragonzap/heml-render';
 import { red as error, yellow as code, blue, dim, bgBlue, bgRed, bgGreen } from 'chalk';
-import { HEMLOptions } from '@dragonzap/heml-render';
+import { writeFileSync } from 'fs-extra';
 import { isHemlFile } from '../utils/isHemlFile';
 import { renderHemlFile } from '../utils/renderHemlFile';
 

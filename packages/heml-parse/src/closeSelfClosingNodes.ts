@@ -1,4 +1,4 @@
-import { HEMLElement } from '@dragonzap/heml-render';
+import type { HEMLElement } from '@dragonzap/heml-render';
 import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import selfClosingHtmlTags from 'html-tags/void';
 

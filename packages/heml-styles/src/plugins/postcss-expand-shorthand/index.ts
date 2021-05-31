@@ -1,5 +1,6 @@
-import postcss, { Root, Declaration } from 'postcss';
 import cssShorthandExpand from 'css-shorthand-expand';
+import type { Root, Declaration } from 'postcss';
+import postcss from 'postcss';
 
 export const shorthandExpand = () => {
 	return {

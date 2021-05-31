@@ -1,5 +1,5 @@
-import selectorParser from 'postcss-selector-parser';
 import type { Rule } from 'postcss';
+import selectorParser from 'postcss-selector-parser';
 import type { Element } from './coerceElements';
 
 /**

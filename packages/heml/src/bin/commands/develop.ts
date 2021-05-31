@@ -1,16 +1,16 @@
 import path from 'path';
-import express from 'express';
-import reload from 'reload';
-import openUrl from 'open';
-import logUpdate from 'log-update';
+import type { HEMLOptions } from '@dragonzap/heml-render';
 import boxen from 'boxen';
+import { red as error, yellow as code, bgRed, bgBlue, bold, red, green } from 'chalk';
+import express from 'express';
 import gaze from 'gaze';
 import getPort from 'get-port';
-import { red as error, yellow as code, bgRed, bgBlue, bold, red, green } from 'chalk';
-import { HEMLOptions } from '@dragonzap/heml-render';
+import logUpdate from 'log-update';
+import openUrl from 'open';
+import reload from 'reload';
+import { buildErrorPage } from '../utils/buildErrorPage';
 import { isHemlFile } from '../utils/isHemlFile';
 import { renderHemlFile } from '../utils/renderHemlFile';
-import { buildErrorPage } from '../utils/buildErrorPage';
 
 const errorBlock = bgRed.white;
 const { log } = console;

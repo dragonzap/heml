@@ -1,11 +1,12 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms } from '@dragonzap/heml-utils';
-import omit from 'lodash/omit';
-import has from 'lodash/has';
-import fs from 'fs-extra';
-import isAbsoluteUrl from 'is-absolute-url';
 import axios from 'axios';
+import fs from 'fs-extra';
 import { imageSize } from 'image-size';
+import isAbsoluteUrl from 'is-absolute-url';
+import has from 'lodash/has';
+import omit from 'lodash/omit';
 import { Style } from './Style';
 
 interface Attrs extends HEMLAttributes {

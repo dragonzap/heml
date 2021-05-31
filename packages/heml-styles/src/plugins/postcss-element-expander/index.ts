@@ -1,7 +1,6 @@
 import { coerceElements } from './coerceElements';
-import { tagAliasSelectors } from './tagAliasSelectors';
-import { findDirectElementSelectors } from './findDirectElementSelectors';
 import { replaceElementTagMentions, replaceElementPseudoMentions, expandElementRule } from './expanders';
+import { findDirectElementSelectors } from './findDirectElementSelectors';
 
 /**
  * elements var looks like this before being coerced

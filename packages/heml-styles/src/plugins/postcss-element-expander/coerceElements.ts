@@ -1,8 +1,8 @@
-import isPlainObject from 'lodash/isPlainObject';
-import escapeRegExp from 'lodash/escapeRegExp';
-import isString from 'lodash/isString';
 import compact from 'lodash/compact';
-import { Declaration, Rule } from 'postcss';
+import escapeRegExp from 'lodash/escapeRegExp';
+import isPlainObject from 'lodash/isPlainObject';
+import isString from 'lodash/isString';
+import type { Declaration, Rule } from 'postcss';
 
 /**
  * remap the elements var to looks like this

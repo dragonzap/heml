@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
-import HEML, { HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import HEML, { HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms } from '@dragonzap/heml-utils';
 
 export class Table extends HEMLElementContainsText {

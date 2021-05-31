@@ -1,4 +1,5 @@
-import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 
 export class Meta extends HEMLElement {
 	protected attrs = true as const;

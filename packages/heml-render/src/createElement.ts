@@ -1,6 +1,6 @@
-import { HEMLGlobals } from '.';
 import type { HEMLAttributes, HEMLElement, HEMLNode } from './HemlElement';
 import { renderElement } from './renderElement';
+import type { HEMLGlobals } from '.';
 
 export function createElement(
 	globals: HEMLGlobals,

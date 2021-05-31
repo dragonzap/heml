@@ -1,4 +1,4 @@
-import { Rule, Declaration } from 'postcss';
+import type { Rule, Declaration } from 'postcss';
 
 /**
  * Adds the property this tranform is attached to, if the desired property wasn't given

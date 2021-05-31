@@ -1,4 +1,4 @@
-import { Declaration } from 'postcss';
+import type { Declaration } from 'postcss';
 
 /**
  * inline margin-left: auto; and margin-right: auto; otherwise, through it to 0

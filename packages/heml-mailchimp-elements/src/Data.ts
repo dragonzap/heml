@@ -1,5 +1,6 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { Meta } from '@dragonzap/heml-elements';
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { HEMLError } from '@dragonzap/heml-utils';
 
 interface Attrs extends HEMLAttributes {

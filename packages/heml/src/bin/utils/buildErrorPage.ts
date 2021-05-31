@@ -1,4 +1,4 @@
-import { HEMLError } from '@dragonzap/heml-utils';
+import type { HEMLError } from '@dragonzap/heml-utils';
 
 /**
  * builds the html that gets rendered when there are heml errors

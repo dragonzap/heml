@@ -1,17 +1,19 @@
-import { parse } from '@dragonzap/heml-parse';
-import { render, HEMLOptions } from '@dragonzap/heml-render';
+import * as coreElements from '@dragonzap/heml-elements';
 import { inline } from '@dragonzap/heml-inline';
+import { parse } from '@dragonzap/heml-parse';
+import type { HEMLOptions } from '@dragonzap/heml-render';
+import { render } from '@dragonzap/heml-render';
+import type { HEMLError } from '@dragonzap/heml-utils';
+import { condition } from '@dragonzap/heml-utils';
 import { validate } from '@dragonzap/heml-validate';
-import { condition, HEMLError } from '@dragonzap/heml-utils';
 import { byteLength } from 'byte-length';
 import { html as beautify } from 'js-beautify';
-import flattenDeep from 'lodash/flattenDeep';
 import cloneDeep from 'lodash/cloneDeep';
+import flattenDeep from 'lodash/flattenDeep';
 import toArray from 'lodash/toArray';
-import * as coreElements from '@dragonzap/heml-elements';
 
 export interface HEMLOutput {
-	metadata: Record<string, any>;
+	metadata: Record<string, string | number | boolean>;
 	html: string;
 	errors: HEMLError[];
 }

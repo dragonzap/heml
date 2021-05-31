@@ -1,20 +1,21 @@
 /* eslint-disable max-classes-per-file */
-import mapValues from 'lodash/mapValues';
-import compact from 'lodash/compact';
-import flattenDeep from 'lodash/flattenDeep';
-import difference from 'lodash/difference';
-import intersection from 'lodash/intersection';
-import castArray from 'lodash/castArray';
 import { cheerioFindNodes, HEMLError } from '@dragonzap/heml-utils';
-import type { HEMLGlobals } from '.';
+import castArray from 'lodash/castArray';
+import compact from 'lodash/compact';
+import difference from 'lodash/difference';
+import flattenDeep from 'lodash/flattenDeep';
+import intersection from 'lodash/intersection';
+import mapValues from 'lodash/mapValues';
 import { createHtmlElement } from './createHtmlElement';
+import type { HEMLGlobals } from '.';
 
 export interface HEMLAttributes {
 	class?: string;
 	contents?: HEMLNode;
 }
 
-const textRegex = /^(text(-([^-\s]+))?(-([^-\s]+))?|word-(break|spacing|wrap)|line-break|hanging-punctuation|hyphens|letter-spacing|overflow-wrap|tab-size|white-space|font-family|font-weight|font-style|font-variant|color)$/i;
+const textRegex =
+	/^(text(-([^-\s]+))?(-([^-\s]+))?|word-(break|spacing|wrap)|line-break|hanging-punctuation|hyphens|letter-spacing|overflow-wrap|tab-size|white-space|font-family|font-weight|font-style|font-variant|color)$/i;
 
 export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 	public rules: Record<string, any[]>;
@@ -186,7 +187,7 @@ export class HEMLElement<TAttributes extends HEMLAttributes = HEMLAttributes> {
 }
 
 export class HEMLElementContainsText<
-	TAttributes extends HEMLAttributes = HEMLAttributes
+	TAttributes extends HEMLAttributes = HEMLAttributes,
 > extends HEMLElement<TAttributes> {
 	public constructor(props: TAttributes, contents: HEMLNode) {
 		super(props, contents);

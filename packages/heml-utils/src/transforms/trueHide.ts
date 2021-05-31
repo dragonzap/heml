@@ -1,6 +1,5 @@
 import isUndefined from 'lodash/isUndefined';
-
-import { Rule, Declaration } from 'postcss';
+import type { Rule, Declaration } from 'postcss';
 
 export function trueHide(type?: string, containsTables = false) {
 	return (decl: Declaration, originalRule: Rule): void => {

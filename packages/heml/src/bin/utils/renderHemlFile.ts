@@ -1,6 +1,7 @@
+import type { HEMLOptions } from '@dragonzap/heml-render';
 import { readFileSync } from 'fs-extra';
-import { HEMLOptions } from '@dragonzap/heml-render';
-import { heml, HEMLOutput } from '../..';
+import type { HEMLOutput } from '../..';
+import { heml } from '../..';
 
 export async function renderHemlFile(filepath: string, options: HEMLOptions): Promise<HEMLOutput> {
 	const contents = readFileSync(filepath, 'utf8');

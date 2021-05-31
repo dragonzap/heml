@@ -1,6 +1,6 @@
+import type { Rule } from 'postcss';
 import selectorParser from 'postcss-selector-parser';
-import { Rule } from 'postcss';
-import { Element } from './coerceElements';
+import type { Element } from './coerceElements';
 
 const simpleSelectorParser = selectorParser();
 
@@ -114,7 +114,7 @@ function appendElementSelector(element: Element, selector: string): string {
 			if (combinatorNode) {
 				selectorItem.insertAfter(combinatorNode, elementNode);
 			} else {
-				selectorItem.prepend((elementNode as unknown) as selectorParser.Selector);
+				selectorItem.prepend(elementNode as unknown as selectorParser.Selector);
 			}
 		});
 	});

@@ -1,9 +1,10 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import isAbsoluteUrl from 'is-absolute-url';
 import { resolve } from 'url';
-import has from 'lodash/has';
-import first from 'lodash/first';
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { cheerioFindNodes } from '@dragonzap/heml-utils';
+import isAbsoluteUrl from 'is-absolute-url';
+import first from 'lodash/first';
+import has from 'lodash/has';
 import { Meta } from './Meta';
 
 interface Attrs extends HEMLAttributes {

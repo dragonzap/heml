@@ -1,4 +1,5 @@
-import HEML, { HEMLAttributes, HEMLNode, HEMLElementContainsText, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import HEML, { HEMLElementContainsText } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, condition } from '@dragonzap/heml-utils';
 import { Style } from './Style';
 

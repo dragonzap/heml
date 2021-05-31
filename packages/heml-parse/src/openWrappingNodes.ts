@@ -1,8 +1,8 @@
-import { HEMLElement } from '@dragonzap/heml-render';
+import type { HEMLElement } from '@dragonzap/heml-render';
+import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import htmlTags from 'html-tags';
 import selfClosingHtmlTags from 'html-tags/void';
 import difference from 'lodash/difference';
-import { cheerioFindNodes } from '@dragonzap/heml-utils';
 
 const wrappingHtmlTags = difference(htmlTags, selfClosingHtmlTags);
 

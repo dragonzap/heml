@@ -1,10 +1,11 @@
-import { cheerioFindNodes } from '@dragonzap/heml-utils';
-import HEML, { HEMLAttributes, HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { hemlstyles } from '@dragonzap/heml-styles';
-import isEqual from 'lodash/isEqual';
-import uniqWith from 'lodash/uniqWith';
-import sortBy from 'lodash/sortBy';
+import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import castArray from 'lodash/castArray';
+import isEqual from 'lodash/isEqual';
+import sortBy from 'lodash/sortBy';
+import uniqWith from 'lodash/uniqWith';
 
 const START_EMBED_CSS = `/*!***START:EMBED_CSS*****/`;
 const START_INLINE_CSS = `/*!***START:INLINE_CSS*****/`;

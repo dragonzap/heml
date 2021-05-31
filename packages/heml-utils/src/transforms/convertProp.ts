@@ -1,4 +1,4 @@
-import { Declaration } from 'postcss';
+import type { Declaration } from 'postcss';
 
 /**
  * convert a decleration to different properity

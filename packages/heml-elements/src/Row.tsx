@@ -1,8 +1,9 @@
-import HEML, { HEMLNode, HEMLElement, HEMLGlobals } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
+import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
+import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cheerioFindNodes } from '@dragonzap/heml-utils';
-import sum from 'lodash/sum';
-import max from 'lodash/max';
 import isUndefined from 'lodash/isUndefined';
+import max from 'lodash/max';
+import sum from 'lodash/sum';
 
 export class Row extends HEMLElement {
 	protected children = ['column'];
