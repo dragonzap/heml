@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-styles",
-	"version": "1.2.2-alpha.36",
+	"version": "1.2.2-alpha.37",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
@@ -17,8 +17,10 @@
 	"files": [
 		"dist"
 	],
-	"main": "dist/index",
-	"types": "dist/index",
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.js",
+	"type": "module",
+	"node": "^12.20.0 || ^14.13.1 || >=16.0.0",
 	"scripts": {
 		"clean": "rm -rf ./dist",
 		"build:babel": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",

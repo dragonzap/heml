@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml",
-	"version": "1.2.2-alpha.36",
+	"version": "1.2.2-alpha.37",
 	"description": "HEML is an open source markup language for building responsive email",
 	"keywords": [
 		"heml",
@@ -18,8 +18,10 @@
 	"files": [
 		"dist"
 	],
-	"main": "dist/index",
-	"types": "dist/index",
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.js",
+	"type": "module",
+	"node": "^12.20.0 || ^14.13.1 || >=16.0.0",
 	"scripts": {
 		"clean": "rm -rf ./dist",
 		"build:babel": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
@@ -30,13 +32,13 @@
 		"heml": "dist/bin/heml.js"
 	},
 	"dependencies": {
-		"@dragonzap/heml-elements": "^1.2.2-alpha.36",
-		"@dragonzap/heml-inline": "^1.2.2-alpha.36",
-		"@dragonzap/heml-mailchimp-elements": "^1.2.2-alpha.36",
-		"@dragonzap/heml-parse": "^1.2.2-alpha.36",
-		"@dragonzap/heml-render": "^1.2.2-alpha.36",
-		"@dragonzap/heml-utils": "^1.2.2-alpha.36",
-		"@dragonzap/heml-validate": "^1.2.2-alpha.36",
+		"@dragonzap/heml-elements": "^1.2.2-alpha.37",
+		"@dragonzap/heml-inline": "^1.2.2-alpha.37",
+		"@dragonzap/heml-mailchimp-elements": "^1.2.2-alpha.37",
+		"@dragonzap/heml-parse": "^1.2.2-alpha.37",
+		"@dragonzap/heml-render": "^1.2.2-alpha.37",
+		"@dragonzap/heml-utils": "^1.2.2-alpha.37",
+		"@dragonzap/heml-validate": "^1.2.2-alpha.37",
 		"boxen": "^5.0.1",
 		"byte-length": "^1.0.2",
 		"chalk": "^4.1.1",

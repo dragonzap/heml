@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-inline",
-	"version": "1.2.2-alpha.36",
+	"version": "1.2.2-alpha.37",
 	"description": "CSS inliner for HEML",
 	"keywords": [
 		"heml"
@@ -17,8 +17,10 @@
 	"files": [
 		"dist"
 	],
-	"main": "dist/index",
-	"types": "dist/index",
+	"exports": "./dist/index.js",
+	"types": "./dist/index.d.js",
+	"type": "module",
+	"node": "^12.20.0 || ^14.13.1 || >=16.0.0",
 	"scripts": {
 		"clean": "rm -rf ./dist",
 		"build:babel": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
@@ -29,7 +31,7 @@
 		"registry": "https://npm.pkg.github.com/dragonzap"
 	},
 	"dependencies": {
-		"@dragonzap/heml-render": "^1.2.2-alpha.36",
+		"@dragonzap/heml-render": "^1.2.2-alpha.37",
 		"cheerio": "1.0.0-rc.10",
 		"juice": "^8.0.0",
 		"lodash": "^4.17.21"
