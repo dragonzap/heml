@@ -25,9 +25,7 @@
 		"build:tsc": "tsc -p tsconfig.build.json",
 		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/dragonzap"
-	},
+
 	"dependencies": {
 		"@types/node": "^16.3.0",
 		"cheerio": "1.0.0-rc.10",

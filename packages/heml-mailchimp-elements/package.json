@@ -25,9 +25,7 @@
 		"build:tsc": "tsc -p tsconfig.build.json",
 		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/dragonzap"
-	},
+
 	"dependencies": {
 		"@dragonzap/heml-elements": "^1.2.6",
 		"@dragonzap/heml-render": "^1.2.6",

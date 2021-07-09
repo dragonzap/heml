@@ -56,8 +56,5 @@
 		"@babel/core": "^7.14.6",
 		"typescript": "^4.3.5"
 	},
-	"publishConfig": {
-		"registry": "https://npm.pkg.github.com/dragonzap"
-	},
-	"gitHead": "604b762cfc3f869a43b7432b14786f8d45af82c2"
+	"gitHead": "361cc7d92a5860d2f5df8c3e2e8671f458f5d390"
 }
