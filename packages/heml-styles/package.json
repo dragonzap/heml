@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-styles",
-	"version": "1.2.10",
+	"version": "1.2.11",
 	"description": "CSS processor for HEML",
 	"keywords": [
 		"heml"
@@ -74,6 +74,6 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	  },
+	},
 	"gitHead": "858fabd23b2d1c5ec8c021648255738655e84ef4"
 }

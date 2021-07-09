@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-utils",
-	"version": "1.2.10",
+	"version": "1.2.11",
 	"description": "A collection of utilities for HEML",
 	"keywords": [
 		"heml"
@@ -39,6 +39,6 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	  },
+	},
 	"gitHead": "858fabd23b2d1c5ec8c021648255738655e84ef4"
 }

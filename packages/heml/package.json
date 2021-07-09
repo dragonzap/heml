@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml",
-	"version": "1.2.10",
+	"version": "1.2.11",
 	"description": "HEML is an open source markup language for building responsive email",
 	"keywords": [
 		"heml",
@@ -30,13 +30,13 @@
 		"heml": "dist/bin/heml.js"
 	},
 	"dependencies": {
-		"@dragonzap/heml-elements": "^1.2.10",
-		"@dragonzap/heml-inline": "^1.2.10",
-		"@dragonzap/heml-mailchimp-elements": "^1.2.10",
-		"@dragonzap/heml-parse": "^1.2.10",
-		"@dragonzap/heml-render": "^1.2.10",
-		"@dragonzap/heml-utils": "^1.2.10",
-		"@dragonzap/heml-validate": "^1.2.10",
+		"@dragonzap/heml-elements": "^1.2.11",
+		"@dragonzap/heml-inline": "^1.2.11",
+		"@dragonzap/heml-mailchimp-elements": "^1.2.11",
+		"@dragonzap/heml-parse": "^1.2.11",
+		"@dragonzap/heml-render": "^1.2.11",
+		"@dragonzap/heml-utils": "^1.2.11",
+		"@dragonzap/heml-validate": "^1.2.11",
 		"boxen": "^5.0.1",
 		"byte-length": "^1.0.2",
 		"chalk": "^4.1.1",
@@ -58,6 +58,6 @@
 	},
 	"publishConfig": {
 		"access": "public"
-	  },
+	},
 	"gitHead": "858fabd23b2d1c5ec8c021648255738655e84ef4"
 }
