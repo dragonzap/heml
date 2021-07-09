@@ -1,6 +1,6 @@
 {
 	"name": "heml-project",
-	"private": true,
+	"private": false,
 	"repository": "https://github.com/dragonzap/heml2.git",
 	"scripts": {
 		"bootstrap": "lerna bootstrap",
