@@ -56,5 +56,8 @@
 		"@babel/core": "^7.14.6",
 		"typescript": "^4.3.5"
 	},
-	"gitHead": "361cc7d92a5860d2f5df8c3e2e8671f458f5d390"
+	"publishConfig": {
+		"access": "public"
+	  },
+	"gitHead": "858fabd23b2d1c5ec8c021648255738655e84ef4"
 }
