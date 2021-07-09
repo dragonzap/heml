@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.2-alpha.40](https://github.com/dragonzap/heml2/compare/v1.2.2-alpha.39...v1.2.2-alpha.40) (2021-07-09)
+
+
+### Reverts
+
+* Revert "Dependecy update" ([0393b33](https://github.com/dragonzap/heml2/commit/0393b3377eb7c63b8f4d2abc3885efab7651058a))
+
+
+
+
+
 ## [1.2.2-alpha.39](https://github.com/dragonzap/heml2/compare/v1.2.2-alpha.38...v1.2.2-alpha.39) (2021-07-09)
 
 **Note:** Version bump only for package heml-project
