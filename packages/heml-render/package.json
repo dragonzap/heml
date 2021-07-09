@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-render",
-	"version": "1.2.6",
+	"version": "1.2.9",
 	"description": "Renderer for HEML",
 	"keywords": [
 		"heml"
@@ -25,9 +25,8 @@
 		"build:tsc": "tsc -p tsconfig.build.json",
 		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
-
 	"dependencies": {
-		"@dragonzap/heml-utils": "^1.2.4",
+		"@dragonzap/heml-utils": "^1.2.9",
 		"cheerio": "1.0.0-rc.10",
 		"html-tags": "^3.1.0",
 		"is-promise": "^4.0.0",

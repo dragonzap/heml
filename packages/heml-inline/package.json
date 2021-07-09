@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-inline",
-	"version": "1.2.6",
+	"version": "1.2.9",
 	"description": "CSS inliner for HEML",
 	"keywords": [
 		"heml"
@@ -25,9 +25,8 @@
 		"build:tsc": "tsc -p tsconfig.build.json",
 		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
-
 	"dependencies": {
-		"@dragonzap/heml-render": "^1.2.6",
+		"@dragonzap/heml-render": "^1.2.9",
 		"cheerio": "1.0.0-rc.10",
 		"juice": "^8.0.0",
 		"lodash": "^4.17.21"
