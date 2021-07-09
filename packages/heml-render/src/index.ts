@@ -4,11 +4,11 @@ import difference from 'lodash/difference';
 import filter from 'lodash/filter';
 import first from 'lodash/first';
 import keyBy from 'lodash/keyBy';
-import { createElement } from './createElement';
-import { HEMLElement, HEMLElementContainsText } from './HemlElement';
-import { renderElement } from './renderElement';
+import { createElement } from './createElement.js';
+import { HEMLElement, HEMLElementContainsText } from './HemlElement.js';
+import { renderElement } from './renderElement.js';
 
-export type { HEMLAttributes, HEMLNode } from './HemlElement';
+export type { HEMLAttributes, HEMLNode } from './HemlElement.js';
 export { renderElement, HEMLElement, HEMLElementContainsText };
 export const HEML = { createElement, renderElement };
 export default HEML;

@@ -7,7 +7,7 @@ import { imageSize } from 'image-size';
 import isAbsoluteUrl from 'is-absolute-url';
 import has from 'lodash/has';
 import omit from 'lodash/omit';
-import { Style } from './Style';
+import { Style } from './Style.js';
 
 interface Attrs extends HEMLAttributes {
 	src?: string;

@@ -1,6 +1,6 @@
 import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import { If } from './If';
+import { If } from './If.js';
 
 interface Attrs extends HEMLAttributes {
 	condition: string;

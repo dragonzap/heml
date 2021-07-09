@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import { build } from './commands/build';
-import { develop } from './commands/develop';
-// import { version } from '../../package.json';
+import { build } from './commands/build.js';
+import { develop } from './commands/develop.js';
 
 const version = '1.2.2';
 

@@ -5,7 +5,7 @@ import { cheerioFindNodes } from '@dragonzap/heml-utils';
 import isAbsoluteUrl from 'is-absolute-url';
 import first from 'lodash/first';
 import has from 'lodash/has';
-import { Meta } from './Meta';
+import { Meta } from './Meta.js';
 
 interface Attrs extends HEMLAttributes {
 	href: string;

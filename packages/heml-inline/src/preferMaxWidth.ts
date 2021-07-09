@@ -1,4 +1,4 @@
-import { setProp, getProp, removeProp } from './styleHelper';
+import { setProp, getProp, removeProp } from './styleHelper.js';
 
 export function preferMaxWidth($: cheerio.Root, selector: string): void {
 	$(selector)

@@ -6,8 +6,8 @@ import difference from 'lodash/difference';
 import flattenDeep from 'lodash/flattenDeep';
 import intersection from 'lodash/intersection';
 import mapValues from 'lodash/mapValues';
-import { createHtmlElement } from './createHtmlElement';
-import type { HEMLGlobals } from '.';
+import { createHtmlElement } from './createHtmlElement.js';
+import type { HEMLGlobals } from './index.js';
 
 export interface HEMLAttributes {
 	class?: string;

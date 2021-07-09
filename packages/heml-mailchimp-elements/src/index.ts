@@ -1,7 +1,7 @@
 /* Data */
-export { Data } from './Data';
+export { Data } from './Data.js';
 
 /* Conditions */
-export { If } from './If';
-export { Else } from './Else';
-export { Each } from './Each';
+export { If } from './If.js';
+export { Else } from './Else.js';
+export { Each } from './Each.js';

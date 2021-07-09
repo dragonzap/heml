@@ -10,10 +10,12 @@
 		"test": "jest",
 		"test-full": "npm run bootstrap && npm run build && npm run lint && jest ./test/*.spec.js",
 		"clean": "lerna run clean && lerna clean --yes",
-		"build": "lerna exec --parallel -- babel src --out-dir dist --source-maps --extensions .ts,.tsx --config-file ../../babel.config.js --delete-dir-on-start --no-comments",
-		"build:tsc": "lerna run build:tsc",
+		"build:babel": "lerna exec --parallel -- babel src --out-dir dist --source-maps --extensions .ts,.tsx --config-file ../../babel.config.js --delete-dir-on-start --no-comments",
+		"build": "lerna run build:tsc",
 		"publish": "lerna publish"
 	},
+	"type": "module",
+	"node": "^12.20.0 || ^14.13.1 || >=16.0.0",
 	"workspaces": [
 		"packages/*"
 	],

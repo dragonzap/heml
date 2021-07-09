@@ -1,4 +1,4 @@
-import { setProp, getProp } from './styleHelper';
+import { setProp, getProp } from './styleHelper.js';
 
 /**
  * Converts all width properties on the given tag to be a fixed value

@@ -2,7 +2,7 @@ import { Meta } from '@dragonzap/heml-elements';
 import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { HEMLError } from '@dragonzap/heml-utils';
-import { Else } from './Else';
+import { Else } from './Else.js';
 
 interface Attrs extends HEMLAttributes {
 	condition: string;

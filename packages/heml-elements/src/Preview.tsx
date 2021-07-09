@@ -1,6 +1,6 @@
 import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import { Meta } from './Meta';
+import { Meta } from './Meta.js';
 
 export class Preview extends HEMLElement {
 	protected parent = ['head'];

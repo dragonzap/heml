@@ -3,7 +3,7 @@ import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-li
 import { transforms, cssGroups, HEMLError } from '@dragonzap/heml-utils';
 import omit from 'lodash/omit';
 import pick from 'lodash/pick';
-import { Style } from './Style';
+import { Style } from './Style.js';
 
 const { background, margin, padding, border, borderRadius, width, height, table, text, font, box } = cssGroups;
 

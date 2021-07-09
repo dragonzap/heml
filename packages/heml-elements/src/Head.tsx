@@ -1,7 +1,7 @@
 import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
-import { Style } from './Style';
-import { Subject } from './Subject';
+import { Style } from './Style.js';
+import { Subject } from './Subject.js';
 
 export class Head extends HEMLElement {
 	protected unique = true;

@@ -1,5 +1,5 @@
 import selectorParser from 'postcss-selector-parser';
-import type { Element } from './coerceElements';
+import type { Element } from './coerceElements.js';
 
 const simpleSelectorParser = selectorParser();
 

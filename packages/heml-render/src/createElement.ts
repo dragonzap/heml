@@ -1,5 +1,5 @@
-import type { HEMLAttributes, HEMLElement, HEMLNode } from './HemlElement';
-import { renderElement } from './renderElement';
+import type { HEMLAttributes, HEMLElement, HEMLNode } from './HemlElement.js';
+import { renderElement } from './renderElement.js';
 import type { HEMLGlobals } from '.';
 
 export function createElement(

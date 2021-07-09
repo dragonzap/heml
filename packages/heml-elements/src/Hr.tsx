@@ -1,7 +1,7 @@
 import type { HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { transforms, cssGroups, condition } from '@dragonzap/heml-utils';
-import { Style } from './Style';
+import { Style } from './Style.js';
 
 const { trueHide, ieAlignFallback } = transforms;
 

@@ -1,4 +1,4 @@
-export { trueHide } from './trueHide';
-export { convertProp } from './convertProp';
-export { ieAlignFallback } from './ieAlignFallback';
-export { fallbackFor } from './fallbackFor';
+export { trueHide } from './trueHide.js';
+export { convertProp } from './convertProp.js';
+export { ieAlignFallback } from './ieAlignFallback.js';
+export { fallbackFor } from './fallbackFor.js';

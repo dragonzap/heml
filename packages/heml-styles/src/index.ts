@@ -27,10 +27,10 @@ import rgbToHex from 'postcss-rgba-hex';
 import safeParser from 'postcss-safe-parser';
 import sorting from 'postcss-sorting';
 import uniqueSelectors from 'postcss-unique-selectors';
-import { elementExpander } from './plugins/postcss-element-expander';
-import { shorthandExpand } from './plugins/postcss-expand-shorthand';
-import { mergeAdjacentMedia } from './plugins/postcss-merge-adjacent-media';
-import zeroOutMargin from './plugins/postcss-zero-out-margin';
+import { elementExpander } from './plugins/postcss-element-expander/index.js';
+import { shorthandExpand } from './plugins/postcss-expand-shorthand/index.js';
+import { mergeAdjacentMedia } from './plugins/postcss-merge-adjacent-media/index.js';
+import zeroOutMargin from './plugins/postcss-zero-out-margin/index.js';
 
 export async function hemlstyles(contents: string, options: any = {}): Promise<Result> {
 	const { elements = {}, aliases = {}, plugins = [] } = options;
