@@ -25,7 +25,7 @@
 		"clean": "rm -rf ./dist",
 		"build:babel": "babel src --out-dir dist --source-maps --extensions .ts,.tsx --delete-dir-on-start --config-file ../../babel.config.js --no-comments",
 		"build:tsc": "tsc -p tsconfig.build.json",
-		"prepublishOnly": "yarn run clean && yarn run build:babel"
+		"prepublishOnly": "yarn run clean && yarn run build:tsc"
 	},
 	"publishConfig": {
 		"registry": "https://npm.pkg.github.com/dragonzap"
