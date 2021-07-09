@@ -40,10 +40,8 @@ export class Meta extends HEMLElement {
 	}
 
 	public static async flush(globals: HEMLGlobals): Promise<Record<string, any>> {
-		const metaObject = { ...globals.data.meta };
-
 		Meta.preRender(globals);
 
-		return Promise.resolve(metaObject);
+		return Promise.resolve(globals.data.meta);
 	}
 }

@@ -23,11 +23,20 @@ export interface HEMLOptions {
 	juice?: Options;
 }
 
-export interface HEMLGlobals {
-	$: cheerio.Root;
-	elements: Array<typeof HEMLElement>;
-	options: HEMLOptions;
-	data?: Record<string, any>;
+export class HEMLGlobals {
+	public readonly $: cheerio.Root;
+	public readonly elements: Array<typeof HEMLElement> = [];
+	public readonly options: HEMLOptions;
+	public data: Record<string, any> = {};
+
+	constructor($: cheerio.Root, elements: Array<typeof HEMLElement>, options: HEMLOptions) {
+		this.$ = $;
+		this.elements = elements;
+		this.options = options;
+		this.data = {
+			meta: { meta: [], placeholder: {} },
+		};
+	}
 }
 
 interface HEMLOutput {
@@ -60,7 +69,7 @@ async function promiseQueue(
 	i = 0,
 ): Promise<void> {
 	if (i >= $nodes.length) {
-		return new Promise((resolve) => resolve(undefined));
+		return Promise.resolve(undefined);
 	}
 
 	const $node: cheerio.Cheerio = $nodes[i];
@@ -108,7 +117,7 @@ async function renderElements(elements: Array<typeof HEMLElement>, globals: HEML
 export async function render($: cheerio.Root, options: HEMLOptions = {}): Promise<HEMLOutput> {
 	const { elements = [] } = options;
 
-	const globals = { $, elements, options, data: {} };
+	const globals = new HEMLGlobals($, elements, options);
 	const Meta: typeof HEMLElement = first(elements.filter((element) => element.name.toLowerCase() === 'meta'));
 
 	preRenderElements(elements, globals);

@@ -13,6 +13,6 @@ export class Subject extends HEMLElement {
 	}
 
 	public static async flush(globals: HEMLGlobals): Promise<string> {
-		return new Promise((resolve) => resolve(Meta.get('subject', globals) || ''));
+		return Promise.resolve(Meta.get('subject', globals) || '');
 	}
 }
