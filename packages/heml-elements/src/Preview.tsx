@@ -15,16 +15,18 @@ export class Preview extends HEMLElement {
 	public static async flush(globals: HEMLGlobals): Promise<string> {
 		const preview = Meta.get('preview', globals);
 
-		return Promise.resolve(
-			preview ? (
-				<div
-					className="preview"
-					style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">
-					{preview}
-					{'&nbsp;&zwnj;'.repeat(200 - preview.length)}
-				</div>
-			) : (
-				''
+		return new Promise((resolve) =>
+			resolve(
+				preview ? (
+					<div
+						className="preview"
+						style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all;">
+						{preview}
+						{'&nbsp;&zwnj;'.repeat(200 - preview.length)}
+					</div>
+				) : (
+					''
+				),
 			),
 		);
 	}
