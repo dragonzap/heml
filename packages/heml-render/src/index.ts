@@ -27,21 +27,51 @@ export class HEMLGlobals {
 	public readonly $: cheerio.Root;
 	public readonly elements: Array<typeof HEMLElement> = [];
 	public readonly options: HEMLOptions;
-	public data: Record<string, any> = {};
+	public meta: Record<string, string> = {};
+	public placeholders: Record<string, any> = {};
+	public styleMap: Map<string, any[]> = new Map([['global', []]]);
+	public styleOptions: {
+		plugins: string[];
+		elements: Record<string, Record<string, any[]>>;
+		aliases: Record<string, any[]>;
+	} = {
+		plugins: [],
+		elements: {},
+		aliases: {},
+	};
 
 	constructor($: cheerio.Root, elements: Array<typeof HEMLElement>, options: HEMLOptions) {
 		this.$ = $;
 		this.elements = elements;
 		this.options = options;
-		this.data = {
-			meta: { meta: [], placeholder: {} },
-		};
+	}
+
+	public addMeta(name: string, value: string): void {
+		this.meta[name] = value;
+	}
+
+	public addPlaceholder(key: string, value: any): void {
+		if (key && [true, false, undefined, ''].includes(this.placeholders[key])) {
+			if (value !== '' && typeof value === 'string' && !Number.isNaN(Number(value))) {
+				this.placeholders[key] = Number(value);
+			} else if (value === 'true' || value === 'false') {
+				this.placeholders[key] = Boolean(value);
+			} else {
+				this.placeholders[key] = value;
+			}
+		}
+	}
+
+	public reset(): void {
+		this.meta = {};
+		this.placeholders = {};
 	}
 }
 
-interface HEMLOutput {
+interface HEMLRenderOutput {
 	$: cheerio.Root;
-	metadata: Record<string, any>;
+	meta: Record<string, string>;
+	placeholders: Record<string, any>;
 }
 
 /**
@@ -114,7 +144,7 @@ async function renderElements(elements: Array<typeof HEMLElement>, globals: HEML
  * @param  {Object}  globals
  * @return {Promise}           Returns an object with the cheerio object and metadata
  */
-export async function render($: cheerio.Root, options: HEMLOptions = {}): Promise<HEMLOutput> {
+export async function render($: cheerio.Root, options: HEMLOptions = {}): Promise<HEMLRenderOutput> {
 	const { elements = [] } = options;
 
 	const globals = new HEMLGlobals($, elements, options);
@@ -132,15 +162,16 @@ export async function render($: cheerio.Root, options: HEMLOptions = {}): Promis
 						.then((result) =>
 							resolve({
 								$,
-								metadata: result,
-							} as HEMLOutput),
+								...result,
+							}),
 						)
 						.catch((e) => reject(e));
 				} else {
 					resolve({
 						$,
-						metadata: {},
-					} as HEMLOutput);
+						meta: {},
+						placeholders: {},
+					});
 				}
 			})
 			.catch((e) => reject(e)),

@@ -13,20 +13,22 @@ import flattenDeep from 'lodash/flattenDeep';
 import toArray from 'lodash/toArray';
 
 export interface HEMLOutput {
-	metadata: Record<string, string | number | boolean>;
+	meta: Record<string, string>;
+	placeholders: Record<string, any>;
 	html: string;
 	errors: HEMLError[];
+	size: string;
+	time: string;
 }
 
 /**
  * renders the given HEML string with the config provided
  * @param  {String} HEML     the heml to render
  * @param  {Object} options  the options
- * @return {Object}          { metadata, html, errors }
+ * @return {Object}          { meta, placeholders, html, errors, size, time }
  */
 export async function heml(contents: string, defOptions: HEMLOptions = {}): Promise<HEMLOutput> {
 	const start = new Date().getTime();
-	const results: HEMLOutput = { metadata: undefined, html: '', errors: [] };
 	const options = cloneDeep(defOptions);
 	const { beautify: beautifyOptions = {}, validate: validateOption = 'soft' } = options;
 
@@ -40,17 +42,13 @@ export async function heml(contents: string, defOptions: HEMLOptions = {}): Prom
 	if (validateOption.toLowerCase() === 'strict' && errors.length > 0) {
 		throw errors[0];
 	}
-	if (validateOption.toLowerCase() === 'soft') {
-		results.errors = errors;
-	}
-
 	/** render it 🤖 */
-	return render($heml, options).then(({ $: $html, metadata }) => {
+	return render($heml, options).then(({ $: $html, meta, placeholders }) => {
 		/** inline it ✍️ */
 		inline($html, options);
 
 		/** beautify it 💅 */
-		results.html = condition.replace(
+		const html = condition.replace(
 			beautify($html.html(), {
 				indent_size: 2,
 				indent_inner_html: true,
@@ -60,15 +58,15 @@ export async function heml(contents: string, defOptions: HEMLOptions = {}): Prom
 			}),
 		);
 
-		/** final touches 👌 */
-		results.metadata = {
-			...metadata,
-			size: `${(byteLength(results.html) / 1024).toFixed(2)}kb`,
-			time: `${new Date().getTime() - start}ms`,
-		};
-
 		/** send it back 🎉 */
-		return results;
+		return {
+			meta,
+			placeholders,
+			html,
+			errors: validateOption.toLowerCase() === 'soft' ? errors : [],
+			time: `${new Date().getTime() - start}ms`,
+			size: `${(byteLength(html) / 1024).toFixed(2)}kb`,
+		};
 	});
 }
 

@@ -1,4 +1,3 @@
-import { Meta } from '@dragonzap/heml-elements';
 import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { HEMLError } from '@dragonzap/heml-utils';
@@ -16,7 +15,7 @@ export class Each extends HEMLElement<Attrs> {
 	public render(globals: HEMLGlobals): HEMLNode {
 		const { src, contents } = this.props;
 
-		Meta.addPlaceholder(src, [], globals);
+		globals.addPlaceholder(src, []);
 
 		return [`{{#each ${src}}}`, contents, `{{/each}}`];
 	}

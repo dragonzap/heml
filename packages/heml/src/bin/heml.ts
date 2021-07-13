@@ -5,7 +5,7 @@ import { build } from './commands/build';
 import { develop } from './commands/develop';
 // import { version } from '../../package.json';
 
-const version = '1.2.8';
+const version = '1.3.2';
 
 const commands = ['develop', 'build'];
 const args = process.argv.slice(2);

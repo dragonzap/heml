@@ -1,4 +1,3 @@
-import { Meta } from '@dragonzap/heml-elements';
 import type { HEMLAttributes, HEMLNode, HEMLGlobals } from '@dragonzap/heml-render';
 import HEML, { HEMLElement } from '@dragonzap/heml-render'; // eslint-disable-line no-unused-vars
 import { HEMLError } from '@dragonzap/heml-utils';
@@ -43,18 +42,18 @@ export class If extends HEMLElement<Attrs> {
 
 		if (cleanedCondition.startsWith('!')) {
 			const name = cleanedCondition.replace(/^!/, '');
-			Meta.addPlaceholder(name, false, globals);
+			globals.addPlaceholder(name, false);
 
 			return [`{{#unless ${name}}}`, contents, `{{/unless}}`];
 		}
 
 		if (cleanedCondition.includes(' ')) {
-			Meta.addPlaceholder(cleanedCondition.split(' ')[0], cleanedCondition.split(' ')[2], globals);
+			globals.addPlaceholder(cleanedCondition.split(' ')[0], cleanedCondition.split(' ')[2]);
 
 			return [`{{#if \`${cleanedCondition}\`}}`, contents, `{{/if}}`];
 		}
 
-		Meta.addPlaceholder(cleanedCondition, true, globals);
+		globals.addPlaceholder(cleanedCondition, true);
 
 		return [`{{#if ${cleanedCondition}}}`, contents, `{{/if}}`];
 	}

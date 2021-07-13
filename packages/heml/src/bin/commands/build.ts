@@ -27,18 +27,16 @@ export function build(file: string, options: HEMLOptions & HEMLBuildOutput): voi
 		log(`${bgBlue.black(' COMPILING ')}`);
 		log(`${blue(' -')} Reading ${file}`);
 		log(`${blue(' -')} Building HEML`);
-		renderHemlFile(filepath, options).then(({ html, metadata, errors }) => {
-			log(`${blue(' -')} Writing ${metadata.size}`);
+		renderHemlFile(filepath, options).then(({ html, size, time, errors }) => {
+			log(`${blue(' -')} Writing ${size}`);
 			writeFileSync(outputpath, html);
 
 			const relativePath = code(path.relative(process.cwd(), outputpath));
 
 			log(
 				errors.length
-					? `\n${errorBlock(' DONE ')} Compiled with errors to ${code(relativePath)} in ${metadata.time}ms\n`
-					: `\n${successBlock(' DONE ')} Compiled successfully to ${code(relativePath)} in ${
-							metadata.time
-					  }ms\n`,
+					? `\n${errorBlock(' DONE ')} Compiled with errors to ${code(relativePath)} in ${time}\n`
+					: `\n${successBlock(' DONE ')} Compiled successfully to ${code(relativePath)} in ${time}\n`,
 			);
 
 			if (errors.length) {

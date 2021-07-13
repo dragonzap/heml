@@ -84,7 +84,7 @@ function renderCLI(url: string, status: string, time: string, size: string): voi
 			`${bgBlue.black(' HEML ')}\n\n` +
 				`- ${bold('Preview:')}         ${url}\n` +
 				`- ${bold('Status:')}          ${status}\n` +
-				`- ${bold('Compile time:')}    ${time}ms\n` +
+				`- ${bold('Compile time:')}    ${time}\n` +
 				`- ${bold('Total size:')}      ${size}`,
 			{ padding: 1, margin: 1 },
 		),
@@ -104,13 +104,13 @@ function startDevServer(directory: string, port = 3000) {
 	app.get('/', (req, res) => res.send(preview));
 	app.use(express.static(directory));
 
-	function update({ html, errors, metadata }) {
+	function update({ html, errors, time, size }) {
 		const status = errors.length ? red('failed') : green('success');
 		preview = errors.length
 			? buildErrorPage(errors)
 			: html.replace('</body>', '<script src="/reload/reload.js"></script></body>');
 
-		renderCLI(url, status, metadata.time, metadata.size);
+		renderCLI(url, status, time, size);
 
 		reload(app);
 	}

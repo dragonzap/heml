@@ -30,8 +30,8 @@ export class Style extends HEMLElement<Attrs> {
 	};
 
 	private static reset(globals: HEMLGlobals): void {
-		globals.data.styleMap = new Map([['global', []]]);
-		globals.data.styleOptions = {
+		globals.styleMap = new Map([['global', []]]);
+		globals.styleOptions = {
 			plugins: [],
 			elements: {},
 			aliases: {},
@@ -45,29 +45,27 @@ export class Style extends HEMLElement<Attrs> {
 			const name = element.name.toLowerCase();
 
 			if (element.postcss) {
-				globals.data.styleOptions.plugins = globals.data.styleOptions.plugins.concat(
-					castArray(element.postcss),
-				);
+				globals.styleOptions.plugins = globals.styleOptions.plugins.concat(castArray(element.postcss));
 			}
 
 			const tmp = new element({}, '');
 
 			if (tmp.rules) {
-				globals.data.styleOptions.elements[name] = tmp.rules;
+				globals.styleOptions.elements[name] = tmp.rules;
 			}
 
-			globals.data.styleOptions.aliases[name] = cheerioFindNodes(globals.$, name);
+			globals.styleOptions.aliases[name] = cheerioFindNodes(globals.$, name);
 		});
 	}
 
 	public render(globals: HEMLGlobals): HEMLNode {
 		const { contents, ...props } = this.props;
 
-		if (!globals.data.styleMap.get(props.for)) {
-			globals.data.styleMap.set(props.for, []);
+		if (!globals.styleMap.get(props.for)) {
+			globals.styleMap.set(props.for, []);
 		}
 
-		globals.data.styleMap.get(props.for).push({
+		globals.styleMap.get(props.for).push({
 			embed: !!props['heml-embed'],
 			ignore: !!props['heml-ignore'],
 			css: contents,
@@ -83,16 +81,16 @@ export class Style extends HEMLElement<Attrs> {
 		 *
 		 * the global styles should always be rendered last
 		 */
-		const globalStyles = globals.data.styleMap.get('global');
-		globals.data.styleMap.delete('global');
-		globals.data.styleMap = new Map(Array.from(globals.data.styleMap as Map<string, any[]>).reverse());
-		globals.data.styleMap.set('global', globalStyles);
+		const globalStyles = globals.styleMap.get('global');
+		globals.styleMap.delete('global');
+		globals.styleMap = new Map(Array.from(globals.styleMap as Map<string, any[]>).reverse());
+		globals.styleMap.set('global', globalStyles);
 
 		const ignoredCSS = [];
 		let fullCSS = '';
 
 		/** combine the non-ignored css to be combined */
-		globals.data.styleMap.forEach((_styles, element) => {
+		globals.styleMap.forEach((_styles, element) => {
 			let styles = uniqWith(_styles, isEqual);
 			styles = element === 'global' ? styles : sortBy(styles, ['embed', 'css']);
 
@@ -113,7 +111,7 @@ export class Style extends HEMLElement<Attrs> {
 			});
 		});
 
-		return hemlstyles(fullCSS, globals.data.styleOptions).then(({ css: processedCss }) => {
+		return hemlstyles(fullCSS, globals.styleOptions).then(({ css: processedCss }) => {
 			/** put the ignored css back in */
 			ignoredCSS.forEach(({ embed, css }, index) => {
 				processedCss = processedCss.replace(
