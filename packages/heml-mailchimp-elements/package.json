@@ -1,6 +1,6 @@
 {
 	"name": "@dragonzap/heml-mailchimp-elements",
-	"version": "1.3.1",
+	"version": "1.3.2",
 	"description": "Mailchimp merge tags for HEML",
 	"keywords": [
 		"heml"
@@ -26,9 +26,9 @@
 		"prepublishOnly": "yarn run clean && yarn run build:babel"
 	},
 	"dependencies": {
-		"@dragonzap/heml-elements": "^1.3.1",
-		"@dragonzap/heml-render": "^1.3.1",
-		"@dragonzap/heml-utils": "^1.2.11",
+		"@dragonzap/heml-elements": "^1.3.2",
+		"@dragonzap/heml-render": "^1.3.2",
+		"@dragonzap/heml-utils": "^1.3.2",
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
